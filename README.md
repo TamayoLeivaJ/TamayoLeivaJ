@@ -13,5 +13,5 @@
 
 <div align="center">
 <br><br><br>
-I´m a Ph.D. student in microbiology. I´m an enthusiast of microbial ecology and a growing data scientist. I´m a data-enthusiast that enjoys analysis, modeling, and visualization, to create and share knowledge and value. I´m always learning something new and the ways to share it through dynamics tools.  
+I'm a Ph.D. student in microbiology. An enthusiast of microbial ecology and a growing data scientist. A data-enthusiast that enjoys analysis, modeling, and visualization, to create and share knowledge and value. I´m always learning something new and the ways to share it through dynamics tools.
 </div>
