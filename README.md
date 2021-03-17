@@ -14,6 +14,7 @@
 <div align="center">
   <h3 style="font-weight:normal" align="center">
     &nbsp; Data Science, Data Visualization, Microbial Ecology & Genetics &nbsp; <br>
+    <img height="28" width="28" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/linux.svg" />
     <img height="28" width="28" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/rstudio.svg" />
     <img height="28" width="28" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/github.svg" />
   </h3>
