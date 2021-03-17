@@ -13,7 +13,9 @@
 
 <div align="center">
   <h3 style="font-weight:normal" align="center">
-      &nbsp; Data Science, Data Visualization & Microbial Ecology &nbsp;
+    <img height="32" width="32" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/rstudio.svg" />
+    &nbsp; Data Science, Data Visualization & Microbial Ecology &nbsp;
+    <img height="32" width="32" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/github.svg" />
   </h3>
 <br>
 I'm a Ph.D. student in microbiology. A microbial ecologist and a pushing data scientist. A data-enthusiast that enjoys analysis, modeling, and visualization, to create and share knowledge and value. I'm always eager to learn something new and ways to share it through dynamics tools.
