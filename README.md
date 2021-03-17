@@ -1,5 +1,5 @@
 <h1 style="font-weight:normal" align="center">
-  &nbsp;Welcome, I'm Javier! &nbsp;<img height="32" width="32" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/mocha.svg" />&nbsp;
+  &nbsp;Welcome, I'm Javier! &nbsp;<img height="34" width="34" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/mocha.svg" />&nbsp;
 </h1>
 
 <div align="center">
