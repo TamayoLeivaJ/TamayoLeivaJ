@@ -13,10 +13,13 @@
 
 <div align="center">
   <h3 style="font-weight:normal" align="center">
-    &nbsp; Data Science, Data Visualization & Microbial Ecology &nbsp; <br>
+    &nbsp; Data Science, Data Visualization, Microbial Ecology & Genetics &nbsp; <br>
     <img height="28" width="28" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/rstudio.svg" />
     <img height="28" width="28" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/github.svg" />
   </h3>
+<h5 style="font-weight:normal" align="left">
+  About
+</h5>
 <br>
-I'm a Ph.D. student in microbiology. I'm a microbial ecologist and a pushing data scientist. A data-enthusiast that enjoys analysis, modeling, and visualization, to create and share knowledge and value. I'm always eager to learn something new and ways to share it through dynamics tools.
+I'm a Ph.D. student in Genetics & Microbiology.  I'm curious about microbial processes of genetic dispersion in their communities. I'm a trained microbial ecologist and a pushing data scientist. I'm a data-enthusiast focused on data analytics, modeling, and visualization to create and share knowledge and value. I'm always eager to learn new topics, techniques, and ways to show through dynamics tools.
 </div>
