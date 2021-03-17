@@ -13,8 +13,8 @@
 
 <div align="center">
   <h3 style="font-weight:normal" align="center">
+    &nbsp; Data Science, Data Visualization & Microbial Ecology &nbsp; <br>
     <img height="32" width="32" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/rstudio.svg" />
-    &nbsp; Data Science, Data Visualization & Microbial Ecology &nbsp;
     <img height="32" width="32" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/github.svg" />
   </h3>
 <br>
