@@ -17,7 +17,6 @@
     <img height="28" width="28" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/rstudio.svg" />
     <img height="28" width="28" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/github.svg" />
   </h3>
-<br>
 <h3 style="font-weight:normal" align="center">
   About
 </h3>
