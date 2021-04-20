@@ -10,6 +10,8 @@
 <a href="https://www.linkedin.com/in/javier-ignacio-tamayo-leiva-94613267/"><img height="32" width="32" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/linkedin.svg" /></a>
 <a href="https://loop.frontiersin.org/people/1011798/"><img height="32" width="32" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/loop.svg" /></a>
 <a href="https://orcid.org/0000-0003-2610-6957"><img height="32" width="32" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/orcid.svg" /></a>
+<a href="https://orcid.org/0000-0003-2610-6957"><img height="32" width="32" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/researchgate.svg" /></a>
+<a href="https://www.researchgate.net/profile/Javier-Tamayo"><img height="32" width="32" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/google-scholar.svg" /></a>
 </div>
 
 <div align="center">
