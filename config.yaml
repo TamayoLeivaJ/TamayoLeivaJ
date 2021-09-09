@@ -1,45 +1,43 @@
-baseURL: www.example.com
+title: Javier Tamayo-Leiva
+baseURL: https://example.com
 languageCode: en-us
-title: Hugo Hero Theme
-theme: hugo-hero-theme
-module:
-  hugoVersion:
-    extended: yes
-    min: 0.55.0
+theme: gohugo-theme-ananke
+resourceDir: ../resources
+DefaultContentLanguage: en
+SectionPagesMenu: main
+Paginate: 3
+googleAnalytics: ''
+enableRobotsTXT: yes
+languages:
+  en:
+    contentDir: content/en
+    title: Javier Tamayo-Leiva
+    weight: 1
+  es:
+    contentDir: content/es
+    title: Javier Tamayo-Leiva
+    weight: 1
+sitemap:
+  changefreq: monthly
+  filename: sitemap.xml
+  priority: 0.5
 params:
-  google_analytics_id: ''
-  homepage_meta_tags:
-    meta_description: Hero is a multipurpose Hugo theme with fullscreen hero images
-      and page sections. It contains content types for a business or portfolio site.
-    meta_og_description: Hero is a multipurpose Hugo theme with fullscreen hero images
-      and page sections. It contains content types for a business or portfolio site.
-    meta_og_image: https://raw.githubusercontent.com/JugglerX/hugo-hero-theme/master/images/tn.png
-    meta_og_title: Hugo Hero Theme
-    meta_og_type: website
-    meta_og_url: https://hugo-hero.netlify.app
-    meta_twitter_card: summary
-    meta_twitter_creator: '@zerostaticio'
-    meta_twitter_site: '@zerostaticio'
-menu:
-  main:
-    - name: About
-      url: /about/
-      weight: 1
-    - name: History
-      url: /history/
-      weight: 5
-    - name: Work
-      url: /work/
-      weight: 2
-    - name: Services
-      url: /services/
-      weight: 3
-    - name: Blog
-      url: /post/
-      weight: 4
-    - name: Contact
-      url: /contact/
-      weight: 6
-permalinks:
-  pages: /:filename/
-  post: /:year/:month/:day/:slug/
+  body_classes: "avenir bg-washed-blue"
+  post_content_classes: "sans-serif bg-washed-blue"
+  background_color_class: bg-near-black
+  description: Data Science, Data Visualization, Microbial Ecology & Genetics.
+  facebook: ''
+  favicon: /images/favicon.png
+  featured_image: /images/map.png
+  github: https://github.com/TamayoLeivaJ
+  gitlab: ''
+  instagram: ''
+  linkedin: https://www.linkedin.com/in/javier-ignacio-tamayo-leiva-94613267/
+  mastodon: ''
+  recent_posts_number: 4
+  rss: ''
+  site_logo: ''
+  slack: ''
+  stackoverflow: ''
+  twitter: https://twitter.com/TamayoLeiva_J
+  youtube: ''
