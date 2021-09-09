@@ -22,21 +22,24 @@ params:
     meta_twitter_site: '@zerostaticio'
 menu:
   main:
-    - name: Services
-      url: /services/
+    - name: About
+      url: /about/
       weight: 1
+    - name: History
+      url: /history/
+      weight: 5
     - name: Work
       url: /work/
       weight: 2
-    - name: About
-      url: /about/
+    - name: Services
+      url: /services/
       weight: 3
-    - name: History
-      url: /history/
-      weight: 3
+    - name: Blog
+      url: /post/
+      weight: 4
     - name: Contact
       url: /contact/
-      weight: 4
+      weight: 6
 permalinks:
   pages: /:filename/
   post: /:year/:month/:day/:slug/
