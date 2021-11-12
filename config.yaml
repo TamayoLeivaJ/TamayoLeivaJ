@@ -16,7 +16,7 @@ languages:
   es:
     contentDir: content/es
     title: Javier Tamayo-Leiva
-    weight: 1
+    weight: 2
 sitemap:
   changefreq: monthly
   filename: sitemap.xml

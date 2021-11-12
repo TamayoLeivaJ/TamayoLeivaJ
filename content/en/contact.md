@@ -5,7 +5,7 @@ menu: main
 omit_header_text: true
 title: Contact
 type: page
-weight: 7
+weight: 8
 ---
 
 

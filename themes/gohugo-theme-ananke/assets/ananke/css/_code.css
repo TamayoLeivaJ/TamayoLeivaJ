@@ -9,14 +9,15 @@ pre  code {
   display: block;
   padding: 1.5em 1.5em;
   white-space: pre;
-  font-size: .875rem;
-  line-height: 2;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 1.0em;
+  line-height: 1.5;
 
 }
 
 pre {
-  background-color: #222;
-  color: #ddd;
+  background-color: #F4F4F4;
+  color: #001B44;
   white-space: pre;
 
   hyphens: none;
