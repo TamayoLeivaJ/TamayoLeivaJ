@@ -12,7 +12,7 @@ Mis contribuciones favoritas
 ### 2021  
 Semana 39 - Emmy Awards 📺
 [R Code](https://github.com/TamayoLeivaJ/TidyTuesday/blob/gh-pages/2021/2021_Week_039/2021_Week_039.R)
-{{< figure src="/gallery/2021_Week_039.png" >}}
+{{< figure src="/gallery/2021_Week_039.png" style="width:100%" >}}
 
 Semana 42 - Global Seafood 🎣
 [R Code](https://github.com/TamayoLeivaJ/TidyTuesday/blob/gh-pages/2021/2021_Week_042/2021_Week_042.R)

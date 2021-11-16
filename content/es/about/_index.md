@@ -1,8 +1,10 @@
 ---
+title: Acerca de
 description: '"Esta es mi parte favorita de la analítica: Tomar datos planos y aburridos y darles vida a través de la visualización." -John Tukey'
 featured_image: ""
-title: Acerca de
 weight: 7
+type: home
+tags: ["Development"]
 ---
 
 {{< figure src="/images/JTL.png" >}}
