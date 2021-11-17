@@ -1,5 +1,5 @@
 ---
-description: 'Data Science | Statistics | Science | Ecology | Data Visualization'
+description: 'Data Science | Statistics | Science | Microbial Ecology | Data Visualization'
 featured_image: /images/map.png
 title: 'Hello!'
 ---

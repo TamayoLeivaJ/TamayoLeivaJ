@@ -22,12 +22,11 @@ sitemap:
   filename: sitemap.xml
   priority: 0.5
 params:
-  body_classes: "avenir bg-washed-blue"
-  post_content_classes: "avenir bg-washed-blue"
+  body_classes: "helvetica bg-washed-blue"
+  post_content_classes: "helvetica bg-washed-blue"
   background_color_class: bg-near-black
   description: Data Science, Data Visualization, Microbial Ecology & Genetics.
-  custom_css: ["css/custom.css","css/custom_style.css"]
-  googlefonts: "https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap"
+  custom_css: ["css/custom.css"]
   facebook: ''
   favicon: /images/favicon.png
   featured_image: /images/map.png

@@ -1,5 +1,5 @@
 ---
-description: 'Ciencia de los datos | Estadística | Ciencia | Ecología | Visualización de datos'
+description: 'Ciencia de datos | Estadística | Ciencia | Ecología microbiana | Visualización de datos'
 featured_image: /images/map.png
 title: 'Hola!'
 ---
