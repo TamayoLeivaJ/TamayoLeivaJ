@@ -22,8 +22,8 @@ sitemap:
   filename: sitemap.xml
   priority: 0.5
 params:
-  body_classes: "helvetica bg-washed-blue"
-  post_content_classes: "helvetica bg-washed-blue"
+  body_classes: "bg-washed-blue"
+  post_content_classes: "bg-washed-blue"
   background_color_class: bg-near-black
   description: Data Science, Data Visualization, Microbial Ecology & Genetics.
   custom_css: ["css/custom.css"]

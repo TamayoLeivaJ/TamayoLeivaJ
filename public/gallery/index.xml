@@ -5,6 +5,16 @@
     <link>https://example.com/gallery/</link>
     <description>Recent content in Gallery on Javier Tamayo-Leiva</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://example.com/gallery/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sun, 09 Apr 2017 10:58:08 -0400</lastBuildDate><atom:link href="https://example.com/gallery/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>#TidyTuesday</title>
+      <link>https://example.com/gallery/tidytuesday/</link>
+      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      
+      <guid>https://example.com/gallery/tidytuesday/</guid>
+      <description>A weekly data project aimed at the R ecosystem. As this project was borne out of the R4DS Online Learning Community and the R for Data Science textbook, an emphasis was placed on understanding how to summarize and arrange data to make meaningful charts with ggplot2, tidyr, dplyr, and other tools in the tidyverse ecosystem. However, any code-based methodology is welcome - just please remember to share the code used to generate the results.</description>
+    </item>
+    
   </channel>
 </rss>
