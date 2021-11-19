@@ -8,6 +8,7 @@ SectionPagesMenu: main
 Paginate: 3
 googleAnalytics: ''
 enableRobotsTXT: yes
+
 languages:
   en:
     contentDir: content/en
@@ -17,16 +18,18 @@ languages:
     contentDir: content/es
     title: Javier Tamayo-Leiva
     weight: 2
+    
 sitemap:
   changefreq: monthly
   filename: sitemap.xml
   priority: 0.5
+  
 params:
   body_classes: "bg-washed-blue"
   post_content_classes: "bg-washed-blue"
   background_color_class: bg-near-black
   description: Data Science, Data Visualization, Microbial Ecology & Genetics.
-  custom_css: ["css/custom.css"]
+  custom_css: ["./static/css/custom.css","./static/css/custom_font.css"]
   facebook: ''
   favicon: /images/favicon.png
   featured_image: /images/map.png
