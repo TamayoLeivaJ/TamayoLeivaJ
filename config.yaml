@@ -25,6 +25,10 @@ sitemap:
   priority: 0.5
   
 params:
+  googlefonts: ['Raleway', 'Oswald', 'Roboto']
+  fonttitle: 'Oswald'
+  fontbody: 'Raleway'
+  fontcode: 'Roboto'
   body_classes: "bg-washed-blue"
   post_content_classes: "bg-washed-blue"
   background_color_class: bg-near-black
