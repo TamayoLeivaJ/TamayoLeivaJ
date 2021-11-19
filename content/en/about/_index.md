@@ -6,6 +6,6 @@ weight: 7
 type: main
 ---
 
-{{< figure src="/images/JTL.png" class="w-30-l center">}}
+{{< figure src="/images/JTL.png" class="w-two-thirds-ns mw6 center">}}
 
 I am a PhD student in Genetics and Microbiology at the Pontifical Catholic University of Chile. I am curious about microbial processes of genetic dispersal in their communities. I am a trained microbial ecologist and data scientist. I am a data enthusiast focused on analysis, modeling and visualization with the goal of creating and sharing knowledge and value from data. I am always eager to learn new topics, techniques and ways to expose information through dynamic tools.

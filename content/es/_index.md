@@ -3,6 +3,6 @@ description: 'Ciencia de datos | Estadística | Ciencia | Ecología microbiana |
 featured_image: /images/map.png
 title: 'Hola!'
 ---
-Bienvenido a mi blog!
+¡Bienvenido a mi blog!
 
-Aquí puedes encontrar algunos de mis trabajos y proyectos, junto con otras historias muy interesantes sobre R, ciencia de datos, visualización de datos, ecología y genética microbiana.
+Aquí encontraras algunos de mis trabajos y proyectos, junto con otras historias muy interesantes sobre R, ciencia de datos, visualización, ecología y genética microbiana.
