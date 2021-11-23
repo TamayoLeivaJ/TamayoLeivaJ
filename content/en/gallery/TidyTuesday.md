@@ -1,7 +1,7 @@
 ---
-date: "2017-04-09T10:58:08-04:00"
-description: #TidyTuesday
-featured_image: /gallery/2021_Week_044.png
+date: "2021-11-23"
+description: ''
+featured_image: /gallery/2021_Week_046.png
 tags:
 - TidyTuesday
 - Data Science
@@ -10,4 +10,4 @@ tags:
 title: '#TidyTuesday'
 ---
 
-A weekly data project aimed at the R ecosystem. As this project was borne out of the R4DS Online Learning Community and the R for Data Science textbook, an emphasis was placed on understanding how to summarize and arrange data to make meaningful charts with ggplot2, tidyr, dplyr, and other tools in the tidyverse ecosystem. However, any code-based methodology is welcome - just please remember to share the code used to generate the results.
+TidyTuesday is a project aimed at the R ecosystem where a new dataset is delivered weekly. The project emerged as a collaborative idea from the R4DS Online Learning Community and the R for Data Science textbook, as an exercise to exercise the understanding of how to manipulate and organize data to make graphs with tidyverse tools such as ggplot2, tidyr, dplyr. However, it is not exclusive to the tidyverse, as the only rules are respect for the participants and sharing the code used to generate the results.
