@@ -8,7 +8,8 @@ type: page
 weight: 8
 ---
 
+¿Necesitas ayuda con algún análisis o visualización de forma profesional? Entonces pongámonos en contacto, rellena los siguientes campos y me pondré en comunicaré contigo lo antes posible.
 
-This is the French contact page. This is an example of a custom shortcode that you can put right into your content. You will need to add a form action to the the shortcode to make it work. Check out [Formspree](https://formspree.io/) for a simple, free form service.
+¡Saludos y gracias por visitarnos!
 
-{{< form-contact action="https://example.com"  >}}
+{{< form-contact action="https://formspree.io/f/xpzbaqrd" >}}
