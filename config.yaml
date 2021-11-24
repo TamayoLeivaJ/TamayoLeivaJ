@@ -5,7 +5,7 @@ theme: gohugo-theme-ananke
 resourceDir: ../resources
 DefaultContentLanguage: en
 SectionPagesMenu: main
-Paginate: 3
+Paginate: 5
 googleAnalytics: ''
 enableRobotsTXT: yes
 
@@ -20,7 +20,7 @@ languages:
     weight: 2
     
 sitemap:
-  changefreq: monthly
+  changefreq: weekly
   filename: sitemap.xml
   priority: 0.5
   
@@ -42,7 +42,7 @@ params:
   instagram: ''
   linkedin: https://www.linkedin.com/in/javier-ignacio-tamayo-leiva-94613267/
   mastodon: ''
-  recent_posts_number: 4
+  recent_posts_number: 5
   rss: ''
   site_logo: ''
   slack: ''

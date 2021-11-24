@@ -1,0 +1,41 @@
+---
+date: "2021-11-23"
+author: 'Javier Tamayo-Leiva'
+description: 'A weekly contribution -when I have enough time'
+featured_image: /gallery/2021_Week_042.png
+tags:
+    - TidyTuesday
+    - Data Science
+    - Data Visualization
+    - DataViz
+    - R
+title: 'Hello #TidyTuesday'
+---
+
+Since I started learning R, my main motivation has been to get amazing visualizations like the ones made by [Cédric Scherer](https://www.cedricscherer.com), and [Georgios Karamanis](https://karaman.is), or [Thomas Lin Pedersen](https://www.data-imaginist.com) among many others. What mesmerizes me about them is that to achieve them you have to deal with code, data handling and proper graphical selection, but also understand about aesthetic design in order to achieve a great piece of visualization. However, while some are more trained and/or have been gifted with skills and taste for design and aesthetics - if there is something alike - for me it has been a journey in both aspects of data visualization, becoming enjoyable wingmen of the data science journey. So, in order to incorporate all this different aspect of data and visualization into my repertoire of skills I must do some hands-on practice to learn more about the science behind the process, so while looking for ideas, it crossed my mind all the fantastic visualizations I've seen over the years for the [#TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master/README.md) contributions.
+
+[#TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master/README.md) is a project aimed at the R-RStudio ecosystem where a new dataset is delivered weekly. The project emerged as a collaborative idea from the R4DS Online Learning Community and the [R for Data Science](https://r4ds.had.co.nz) textbook, and connected through the  **#RStats** community, as an exercise to exercise the understanding of how to manipulate and organize data to make graphs with {[tidyverse](https://www.tidyverse.org)} tools such as {[ggplot2](https://ggplot2.tidyverse.org)}, {[tidyr](https://tidyr.tidyverse.org)}, {[dplyr](https://dplyr.tidyverse.org)}. However, it is not exclusive to the tidyverse, as the only rules are respect for the participants and sharing the code used to generate the results.
+
+So, below I will show you my first contribution to [#TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master/README.md), where I investigate the average salary of U.S. nurses by state and the number of registered nurses by state over time. <br>
+
+<div class= "fn w-auto mw7 center">
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1447337916154458117')
+```
+</div>
+
+<br>
+The second one, in which I explored the world seafood production on global biological sustainability, and I like it as it is the first time I use the moonplots of {[gggibbous](https://cran.r-project.org/web/packages/gggibbous/vignettes/gggibbous.html)}.<br>
+<div class= "fn w-auto mw7 center">
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1449129570196672519')
+```
+</div>
+
+<br>
+And my favorite so far, in which I used circular visualizations inspired by a tutorial from [R Graph Gallery](https://www.r-graph-gallery.com) to visualize the most popular Trail Running events in the world.<br>  
+<div class= "fn w-auto mw7 center">
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1454101593746460673')
+```
+</div>

@@ -1,12 +1,14 @@
 ---
 date: "2021-11-23"
-description: ''
-featured_image: /gallery/2021_Week_046.png
+author: 'Javier Tamayo-Leiva'
+description: 'Un desafío semanal'
+featured_image: /images/2021_Week_046_short.png
 tags:
-- TidyTuesday
-- Data Science
-- DataViz
-- R
+    - TidyTuesday
+    - Data Science
+    - DataViz
+    - R
+    - Data Visualization
 title: '#TidyTuesday'
 ---
 
