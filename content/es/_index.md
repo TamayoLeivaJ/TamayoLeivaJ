@@ -5,7 +5,9 @@ title: 'Hola!'
 ---
 ## ¡Bienvenido a mi blog!
 
-En mi blog encontrarás algunos de mis trabajos y proyectos, junto con otras historias sobre R, ciencia de datos, visualización, ecología y genética microbiana.[^\*]
+En mi blog encontrarás algunos de mis trabajos y proyectos, junto con otras historias sobre R, ciencia de datos, visualización, ecología y genética microbiana.<sup>*</sup>
+
+--------
 
 
-[^\*]: If you wish to consult the English version, click on the **en** button in the top menu.
+> \* For the English version, click on the **en** button at the top.

@@ -1,4 +1,4 @@
-.facebook, .twitter, .instagram, .youtube, .github, .gitlab, .keybase, .linkedin, .medium, .mastodon, .slack, .stackoverflow, .rss {
+.facebook, .twitter, .instagram, .youtube, .github, .gitlab, .keybase, .linkedin, .medium, .mastodon, .slack, .stackoverflow, .rss, .orcid {
   fill: #BABABA;
 }
 
@@ -62,3 +62,8 @@
 .rss:hover{
   fill: #ff6f1a;
 }
+
+.orcid:hover{
+  fill: #a6ce39;
+}
+

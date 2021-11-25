@@ -78,3 +78,9 @@
   {{- partial "new-window-icon.html" . -}}
 </a>
 {{ end }}
+{{ with .Param "orcid" }}
+<a href="{{ . }}" target="_blank" class="link-transition orcid link dib z-999 pt3 pt0-l mr1" title="orcid link" rel="noopener" aria-label="orcid——Opens in a new window">
+  {{ partial "svg/orcid.svg" (dict "size" $icon_size) }}
+  {{- partial "new-window-icon.html" . -}}
+</a>
+{{ end }}
