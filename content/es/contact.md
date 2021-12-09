@@ -8,7 +8,7 @@ type: page
 weight: 8
 ---
 
-¿Necesitas ayuda con algún análisis o visualización de forma profesional? Entonces pongámonos en contacto, rellena los siguientes campos y me pondré en comunicaré contigo lo antes posible.
+¿Necesitas ayuda con algún análisis o visualización de forma profesional? Entonces pongámonos en contacto, rellena los siguientes campos y me comunicaré contigo lo antes posible.
 
 ¡Saludos y gracias por visitarnos!
 
