@@ -1,10 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" {{ with .size }} height="{{ . }}" width="{{ . }}"{{ end }} viewBox="0 0 1536 1536" xml:space="preserve">
-    <path d="M1536 768c0 424.2-343.8 768-768 768S0 1192.2 0 768 343.8 0 768 0s768 343.8 768 768z" fill:{{ .fill }}/>
-    <g id="g12" transform="scale(6)">
-        <path class="st1" d="M86.3 186.2H70.9V79.1h15.4v48.4z" id="path6" fill="#000000"/>
-        <path class="st1" d="M108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7z" id="path8" fill="#000000"/>
-        <path class="st1" d="M88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.6 10.1 10.1z" id="path10" fill="#000000"/>
-    </g>
-
+<svg enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" {{ with .size }} height="{{ . }}" width="{{ . }}"{{ end }} xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<g transform="translate(-14,-14)">
+	<path d="m291.2 194.5h-41.7v139.5h43.1c61.3 0 75.4-46.6 75.4-69.8 0-37.7-24.1-69.7-76.8-69.7zm-35.2-163.5c-124.3 0-225 100.7-225 225s100.7 225 225 225 225-100.7 225-225-100.7-225-225-225zm-73.3 327.3h-27.1v-188.3h27.1zm-13.5-209.7c-9.8 0-17.8-7.9-17.8-17.8s7.9-17.8 17.8-17.8c9.8 0 17.8 7.9 17.8 17.8-0.1 9.8-8 17.8-17.8 17.8zm126.7 209.9h-73.5v-188.5h73.1c69.6 0 100.2 49.7 100.2 94.2 0 48.4-37.7 94.3-99.8 94.3z" fill:{{ .fill }}/>
+</g>
 </svg>
 
