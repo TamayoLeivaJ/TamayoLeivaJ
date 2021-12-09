@@ -21,4 +21,4 @@ Soy estudiante de doctorado en Genética y Microbiología en la Pontificia Unive
 ## Contacto
 ¿Te gustaría trabajar conmigo?
 
-{{< form-contact action="https://formspree.io/f/xpzbaqrd" >}}
+[Pongámonos en contacto!](https://tamayoleivaj.com/es/contact/)

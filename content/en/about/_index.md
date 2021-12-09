@@ -22,4 +22,4 @@ I am a PhD student in Genetics and Microbiology at the Pontifical Catholic Unive
 
 Would you like to work with me?
 
-{{< form-contact action="https://formspree.io/f/xpzbaqrd" >}}
+[Let’s get in touch!](https://tamayoleivaj.com/en/contact/)
