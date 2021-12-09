@@ -1,5 +1,5 @@
 ---
-date: "2021-11-23"
+date: "2021-12-09"
 author: 'Javier Tamayo-Leiva'
 description: 'Una contribución semanal -cuando tengo suficiente tiempo'
 featured_image: /gallery/2021_Week_042.png
