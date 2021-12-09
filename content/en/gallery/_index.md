@@ -9,7 +9,7 @@ toc: true
 
 # DataViz 
 ## TidyTuesday
-My favorite contributions
+My favorite contributions 
 
 ### 2021
 Semana 38 - Billboard Top 100 data set 🎙
