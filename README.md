@@ -22,3 +22,5 @@
   </h3>
 I'm a Ph.D. student in Genetics & Microbiology.  I'm curious about microbial processes of genetic dispersion in their communities. I'm a trained microbial ecologist and a pushing data scientist. I'm a data-enthusiast focused on data analytics, modeling, and visualization to create and share knowledge and value. I'm always eager to learn new topics, techniques, and ways to show through dynamics tools.
 </div>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d2da763f-17f7-4fe4-9013-7b76224438ea/deploy-status)](https://app.netlify.com/sites/tamayoleivaj/deploys)
