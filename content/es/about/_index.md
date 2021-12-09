@@ -6,11 +6,6 @@ weight: 7
 type: main
 ---
 
-<style>
-body {
-text-align: justify}
-</style>
-
 {{< figure src="/images/JTL.png" class="w-two-thirds-ns mw6 center">}}
 
 ## Javier Tamayo-Leiva
