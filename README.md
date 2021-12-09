@@ -25,5 +25,6 @@ I'm a Ph.D. student in Genetics & Microbiology.  I'm curious about microbial pro
 
 <br>
 <div align="center">
+ 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d2da763f-17f7-4fe4-9013-7b76224438ea/deploy-status)](https://app.netlify.com/sites/tamayoleivaj/deploys)
 </div>
