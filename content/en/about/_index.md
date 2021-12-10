@@ -40,4 +40,4 @@ Contact
 
 Would you like to work with me, need advice on your analysis or need to learn something related to my experience and need help? Let’s get in [Contact!]({{< relref path="contact.md" lang="en" >}})
    
-{{< figure src="/images/contact_about.png" class="w-80-ns mw8 center">}}
+{{< figure src="/images/contact_about.png" class="w-100-ns mw8 center">}}

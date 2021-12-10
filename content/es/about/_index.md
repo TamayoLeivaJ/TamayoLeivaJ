@@ -40,4 +40,4 @@ Contacto
 
 ¿Quiere trabajar conmigo, necesita asesoramiento sobre su análisis o necesita aprender algo relacionado con mi experiencia y necesita ayuda? Pongámonos en [Contacto!]({{< relref path="contact.md" lang="es" >}})
 
-{{< figure src="/images/contact_about.png" class="w-80-ns mw8 center">}}
+{{< figure src="/images/contact_about.png" class="w-100-ns mw8 center">}}
