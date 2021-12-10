@@ -6,7 +6,7 @@ weight: 7
 type: about
 ---
 
-{{< figure src="/images/JTL.png" class="w-two-thirds-ns mw6 center">}}
+{{< figure src="/images/JTL.png" class="w-50-ns mw6 center">}}
    
 # About me
    
@@ -16,7 +16,7 @@ I am **Javier Tamayo-Leiva** a PhD student in Genetics and Microbiology at the P
    
 My undergraduate degree was in biotechnology, and my main focus was microbiology, so from then on I understood the importance of what is *out-of-sight*. Therefore, if my interest was to understand these *out-of-sight* systems, it was necessary not only to generate reliable experimental designs for reliable data - the basis of any study - but also to work with large databases, because to understand real systems it is not enough to study a controlled environment, you have to go out and see the real world! So, I put on my explorer's suit and became an environmental microbiologist, which has been very entertaining and has allowed me to study diverse and wonderful environments such as the Patagonian Fjords and Antarctica. However, although all these experiences contributed to my scientific training that allowed me to face the first challenge, working with large databases and the necessary knowledge, such as programming languages and their logic, as well as statistical modeling, were a whole new challenge for me.
 
-{{< figure src="/images/JTL_Ant.png" class="w-two-thirds-ns mw5 center">}}
+{{< figure src="/images/reason.png" class="w-60-ns mw7 center">}}
 
 # The experience...
    

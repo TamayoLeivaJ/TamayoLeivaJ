@@ -6,7 +6,7 @@ weight: 7
 type: about
 ---
 
-{{< figure src="/images/JTL.png" class="w-two-thirds-ns mw6 center">}}
+{{< figure src="/images/JTL.png" class="w-50-ns mw6 center">}}
 
 # A cerca de mí
 
@@ -16,7 +16,7 @@ Soy **Javier Tamayo-Leiva**, estudiante de doctorado en Genética y Microbiolog�
 
 Mi licenciatura fue en biotecnología, y mi enfoque principal fue la microbiología, por lo que desde entonces comprendí la importancia de lo que está *fuera de la vista*. Por lo tanto, si mi interés era entender estos sistemas *fuera de la vista*, era necesario no sólo generar diseños experimentales fiables para obtener datos fiables -la base de cualquier estudio-, sino también trabajar con grandes bases de datos, porque para entender los sistemas reales no basta con estudiar un entorno controlado, ¡hay que salir a ver el mundo real! Así que me puse el traje de explorador y me convertí en microbiólogo ambiental, lo que ha sido muy entretenido y me ha permitido estudiar entornos diversos y maravillosos como los fiordos de la Patagonia y la Antártida. Sin embargo, aunque todas estas experiencias contribuyeron a mi formación científica que me permitió afrontar el primer reto, el trabajo con grandes bases de datos y los conocimientos necesarios, como los lenguajes de programación y su lógica, así como la modelación estadística, fueron un reto totalmente nuevo para mí.
 
-{{< figure src="/images/JTL_Ant.png" class="w-two-thirds-ns mw5 center">}}
+{{< figure src="/images/reason.png" class="w-60-ns mw7 center">}}
 
 # La experiencia...
 
