@@ -10,6 +10,6 @@ weight: 8
 
 ¿Necesitas ayuda con algún análisis o visualización de forma profesional? Entonces pongámonos en contacto, rellena los siguientes campos y me comunicaré contigo lo antes posible.
 
-¡Saludos y gracias por visitarnos!
+¡Saludos y gracias por la visita!
 
 {{< form-contact action="https://formspree.io/f/xpzbaqrd" >}}
