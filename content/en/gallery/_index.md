@@ -14,24 +14,24 @@ My favorite contributions
 ### 2021
 Semana 38 - Billboard Top 100 data set 🎙
 [R Code](https://github.com/TamayoLeivaJ/TidyTuesday/blob/gh-pages/2021/2021_Week_038/2021_Week_038.R)
-{{< figure  src="/gallery/2021_Week_038.png" class="w-50 center" >}}
+{{< figure  src="/gallery/2021_Week_038.png" class="w-60-ns mw7 center" >}}
   
 Week 39 - Emmy Awards 📺
 [R Code](https://github.com/TamayoLeivaJ/TidyTuesday/blob/gh-pages/2021/2021_Week_039/2021_Week_039.R)
-{{< figure src="/gallery/2021_Week_039.png" class="w-50 center" >}}
+{{< figure src="/gallery/2021_Week_039.png" class="w-60-ns mw7 center" >}}
 
 Week 42 - Global Seafood 🎣
 [R Code](https://github.com/TamayoLeivaJ/TidyTuesday/blob/gh-pages/2021/2021_Week_042/2021_Week_042.R)
-{{< figure src="/gallery/2021_Week_042.png" class="w-80 center" >}}
+{{< figure src="/gallery/2021_Week_042.png" class="w-80-ns mw7 center" >}}
 
 
 Week 44 - Ultra Trail Running 🗻⛰️
 [R Code](https://github.com/TamayoLeivaJ/TidyTuesday/blob/gh-pages/2021/2021_Week_044/2021_Week_044.R)
-{{< figure src="/gallery/2021_Week_044.png" class="w-50 center" >}}
+{{< figure src="/gallery/2021_Week_044.png" class="w-60-ns mw7 center" >}}
 
 Week 46 - Learning with afrilearndata 🌍
 [R Code](https://github.com/TamayoLeivaJ/TidyTuesday/blob/gh-pages/2021/2021_Week_046/2021_Week_046.R)
-{{< figure src="/gallery/2021_Week_046.png" class="w-80 center" >}}
+{{< figure src="/gallery/2021_Week_046.png" class="w-80-ns mw7 center" >}}
 
 ## Himalayan database
 
