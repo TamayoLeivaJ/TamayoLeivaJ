@@ -34,7 +34,7 @@ Fue entonces a lo largo de mi doctorado que comencé el proceso de aprender a pr
 
 {{< figure src="/images/tidyverse.png" class="w-60-ns mw6 center">}}
 
-{{< customtitles color="navy" text-align="tl">}}   
+{{< customtitles color="purple" text-align="tl">}}   
 Contacto
 {{< /customtitles>}}
 

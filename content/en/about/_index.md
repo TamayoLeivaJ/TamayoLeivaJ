@@ -34,7 +34,7 @@ It was then throughout my doctorate that I began the process of learning to prog
 
 {{< figure src="/images/tidyverse.png" class="w-60-ns mw6 center">}}
 
-{{< customtitles color="navy" text-align="tl">}}
+{{< customtitles color="purple" text-align="tl">}}
 Contact
 {{< /customtitles>}}
 
