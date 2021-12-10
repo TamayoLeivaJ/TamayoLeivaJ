@@ -13,7 +13,7 @@ Javier Tamayo-Leiva
 {{< /myname>}}
 
 {{< customtitles color="dark-green" text-align="tl">}}
-About me
+About myself...
 {{< /customtitles>}}
    
 I am **Javier Tamayo-Leiva** a PhD student in Genetics and Microbiology at the Pontifical Catholic University of Chile. I am curious about microbial processes of genetic dispersal in their communities. I am a trained microbial ecologist and data scientist. I am a data enthusiast focused on analysis, modeling and visualization with the goal of creating and sharing knowledge and value from data. I am always eager to learn new topics, techniques and ways to expose information through dynamic tools.
@@ -38,6 +38,6 @@ It was then throughout my doctorate that I began the process of learning to prog
 Contact
 {{< /customtitles>}}
 
-Would you like to work with me, need advice on your analysis or need to learn something related to my experience and need help? Let’s get in [Contact!]({{< relref path="contact.md" lang="en" >}})
+Interested in learning more about my work, need advice on your analysis or want to learn something related to my experience? Let’s get in [Contact!]({{< relref path="contact.md" lang="en" >}}) for quotes and/or joint projects.
    
 {{< figure src="/images/contact_about.png" class="w-100-ns mw8 center">}}
