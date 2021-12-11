@@ -1,6 +1,6 @@
 ---
 description: ¡Déjame un mensaje!
-featured_image: images/notebook.jpg
+featured_image: images/contact.jpg
 menu: main
 omit_header_text: true
 title: Contacto
