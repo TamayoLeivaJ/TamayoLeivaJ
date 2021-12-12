@@ -5,6 +5,10 @@ featured_image: images/GA002.png
 type: main
 weight: 4
 toc: true
+resources: 
+- src: "gallery/*.png"
+  name: gallery-:counter
+  title: gallery-title-:counter
 ---
 
 # DataViz 
