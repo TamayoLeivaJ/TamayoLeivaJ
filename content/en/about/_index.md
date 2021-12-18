@@ -34,6 +34,8 @@ It was then throughout my doctorate that I began the process of learning to prog
 
 It was then throughout my doctorate that I began the process of learning to program from scratch, which although it was a great challenge because in college I never had programming courses, it allowed me to obtain tools to learn other things autonomously. Currently, I manage programming in **Bash**, **R**, and I am comfortable working with **git**. I have an advanced handling in visualization libraries such as {**ggplot2**}{**ggfx**}{**ggimage**}{**plotly**}, along with many other tools and libraries that allow me data wrangling, and manipulation with libraries such as {**janitor**} and the {**tidyverse**} collection, together with the statistical processing of data in R, which being a *lingua franca* for statistics has a wide collection of packages oriented to these analyses. Additionally, as my focus from the beginning was to generate complete analyses from data to graphics, I have learned to make reports with {**rmarkdown**} and applications with {**shiny**} which has allowed me to increase my options when communicating with the information. Finally, I have also used R to generate web pages -like the one you are visiting- with {**bloogdown**} and **HUGO**, along with interactive presentations on {**reveljs**} and {**xaringan**}, which are most useful when it comes to sharing or teaching about code, all the reasons why I also had to learn **HTML** and **CSS**.
 
+If you are looking for more information about my education and professional experience, here is my [resumé](https://tamayoleivaj.com/resume/resume.html).
+
 {{< figure src="/images/tidyverse.png" class="w-60-ns mw6 center">}}
 
 {{< customtitles color="purple" text-align="tl">}}
