@@ -11,51 +11,46 @@ resources:
   title: gallery-title-:counter
 ---
 
+{{< load-photoswipe >}}
+
 # DataViz 
 ## TidyTuesday
-My favorite contributions 
+My favorite contributions. You can find the R codes [here](https://github.com/TamayoLeivaJ/TidyTuesday)
 
 ### 2021
-Semana 38 - Billboard Top 100 data set 🎙
-[R Code](https://github.com/TamayoLeivaJ/TidyTuesday/blob/gh-pages/2021/2021_Week_038/2021_Week_038.R)
-{{< figure  src="/gallery/2021_Week_038.png" class="w-60-ns mw7 center" >}}
-  
-Week 39 - Emmy Awards 📺
-[R Code](https://github.com/TamayoLeivaJ/TidyTuesday/blob/gh-pages/2021/2021_Week_039/2021_Week_039.R)
-{{< figure src="/gallery/2021_Week_039.png" class="w-60-ns mw7 center" >}}
-
-Week 42 - Global Seafood 🎣
-[R Code](https://github.com/TamayoLeivaJ/TidyTuesday/blob/gh-pages/2021/2021_Week_042/2021_Week_042.R)
-{{< figure src="/gallery/2021_Week_042.png" class="w-80-ns mw7 center" >}}
-
-
-Week 44 - Ultra Trail Running 🗻⛰️
-[R Code](https://github.com/TamayoLeivaJ/TidyTuesday/blob/gh-pages/2021/2021_Week_044/2021_Week_044.R)
-{{< figure src="/gallery/2021_Week_044.png" class="w-60-ns mw7 center" >}}
-
-Week 46 - Learning with afrilearndata 🌍
-[R Code](https://github.com/TamayoLeivaJ/TidyTuesday/blob/gh-pages/2021/2021_Week_046/2021_Week_046.R)
-{{< figure src="/gallery/2021_Week_046.png" class="w-80-ns mw7 center" >}}
+{{< gallery >}}
+  {{< figure-gallery link="/gallery/2021_Week_038.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Week 38 - Billboard Top 100 🎙">}}
+  {{< figure-gallery link="/gallery/2021_Week_039.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Week 39 - Emmy Awards 📺" >}}
+  {{< figure-gallery link="/gallery/2021_Week_042.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Week 42 - Global Seafood 🎣" >}}
+  {{< figure-gallery link="/gallery/2021_Week_044.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Week 44 - UTR 🗻⛰️" alt="Week 44 - Ultra Trail Running 🗻⛰️">}}
+  {{< figure-gallery link="/gallery/2021_Week_046.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Week 46 - Learning with afrilearndata 🌍" >}}
+{{< /gallery >}} 
 
 ## Himalayan database
 
 My favorite visualizations with the Himalaya database
 
-{{< figure src="/gallery/Himalayan_plots_003.png" class="w-100 center" >}}
-{{< figure src="/gallery/Himalayan_plots_006.png" class="w-100 center" >}}
+{{< gallery >}}
+  {{< figure-gallery link="/gallery/Himalayan_plots_003.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="One hundred years of Everest expeditions" >}}
+  {{< figure-gallery link="/gallery/Himalayan_plots_006.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Himalayan by Mountaineers Sex" alt="Eight-thousanders Himalayan Mountains by -non-hired- Mountaineers Sex" >}}
+{{< /gallery >}}
 
-# Mapas
+# Maps
 
 Some fancy map visualizations
 
-{{< figure src="/gallery/Map_001.png" class="w-50 center" >}}
+{{< gallery >}}
+{{< figure-gallery link="/gallery/Map_001.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Santiago - Chile">}}
+{{< /gallery >}}
 
 # Generative Art
 
 Some experiments with generative visualizations
 
-{{< figure src="/gallery/Generative_Art_002.png" class="w-50 fr" >}}
-{{< figure src="/gallery/Generative_Art_013.png" class="w-50 fl" >}}
-{{< figure src="/gallery/Generative_Art_014.png" class="w-50 fr" >}}
-{{< figure src="/gallery/Generative_Art_023.png" class="w-50 fl" >}}
-{{< figure src="/gallery/Generative_Art_024.png" class="w-50 fr" >}}
+{{< gallery >}}
+  {{< figure-gallery link="/gallery/Generative_Art_002.png" thumb="-thumb" class="w-100 h-90" hover-effect="shrink" caption-position="none" >}}
+  {{< figure-gallery link="/gallery/Generative_Art_013.png" thumb="-thumb" class="w-100 h-90" hover-effect="shrink" caption-position="none" >}}
+  {{< figure-gallery link="/gallery/Generative_Art_014.png" thumb="-thumb" class="w-100 h-90" hover-effect="shrink" caption-position="none" >}}
+  {{< figure-gallery link="/gallery/Generative_Art_023.png" thumb="-thumb" class="w-100 h-90" hover-effect="shrink" caption-position="none" >}}
+  {{< figure-gallery link="/gallery/Generative_Art_024.png" thumb="-thumb" class="w-100 h-90" hover-effect="shrink" caption-position="none" >}}
+{{< /gallery >}}
