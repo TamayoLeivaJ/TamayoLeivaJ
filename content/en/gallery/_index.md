@@ -24,6 +24,8 @@ My favorite contributions. You can find the R codes [here](https://github.com/Ta
   {{< figure-gallery link="/gallery/2021_Week_042.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Week 42 - Global Seafood 🎣" >}}
   {{< figure-gallery link="/gallery/2021_Week_044.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Week 44 - UTR 🗻⛰️" alt="Week 44 - Ultra Trail Running 🗻⛰️">}}
   {{< figure-gallery link="/gallery/2021_Week_046.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Week 46 - Learning with afrilearndata 🌍" >}}
+  {{< figure-gallery link="/gallery/2021_Week_049.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Week 49 - Men's Cricket 🏏" >}}
+  {{< figure-gallery link="/gallery/2021_Week_052.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Week 52 - Starbucks drinks ☕" >}}
 {{< /gallery >}} 
 
 ## Himalayan database
