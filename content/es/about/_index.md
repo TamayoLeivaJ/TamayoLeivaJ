@@ -32,7 +32,7 @@ La experiencia...
 
 Fue entonces a lo largo de mi doctorado que comencé el proceso de aprender a programar desde cero, que si bien fue un gran desafío porque en la universidad nunca tuve cursos de programación, me permitió obtener herramientas para aprender otras cosas de manera autónoma. Actualmente, administro la programación en **Bash**, **R**, y me siento cómodo trabajando con **git** y **GitHub**. Tengo un manejo avanzado en librerías de visualización como {**ggplot2**} {**ggfx**} {**ggimage**} {**plotly**}, junto con muchas otras herramientas y bibliotecas que me permiten la manipulación y limpieza de datos con librerías como {**janitor**} y las presentes en {**tidyverse**}, junto a el procesamiento estadístico de datos en R, que al ser una *lingua franca* para las estadísticas tiene una amplia colección de paquetes orientados a estos análisis. Además, como mi enfoque desde el principio fue generar análisis completos desde datos hasta gráficos, he aprendido a hacer informes con {**rmarkdown**} y aplicaciones con {**shiny**} lo que me ha permitido aumentar mis opciones al comunicar la información. Finalmente, también he usado R para generar páginas web -como la que estás visitando- con {**bloogdown**} y **HUGO**, junto con presentaciones interactivas en {**reveljs**} y {**xaringan**}, que son más apropiadas al momento de compratir o enseñar sobre el código, todos motivos por los que también tuve que aprender **HTML** y **CSS**.
 
-Si buscas más información sobre mi educación y experiencia profesional, aquí esta mi [resumé](https://tamayoleivaj.com/resume/resume.html).
+Si buscas más información sobre mi educación y experiencia profesional, aquí esta mi [resumé](https://tamayoleivaj.com/resume/resume_public.html).
 
 {{< figure src="/images/tidyverse.png" class="w-60-ns mw6 center">}}
 
@@ -40,6 +40,6 @@ Si buscas más información sobre mi educación y experiencia profesional, aquí
 Contacto
 {{< /customtitles>}}
 
-¿Quieres saber más sobre mi trabajo, necesitas asesoramiento en tus análisis o quieres aprender algo relacionado con mi experiencia? Pongámonos en [Contacto!]({{< relref path="contact.md" lang="es" >}}) para consultar presupuestos y/o proyectos conjuntos. 
+¿Quieres saber más sobre mi trabajo, necesitas asesoramiento en tus análisis o quieres aprender algo relacionado con mi experiencia? Pongámonos en [Contacto!]({{< relref path="contact.md" lang="es" >}}) para consultar presupuestos y/o proyectos conjuntos.
 
 {{< figure src="/images/contact_about.png" class="w-100-ns mw8 center">}}
