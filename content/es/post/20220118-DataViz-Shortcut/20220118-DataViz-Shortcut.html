@@ -1,0 +1,554 @@
+---
+title: "De datos a la visualización en R (fácilmente)"
+description: "Un atajo usando {datapasta}, {dataeditr} y {ggplot2}"
+author: "Javier Tamayo-Leiva" 
+date: 2022-01-20
+featured_image: "/images/post/20220118-DataViz-Shortcut/20220118-DataViz-Shortcut.png"
+layout: post
+toc: FALSE
+tags: ["DataViz", "datapasta", "dataeditr","ggplot2"]
+output: distill::distill_article
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="table-of-content" class="section level4">
+<h4>Table of Content</h4>
+<ul>
+<li><a href="#intro">Introducción</a></li>
+<li><a href="#body1">Lleva tus datos a R {datapasta}</a>
+<ul>
+<li><a href="#body1.1">¿Cómo funciona {datapasta}?</a></li>
+</ul></li>
+<li><a href="#body2">Grafica tus datos con {ggplot2}</a>
+<ul>
+<li><a href="#body2.1">Gráfico básico</a>
+<ul>
+<li><a href="#body2.1.1">Componentes de un gráfico en {ggplot2}</a></li>
+</ul></li>
+<li><a href="#body2.2">Elegir los Colores</a></li>
+<li><a href="#body2.3">Elija el gráfico con los objeto geom</a></li>
+<li><a href="#body2.4">Gráfico final</a></li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="intro" class="section level2">
+<h2>Introducción</h2>
+<p>Muchas veces la razón por la que la gente se acerca al lenguaje R es porque han visto que es una gran herramienta para lograr mejores visualizaciones. Sin embargo, dado que R sigue siendo un lenguaje de programación, puede ser frustrante que para hacerlo tengas que lidiar con unas cuantas líneas de código para cargar, y preprocesar tus datos antes de empezar a crear la más simple visualización. Así que el objetivo principal de este post es proporcionar una manera más fácil de hacer frente a los pasos de la carga de sus datos a la visualización. Así que seguirás una guía para principiantes paso a paso para manejar tus datos hasta la visualización. <br></p>
+</div>
+<div id="body1" class="section level2">
+<h2>Lleva tus datos a R {datapasta}</h2>
+<p>R tiene diferentes opciones para cargar sus datos en R, ya sea utilizando la base de R, con la ayuda de Tidyverse u otros paquetes de datos, y con el uso de un IDE (<em>Integrated Development Environment</em>) como RStudio. Sin embargo, aunque con el tiempo cargar archivos en R se convierte en algo rutinario, para un usuario con poca experiencia puede ser una de las tareas que más frustración genera, y acaba por desanimar el aprendizaje. Por eso, utilizar un proceso intuitivo como copiar y pegar o arrastrar y soltar puede ser un muy buen amigo mientras se adquiere más experiencia en la escritura de código R.<br></p>
+<p>Con esta idea nació el paquete de datos <a href="https://milesmcbain.github.io/datapasta/">{datapasta}</a>, que facilita el proceso de importación de datos en R, reduciendo el tiempo invertido y la frustración asociada.<br></p>
+<p><img src="/images/post/20220118-DataViz-Shortcut/datapasta.png" alt="{datapasta}" style="height: 230px; width:200px;" class="center"/></p>
+<div id="body1.1" class="section level3">
+<h3>¿Cómo funciona {datapasta}?</h3>
+<p>Lo primero que tenemos que hacer en RStudio es instalar {datapasta}: <br></p>
+<pre class="r"><code># Instalar el paquete de datos
+install.packages(&quot;datapasta&quot;)</code></pre>
+<p>Lo segundo que debes hacer es reiniciar tú sesión de R (muy importante) y luego cargar {datapasta} con el siguiente código: <br></p>
+<pre class="r"><code># Cargar el paquete de datos
+library(datapasta)</code></pre>
+<p>Luego debes asignar el operador y nombrar tu paquete de datos (data o el nombre que mejor te parezca) de la siguiente forma: <br></p>
+<pre class="r"><code># Nombrar tu set de datos
+data &lt;- </code></pre>
+<p>Ahora nos dirigiremos a donde tenemos los datos que nos interesa copiar y realizaremos la copia con el clic derecho y copy. Luego, cuando volvamos a nuestra sesión de R, colocaremos el cursor a la derecha del “<strong>&lt;-</strong>”, y seguiremos los siguientes pasos:<br></p>
+<p><strong>Addins -&gt; Browse Addins -&gt; Paste as Tribble</strong> <br></p>
+<p><img src="/images/post/20220118-DataViz-Shortcut/datapasta_procedure.png" alt="{datapasta} procedure" class="w-40-ns mw4 center"/></p>
+<blockquote>
+<p><strong>Paste as Tribble</strong> Permite leer tablas delimitadas con tabulador, coma, pipe o punto y coma.</p>
+</blockquote>
+<p>Para nuestro ejemplo de hoy utilizaremos la el set de datos penguins que puedes encontrar en el siguiente link:<br></p>
+<p><a href="https://github.com/mwaskom/seaborn-data/blob/master/penguins.csv">penguins.csv</a></p>
+<p>Ahora tu código R debería ser como este, pero con muchas más filas, porque para este ejemplo, sólo he copiado las diez primeras.<br></p>
+<pre class="r"><code># Copiar y pegar los datos
+data &lt;- tibble::tribble(
+          ~species,     ~island, ~bill_length_mm, ~bill_depth_mm, ~flipper_length_mm, ~body_mass_g,     ~sex,
+          &quot;Adelie&quot;, &quot;Torgersen&quot;,            39.1,           18.7,               181L,        3750L,   &quot;MALE&quot;,
+          &quot;Adelie&quot;, &quot;Torgersen&quot;,            39.5,           17.4,               186L,        3800L, &quot;FEMALE&quot;,
+          &quot;Adelie&quot;, &quot;Torgersen&quot;,            40.3,             18,               195L,        3250L, &quot;FEMALE&quot;,
+          &quot;Adelie&quot;, &quot;Torgersen&quot;,              NA,             NA,                 NA,           NA,       NA,
+          &quot;Adelie&quot;, &quot;Torgersen&quot;,            36.7,           19.3,               193L,        3450L, &quot;FEMALE&quot;,
+          &quot;Adelie&quot;, &quot;Torgersen&quot;,            39.3,           20.6,               190L,        3650L,   &quot;MALE&quot;,
+          &quot;Adelie&quot;, &quot;Torgersen&quot;,            38.9,           17.8,               181L,        3625L, &quot;FEMALE&quot;,
+          &quot;Adelie&quot;, &quot;Torgersen&quot;,            39.2,           19.6,               195L,        4675L,   &quot;MALE&quot;,
+          &quot;Adelie&quot;, &quot;Torgersen&quot;,            34.1,           18.1,               193L,        3475L,       NA
+          )</code></pre>
+<details>
+<summary style="font-size:10pt;">
+Código R con el set de datos <em>penguins</em> completo
+</summary>
+<pre class="r"><code># Copiar y pegar los datos
+data &lt;- tibble::tribble(
+             ~species,     ~island, ~bill_length_mm, ~bill_depth_mm, ~flipper_length_mm, ~body_mass_g,     ~sex,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            39.1,           18.7,               181L,        3750L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            39.5,           17.4,               186L,        3800L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            40.3,             18,               195L,        3250L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,              NA,             NA,                 NA,           NA,       NA,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            36.7,           19.3,               193L,        3450L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            39.3,           20.6,               190L,        3650L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            38.9,           17.8,               181L,        3625L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            39.2,           19.6,               195L,        4675L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            34.1,           18.1,               193L,        3475L,       NA,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,              42,           20.2,               190L,        4250L,       NA,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            37.8,           17.1,               186L,        3300L,       NA,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            37.8,           17.3,               180L,        3700L,       NA,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            41.1,           17.6,               182L,        3200L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            38.6,           21.2,               191L,        3800L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            34.6,           21.1,               198L,        4400L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            36.6,           17.8,               185L,        3700L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            38.7,             19,               195L,        3450L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            42.5,           20.7,               197L,        4500L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            34.4,           18.4,               184L,        3325L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,              46,           21.5,               194L,        4200L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            37.8,           18.3,               174L,        3400L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            37.7,           18.7,               180L,        3600L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            35.9,           19.2,               189L,        3800L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            38.2,           18.1,               185L,        3950L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            38.8,           17.2,               180L,        3800L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            35.3,           18.9,               187L,        3800L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            40.6,           18.6,               183L,        3550L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            40.5,           17.9,               187L,        3200L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            37.9,           18.6,               172L,        3150L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            40.5,           18.9,               180L,        3950L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            39.5,           16.7,               178L,        3250L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            37.2,           18.1,               178L,        3900L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            39.5,           17.8,               188L,        3300L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            40.9,           18.9,               184L,        3900L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            36.4,             17,               195L,        3325L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            39.2,           21.1,               196L,        4150L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            38.8,             20,               190L,        3950L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            42.2,           18.5,               180L,        3550L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            37.6,           19.3,               181L,        3300L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            39.8,           19.1,               184L,        4650L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            36.5,             18,               182L,        3150L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            40.8,           18.4,               195L,        3900L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,              36,           18.5,               186L,        3100L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            44.1,           19.7,               196L,        4400L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,              37,           16.9,               185L,        3000L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            39.6,           18.8,               190L,        4600L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            41.1,             19,               182L,        3425L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            37.5,           18.9,               179L,        2975L,       NA,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,              36,           17.9,               190L,        3450L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            42.3,           21.2,               191L,        4150L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            39.6,           17.7,               186L,        3500L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            40.1,           18.9,               188L,        4300L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,              35,           17.9,               190L,        3450L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,              42,           19.5,               200L,        4050L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            34.5,           18.1,               187L,        2900L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            41.4,           18.6,               191L,        3700L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,              39,           17.5,               186L,        3550L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            40.6,           18.8,               193L,        3800L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            36.5,           16.6,               181L,        2850L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            37.6,           19.1,               194L,        3750L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            35.7,           16.9,               185L,        3150L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            41.3,           21.1,               195L,        4400L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            37.6,             17,               185L,        3600L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            41.1,           18.2,               192L,        4050L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            36.4,           17.1,               184L,        2850L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            41.6,             18,               192L,        3950L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            35.5,           16.2,               195L,        3350L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            41.1,           19.1,               188L,        4100L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            35.9,           16.6,               190L,        3050L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            41.8,           19.4,               198L,        4450L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            33.5,             19,               190L,        3600L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            39.7,           18.4,               190L,        3900L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            39.6,           17.2,               196L,        3550L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            45.8,           18.9,               197L,        4150L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            35.5,           17.5,               190L,        3700L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            42.8,           18.5,               195L,        4250L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            40.9,           16.8,               191L,        3700L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            37.2,           19.4,               184L,        3900L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            36.2,           16.1,               187L,        3550L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            42.1,           19.1,               195L,        4000L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            34.6,           17.2,               189L,        3200L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            42.9,           17.6,               196L,        4700L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            36.7,           18.8,               187L,        3800L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            35.1,           19.4,               193L,        4200L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            37.3,           17.8,               191L,        3350L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            41.3,           20.3,               194L,        3550L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            36.3,           19.5,               190L,        3800L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            36.9,           18.6,               189L,        3500L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            38.3,           19.2,               189L,        3950L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            38.9,           18.8,               190L,        3600L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            35.7,             18,               202L,        3550L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            41.1,           18.1,               205L,        4300L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,              34,           17.1,               185L,        3400L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            39.6,           18.1,               186L,        4450L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            36.2,           17.3,               187L,        3300L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            40.8,           18.9,               208L,        4300L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            38.1,           18.6,               190L,        3700L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            40.3,           18.5,               196L,        4350L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            33.1,           16.1,               178L,        2900L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            43.2,           18.5,               192L,        4100L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,              35,           17.9,               192L,        3725L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,              41,             20,               203L,        4725L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            37.7,             16,               183L,        3075L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            37.8,             20,               190L,        4250L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            37.9,           18.6,               193L,        2925L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            39.7,           18.9,               184L,        3550L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            38.6,           17.2,               199L,        3750L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            38.2,             20,               190L,        3900L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            38.1,             17,               181L,        3175L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            43.2,             19,               197L,        4775L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            38.1,           16.5,               198L,        3825L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            45.6,           20.3,               191L,        4600L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            39.7,           17.7,               193L,        3200L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            42.2,           19.5,               197L,        4275L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            39.6,           20.7,               191L,        3900L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,    &quot;Biscoe&quot;,            42.7,           18.3,               196L,        4075L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            38.6,             17,               188L,        2900L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            37.3,           20.5,               199L,        3775L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            35.7,             17,               189L,        3350L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            41.1,           18.6,               189L,        3325L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            36.2,           17.2,               187L,        3150L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            37.7,           19.8,               198L,        3500L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            40.2,             17,               176L,        3450L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            41.4,           18.5,               202L,        3875L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            35.2,           15.9,               186L,        3050L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            40.6,             19,               199L,        4000L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            38.8,           17.6,               191L,        3275L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            41.5,           18.3,               195L,        4300L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,              39,           17.1,               191L,        3050L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            44.1,             18,               210L,        4000L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            38.5,           17.9,               190L,        3325L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;, &quot;Torgersen&quot;,            43.1,           19.2,               197L,        3500L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            36.8,           18.5,               193L,        3500L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            37.5,           18.5,               199L,        4475L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            38.1,           17.6,               187L,        3425L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            41.1,           17.5,               190L,        3900L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            35.6,           17.5,               191L,        3175L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            40.2,           20.1,               200L,        3975L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,              37,           16.5,               185L,        3400L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            39.7,           17.9,               193L,        4250L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            40.2,           17.1,               193L,        3400L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            40.6,           17.2,               187L,        3475L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            32.1,           15.5,               188L,        3050L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            40.7,             17,               190L,        3725L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            37.3,           16.8,               192L,        3000L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,              39,           18.7,               185L,        3650L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            39.2,           18.6,               190L,        4250L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            36.6,           18.4,               184L,        3475L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,              36,           17.8,               195L,        3450L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            37.8,           18.1,               193L,        3750L,   &quot;MALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,              36,           17.1,               187L,        3700L, &quot;FEMALE&quot;,
+             &quot;Adelie&quot;,     &quot;Dream&quot;,            41.5,           18.5,               201L,        4000L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            46.5,           17.9,               192L,        3500L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,              50,           19.5,               196L,        3900L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            51.3,           19.2,               193L,        3650L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            45.4,           18.7,               188L,        3525L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            52.7,           19.8,               197L,        3725L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            45.2,           17.8,               198L,        3950L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            46.1,           18.2,               178L,        3250L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            51.3,           18.2,               197L,        3750L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,              46,           18.9,               195L,        4150L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            51.3,           19.9,               198L,        3700L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            46.6,           17.8,               193L,        3800L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            51.7,           20.3,               194L,        3775L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,              47,           17.3,               185L,        3700L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,              52,           18.1,               201L,        4050L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            45.9,           17.1,               190L,        3575L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            50.5,           19.6,               201L,        4050L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            50.3,             20,               197L,        3300L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,              58,           17.8,               181L,        3700L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            46.4,           18.6,               190L,        3450L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            49.2,           18.2,               195L,        4400L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            42.4,           17.3,               181L,        3600L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            48.5,           17.5,               191L,        3400L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            43.2,           16.6,               187L,        2900L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            50.6,           19.4,               193L,        3800L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            46.7,           17.9,               195L,        3300L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,              52,             19,               197L,        4150L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            50.5,           18.4,               200L,        3400L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            49.5,             19,               200L,        3800L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            46.4,           17.8,               191L,        3700L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            52.8,             20,               205L,        4550L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            40.9,           16.6,               187L,        3200L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            54.2,           20.8,               201L,        4300L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            42.5,           16.7,               187L,        3350L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,              51,           18.8,               203L,        4100L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            49.7,           18.6,               195L,        3600L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            47.5,           16.8,               199L,        3900L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            47.6,           18.3,               195L,        3850L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,              52,           20.7,               210L,        4800L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            46.9,           16.6,               192L,        2700L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            53.5,           19.9,               205L,        4500L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,              49,           19.5,               210L,        3950L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            46.2,           17.5,               187L,        3650L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            50.9,           19.1,               196L,        3550L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            45.5,             17,               196L,        3500L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            50.9,           17.9,               196L,        3675L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            50.8,           18.5,               201L,        4450L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            50.1,           17.9,               190L,        3400L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,              49,           19.6,               212L,        4300L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            51.5,           18.7,               187L,        3250L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            49.8,           17.3,               198L,        3675L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            48.1,           16.4,               199L,        3325L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            51.4,             19,               201L,        3950L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            45.7,           17.3,               193L,        3600L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            50.7,           19.7,               203L,        4050L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            42.5,           17.3,               187L,        3350L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            52.2,           18.8,               197L,        3450L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            45.2,           16.6,               191L,        3250L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            49.3,           19.9,               203L,        4050L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            50.2,           18.8,               202L,        3800L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            45.6,           19.4,               194L,        3525L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            51.9,           19.5,               206L,        3950L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            46.8,           16.5,               189L,        3650L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            45.7,             17,               195L,        3650L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            55.8,           19.8,               207L,        4000L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            43.5,           18.1,               202L,        3400L, &quot;FEMALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            49.6,           18.2,               193L,        3775L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            50.8,             19,               210L,        4100L,   &quot;MALE&quot;,
+          &quot;Chinstrap&quot;,     &quot;Dream&quot;,            50.2,           18.7,               198L,        3775L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.1,           13.2,               211L,        4500L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,              50,           16.3,               230L,        5700L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.7,           14.1,               210L,        4450L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,              50,           15.2,               218L,        5700L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            47.6,           14.5,               215L,        5400L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.5,           13.5,               210L,        4550L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.4,           14.6,               211L,        4800L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.7,           15.3,               219L,        5200L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            43.3,           13.4,               209L,        4400L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.8,           15.4,               215L,        5150L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            40.9,           13.7,               214L,        4650L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,              49,           16.1,               216L,        5550L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.5,           13.7,               214L,        4650L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.4,           14.6,               213L,        5850L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.8,           14.6,               210L,        4200L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.3,           15.7,               217L,        5850L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,              42,           13.5,               210L,        4150L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.2,           15.2,               221L,        6300L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.2,           14.5,               209L,        4800L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.7,           15.1,               222L,        5350L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            50.2,           14.3,               218L,        5700L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.1,           14.5,               215L,        5000L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.5,           14.5,               213L,        4400L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.3,           15.8,               215L,        5050L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            42.9,           13.1,               215L,        5000L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.1,           15.1,               215L,        5100L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            44.5,           14.3,               216L,        4100L,       NA,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            47.8,             15,               215L,        5650L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.2,           14.3,               210L,        4600L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,              50,           15.3,               220L,        5550L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            47.3,           15.3,               222L,        5250L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            42.8,           14.2,               209L,        4700L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.1,           14.5,               207L,        5050L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            59.6,             17,               230L,        6050L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.1,           14.8,               220L,        5150L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.4,           16.3,               220L,        5400L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            42.6,           13.7,               213L,        4950L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            44.4,           17.3,               219L,        5250L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,              44,           13.6,               208L,        4350L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.7,           15.7,               208L,        5350L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            42.7,           13.7,               208L,        3950L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.6,             16,               225L,        5700L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.3,           13.7,               210L,        4300L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.6,             15,               216L,        4750L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            50.5,           15.9,               222L,        5550L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            43.6,           13.9,               217L,        4900L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.5,           13.9,               210L,        4200L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            50.5,           15.9,               225L,        5400L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            44.9,           13.3,               213L,        5100L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.2,           15.8,               215L,        5300L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.6,           14.2,               210L,        4850L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.5,           14.1,               220L,        5300L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.1,           14.4,               210L,        4400L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            50.1,             15,               225L,        5000L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.5,           14.4,               217L,        4900L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,              45,           15.4,               220L,        5050L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            43.8,           13.9,               208L,        4300L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.5,             15,               220L,        5000L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            43.2,           14.5,               208L,        4450L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            50.4,           15.3,               224L,        5550L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.3,           13.8,               208L,        4200L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.2,           14.9,               221L,        5300L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.7,           13.9,               214L,        4400L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            54.3,           15.7,               231L,        5650L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.8,           14.2,               219L,        4700L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.8,           16.8,               230L,        5700L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.2,           14.4,               214L,        4650L,       NA,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.5,           16.2,               229L,        5800L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            43.5,           14.2,               220L,        4700L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            50.7,             15,               223L,        5550L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            47.7,             15,               216L,        4750L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.4,           15.6,               221L,        5000L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.2,           15.6,               221L,        5100L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.5,           14.8,               217L,        5200L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.4,             15,               216L,        4700L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.6,             16,               230L,        5800L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            47.5,           14.2,               209L,        4600L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            51.1,           16.3,               220L,        6000L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.2,           13.8,               215L,        4750L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.2,           16.4,               223L,        5950L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.1,           14.5,               212L,        4625L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            52.5,           15.6,               221L,        5450L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            47.4,           14.6,               212L,        4725L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,              50,           15.9,               224L,        5350L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            44.9,           13.8,               212L,        4750L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            50.8,           17.3,               228L,        5600L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            43.4,           14.4,               218L,        4600L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            51.3,           14.2,               218L,        5300L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            47.5,             14,               212L,        4875L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            52.1,             17,               230L,        5550L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            47.5,             15,               218L,        4950L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            52.2,           17.1,               228L,        5400L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.5,           14.5,               212L,        4750L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.5,           16.1,               224L,        5650L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            44.5,           14.7,               214L,        4850L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            50.8,           15.7,               226L,        5200L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.4,           15.8,               216L,        4925L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.9,           14.6,               222L,        4875L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.4,           14.4,               203L,        4625L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            51.1,           16.5,               225L,        5250L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.5,             15,               219L,        4850L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            55.9,             17,               228L,        5600L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            47.2,           15.5,               215L,        4975L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.1,             15,               228L,        5500L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            47.3,           13.8,               216L,        4725L,       NA,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.8,           16.1,               215L,        5500L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            41.7,           14.7,               210L,        4700L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            53.4,           15.8,               219L,        5500L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            43.3,             14,               208L,        4575L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.1,           15.1,               209L,        5500L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            50.5,           15.2,               216L,        5000L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.8,           15.9,               229L,        5950L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            43.5,           15.2,               213L,        4650L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            51.5,           16.3,               230L,        5500L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.2,           14.1,               217L,        4375L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            55.1,             16,               230L,        5850L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            44.5,           15.7,               217L,        4875L,       NA,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            48.8,           16.2,               222L,        6000L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            47.2,           13.7,               214L,        4925L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,              NA,             NA,                 NA,           NA,       NA,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            46.8,           14.3,               215L,        4850L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            50.4,           15.7,               222L,        5750L,   &quot;MALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            45.2,           14.8,               212L,        5200L, &quot;FEMALE&quot;,
+             &quot;Gentoo&quot;,    &quot;Biscoe&quot;,            49.9,           16.1,               213L,        5400L,   &quot;MALE&quot;
+          )</code></pre>
+</details>
+</div>
+</div>
+<div id="body2" class="section level2">
+<h2>Grafica tus datos con {ggplot2}</h2>
+<p><a href="https://ggplot2.tidyverse.org/">{ggplot2}</a> Es un paquete de visualización escrito para el lenguaje R, creado por Hadley Wickham en 2005 y basado en Leland Wilkinson’s “Grammar of Graphics”. Un esquema general para la visualización de datos, que separa un gráfico en componentes semánticos como escalas y capas.<br></p>
+<p><img src="/images/post/20220118-DataViz-Shortcut/ggplot2.png" alt="{ggplot2}" style="height: 230px; width:200px;" class="center"/></p>
+<div id="body2.1" class="section level3">
+<h3>Gráfico básico</h3>
+<p>Lo primero que haremos es revisar el conjunto de datos de pingüinos que acabamos de cargar en R, y seleccionar las variables que representaremos en nuestra primera figura.De todas las variables, para nuestro primer gráfico seleccionaremos “bill_length_mm” (longitud del pico en milímetros) y “bill_depth_mm” (profundidad del pico en milímetros) debido a que son variables continuas.<br></p>
+<p><img src="/images/post/20220118-DataViz-Shortcut/culmen_depth.png" alt="penguins" style="height: 400px; width:621px;" class="center"/></p>
+<pre class="r"><code>ggplot(data = data, 
+       mapping = aes(x = bill_length_mm, 
+                     y = bill_depth_mm)) + 
+       geom_point()</code></pre>
+<p><img src="/es/post/20220118-DataViz-Shortcut/20220118-DataViz-Shortcut_files/figure-html/unnamed-chunk-6-1.png" width="576" /></p>
+<div id="body2.1.1" class="section level4">
+<h4>Componentes de un gráfico en {ggplot2}</h4>
+<ul>
+<li><p><strong>ggplot()</strong> : Es la función que crea un sistema de coordenadas -de forma general- a las que se incorporán capas. El primer argumento de la función es el set de datos (data=). Por si sola esta función no genera una capa. <br></p></li>
+<li><p><strong>data</strong> : El set de datos es una colección rectangular de datos con las variables (columnas) y sus observaciones/valores (filas) a mapear (penguins). <br></p></li>
+<li><p><strong>mapping</strong> : Es donde se especifican el conjunto de variables y observaciones que se “mapean” o asignan a las propiedades visuales a usar en el gráfico y que ejes asignar a estos valores (x= bill_length_mm,y= bill_depth_mm). Si no son especificadas -de forma general-, se deben indicar en cada capa adicionada a el gráfico.<br></p></li>
+<li><p><strong>geom_point()</strong> : Las capas del gráfico son incorporadas por las funciones o Geom. En este caso la función agrega una capa de puntos al gráfico. ggplot2 incluye más de 30 funciones geom, además de las desarrolladas por otros autores.<br></p></li>
+</ul>
+</div>
+</div>
+<div id="body2.2" class="section level3">
+<h3>Elegir los Colores</h3>
+<p>El gráfico aterior solo nos permite ver la relación entre dos variables númericas continuas. Sin embargo, el set de datos tambien posee información asigada a grupos discretos como lo son la especie del pinguino y el sexo del individuo. Por esa razón ocuparemos otra propiedad visual como el color para incorporar una nueva capa de información en el gráfico. Para ello ocuparemos la opción “color” dentro de las variables mapeadas en “aes”.<br></p>
+<pre class="r"><code>ggplot(data = data, 
+       mapping = aes(x = bill_length_mm, 
+                     y = bill_depth_mm,
+                     color = species)) + 
+       geom_point()</code></pre>
+<p><img src="/es/post/20220118-DataViz-Shortcut/20220118-DataViz-Shortcut_files/figure-html/unnamed-chunk-7-1.png" width="576" /></p>
+<p>Si no especificamos una escala de colores, R trazará cada nivel de la variable discreta mapeada según la paleta de colores cargada por defecto en ggplot2. Para evitar o modificar esto, utilizaremos la opción de incorporar una escala de colores manualmente con “scale_color_manual” y una lista de colores en su código HEX que debe tener el mismo número de valores que los niveles a mapear en la variable discreta. En este caso hay 3 especies presentes en el conjunto de datos de penguins, por lo que nuestra lista tiene 3 códigos HEX.<br></p>
+<pre class="r"><code>ggplot(data = data, 
+       mapping = aes(x = bill_length_mm, 
+                     y = bill_depth_mm,
+                     color = species)) + 
+       geom_point() +
+   scale_color_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
+<p><img src="/es/post/20220118-DataViz-Shortcut/20220118-DataViz-Shortcut_files/figure-html/unnamed-chunk-8-1.png" width="576" /></p>
+</div>
+<div id="body2.3" class="section level3">
+<h3>Elija el gráfico con los objeto geom</h3>
+<p>Una capa en ggplot2, combina datos, propiedades visuales, objetos geométricos (<strong>Geoms</strong>), funciones y/o transformaciones estadísticas (<strong>Stat</strong>), y de ajuste de la posición. En nuestro gráfico anterior hemos realizado un scatterplot. Por defecto en R hay que elegir un objeto “<strong>geom_</strong>…” para generar una visualización, pues de lo contrarío obtendremos una representación sin nuestros datos en ella.<br></p>
+<p>En el gráfico anterior podemos ver que hay diferencias en la distribución de datos según la especie. Ahora eligiremos otra representación para mostrar de mejor manera la distribución de las variables continuas (bill_length_mm o bill_depth_mm) en base a los grupos discretos presentes (especies) en el set de datos. Por esa razón cambiaremos nuestro geom desde <strong>geom_point()</strong> a <strong>geom_boxplot()</strong> y generaremos dos plot, uno para cada variable continua (bill_length_mm o bill_depth_mm).<br></p>
+<div id="bill-length" class="section level4">
+<h4>Bill length</h4>
+<pre class="r"><code>ggplot(data = data, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     color = species)) + 
+       geom_boxplot() +
+   scale_color_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
+<p><img src="/es/post/20220118-DataViz-Shortcut/20220118-DataViz-Shortcut_files/figure-html/unnamed-chunk-9-1.png" width="576" /></p>
+</div>
+<div id="bill-depth" class="section level4">
+<h4>Bill depth</h4>
+<pre class="r"><code>ggplot(data = data, 
+       mapping = aes(x = species, 
+                     y = bill_depth_mm,
+                     color = species)) + 
+       geom_boxplot() +
+   scale_color_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
+<p><img src="/es/post/20220118-DataViz-Shortcut/20220118-DataViz-Shortcut_files/figure-html/unnamed-chunk-10-1.png" width="576" /></p>
+</div>
+</div>
+<div id="body2.4" class="section level3">
+<h3>Gráfico final</h3>
+<details>
+<summary style="font-size:10pt;">
+R Session Info
+</summary>
+<pre><code>## R version 4.1.2 (2021-11-01)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Big Sur 10.16
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.7       purrr_0.3.4      
+##  [5] readr_2.1.1       tidyr_1.1.4       tibble_3.1.6      ggplot2_3.3.5    
+##  [9] tidyverse_1.3.1   DataEditR_0.1.4   datapasta_3.1.0   systemfonts_1.0.3
+## 
+## loaded via a namespace (and not attached):
+##  [1] fs_1.5.2            lubridate_1.8.0     bit64_4.0.5        
+##  [4] httr_1.4.2          tools_4.1.2         backports_1.4.1    
+##  [7] bslib_0.3.1         utf8_1.2.2          R6_2.5.1           
+## [10] DBI_1.1.2           colorspace_2.0-2    withr_2.4.3        
+## [13] tidyselect_1.1.1    bit_4.0.4           curl_4.3.2         
+## [16] compiler_4.1.2      cli_3.1.0           rvest_1.0.2        
+## [19] xml2_1.3.3          shinyjs_2.1.0       rhandsontable_0.3.8
+## [22] labeling_0.4.2      bookdown_0.24       sass_0.4.0         
+## [25] scales_1.1.1        digest_0.6.29       shinyBS_0.61       
+## [28] rmarkdown_2.11      pkgconfig_2.0.3     htmltools_0.5.2    
+## [31] highr_0.9           dbplyr_2.1.1        fastmap_1.1.0      
+## [34] htmlwidgets_1.5.4   rlang_0.4.12        readxl_1.3.1       
+## [37] rstudioapi_0.13     shiny_1.7.1         farver_2.1.0       
+## [40] jquerylib_0.1.4     generics_0.1.1      jsonlite_1.7.2     
+## [43] vroom_1.5.7         magrittr_2.0.1      Rcpp_1.0.7         
+## [46] munsell_0.5.0       fansi_1.0.0         lifecycle_1.0.1    
+## [49] stringi_1.7.6       yaml_2.2.1          grid_4.1.2         
+## [52] parallel_4.1.2      promises_1.2.0.1    crayon_1.4.2       
+## [55] miniUI_0.1.1.1      haven_2.4.3         hms_1.1.1          
+## [58] knitr_1.37          pillar_1.6.4        reprex_2.0.1       
+## [61] glue_1.6.0          evaluate_0.14       blogdown_1.7.2     
+## [64] modelr_0.1.8        vctrs_0.3.8         tzdb_0.2.0         
+## [67] httpuv_1.6.5        cellranger_1.1.0    gtable_0.3.0       
+## [70] assertthat_0.2.1    xfun_0.29           mime_0.12          
+## [73] xtable_1.8-4        broom_0.7.11        later_1.3.0        
+## [76] shinythemes_1.2.0   ellipsis_0.3.2</code></pre>
+</details>
+</div>
+</div>
