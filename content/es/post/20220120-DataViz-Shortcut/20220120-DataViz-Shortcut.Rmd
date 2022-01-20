@@ -487,7 +487,7 @@ library(ggplot2)
 Lo primero que haremos es revisar el conjunto de datos de pingüinos que acabamos de cargar en R, y seleccionar las variables que representaremos en nuestra primera figura.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, include=TRUE}
-DT::datatable(head(data, n=20), fillContainer = TRUE, options = list(pageLength = 4))
+DT::datatable(head(data, n=30), fillContainer = TRUE, options = list(pageLength = 10, scrollY = '400px'))
 ```
 
 De todas las variables, para nuestro primer gráfico seleccionaremos "bill_length_mm" (longitud del pico en milímetros) y "bill_depth_mm" (profundidad del pico en milímetros) debido a que son variables continuas.<br>

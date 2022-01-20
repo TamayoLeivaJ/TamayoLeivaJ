@@ -486,7 +486,7 @@ library(ggplot2)
 The first thing we will do is review the penguin data set that we just loaded into R, and select the variables that we will represent in our first figure. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, include=TRUE}
-DT::datatable(head(data, n=20), fillContainer = TRUE, options = list(pageLength = 4))
+DT::datatable(head(data, n=30), fillContainer = TRUE, options = list(pageLength = 10, scrollY = '400px'))
 ```
 
 From the variables, for our first graph we will select "bill_length_mm" (bill length in millimeters) and "bill_depth_mm" (bill depth in millimeters) because they are continuous variables.<br>
