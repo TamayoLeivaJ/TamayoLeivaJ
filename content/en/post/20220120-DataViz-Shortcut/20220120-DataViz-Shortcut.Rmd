@@ -11,7 +11,7 @@ output: distill::distill_article
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.height=6, fig.width=6, res = 300)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.height=4, fig.width=4, fig.align = "center", res = 300)
 library(systemfonts)
 library(datapasta)
 library(DataEditR)
@@ -486,7 +486,7 @@ library(ggplot2)
 The first thing we will do is review the penguin data set that we just loaded into R, and select the variables that we will represent in our first figure. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, include=TRUE}
-DT::datatable(head(data, n=20), fillContainer = FALSE, options = list(pageLength = 4))
+DT::datatable(head(data, n=20), fillContainer = TRUE, options = list(pageLength = 4))
 ```
 
 From the variables, for our first graph we will select "bill_length_mm" (bill length in millimeters) and "bill_depth_mm" (bill depth in millimeters) because they are continuous variables.<br>
@@ -587,10 +587,10 @@ ggplot(data = data,
    labs(x = "Species",
         y = "Bill length (mm)",
         fill = "Species",
-        title = "Penguins species in the Palmer Archipelago, Antarctica")
+        title = "Penguins species in the Palmer archipelago,\nAntarctica")
 ```
 
-Finally, we will modify the theme of the chart. By modifying the theme we are modifying the canvas on which our axes and data have been plotted. To do this we will use the "**theme_**..." function, and select one of the eight themes that are loaded by default in the {ggplot2} library. In this example we have chosen the "**theme_classic()**", because it generates a cleaner plot, keeping the axes. In case you need to use another theme, you can also apply themes from libraries like [{ggpubr}](https://rpkgs.datanovia.com/ggpubr/), or create your own with the **theme()** function, but we will have to show this process in more detail in a future post.
+Finally, we will modify the theme of the chart. By modifying the theme we are modifying the canvas on which our axes and data have been plotted. To do this we will use the "**theme_**..." function, and select one of the eight [themes](https://ggplot2.tidyverse.org/reference/ggtheme.html) that are loaded by default in the {ggplot2} library. In this example we have chosen the "**theme_classic()**", because it generates a cleaner plot, keeping the axes. In case you need to use another theme, you can also apply themes from libraries like [{ggpubr}](https://rpkgs.datanovia.com/ggpubr/), or create your own with the **theme()** function, but we will have to show this process in more detail in a future post.
 
 ```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
 ggplot(data = data, 
@@ -602,7 +602,7 @@ ggplot(data = data,
    labs(x = "Species",
         y = "Bill length (mm)",
         fill = "Species",
-        title = "Penguins species in the Palmer Archipelago, Antarctica") +
+        title = "Penguins species in the Palmer archipelago,\nAntarctica") +
   theme_classic()
 ```
 

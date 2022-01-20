@@ -465,14 +465,14 @@ library(ggplot2)</code></pre>
 <h3>Basic plot</h3>
 <p>The first thing we will do is review the penguin data set that we just loaded into R, and select the variables that we will represent in our first figure.</p>
 <div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie"],["Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen"],[39.1,39.5,40.3,null,36.7,39.3,38.9,39.2,34.1,42,37.8,37.8,41.1,38.6,34.6,36.6,38.7,42.5,34.4,46],[18.7,17.4,18,null,19.3,20.6,17.8,19.6,18.1,20.2,17.1,17.3,17.6,21.2,21.1,17.8,19,20.7,18.4,21.5],[181,186,195,null,193,190,181,195,193,190,186,180,182,191,198,185,195,197,184,194],[3750,3800,3250,null,3450,3650,3625,4675,3475,4250,3300,3700,3200,3800,4400,3700,3450,4500,3325,4200],["MALE","FEMALE","FEMALE",null,"FEMALE","MALE","FEMALE","MALE",null,null,null,null,"FEMALE","MALE","MALE","FEMALE","FEMALE","MALE","FEMALE","MALE"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>species<\/th>\n      <th>island<\/th>\n      <th>bill_length_mm<\/th>\n      <th>bill_depth_mm<\/th>\n      <th>flipper_length_mm<\/th>\n      <th>body_mass_g<\/th>\n      <th>sex<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","vertical":false,"fillContainer":true,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],["Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie"],["Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen"],[39.1,39.5,40.3,null,36.7,39.3,38.9,39.2,34.1,42,37.8,37.8,41.1,38.6,34.6,36.6,38.7,42.5,34.4,46],[18.7,17.4,18,null,19.3,20.6,17.8,19.6,18.1,20.2,17.1,17.3,17.6,21.2,21.1,17.8,19,20.7,18.4,21.5],[181,186,195,null,193,190,181,195,193,190,186,180,182,191,198,185,195,197,184,194],[3750,3800,3250,null,3450,3650,3625,4675,3475,4250,3300,3700,3200,3800,4400,3700,3450,4500,3325,4200],["MALE","FEMALE","FEMALE",null,"FEMALE","MALE","FEMALE","MALE",null,null,null,null,"FEMALE","MALE","MALE","FEMALE","FEMALE","MALE","FEMALE","MALE"]],"container":"<table class=\"display fill-container\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>species<\/th>\n      <th>island<\/th>\n      <th>bill_length_mm<\/th>\n      <th>bill_depth_mm<\/th>\n      <th>flipper_length_mm<\/th>\n      <th>body_mass_g<\/th>\n      <th>sex<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 <p>From the variables, for our first graph we will select “bill_length_mm” (bill length in millimeters) and “bill_depth_mm” (bill depth in millimeters) because they are continuous variables.<br></p>
 <p><img src="/images/post/20220120-DataViz-Shortcut/culmen_depth.png" alt="penguins" style="height: 400px; width:621px;" class="center"/></p>
 <pre class="r"><code>ggplot(data = data, 
        mapping = aes(x = bill_length_mm, 
                      y = bill_depth_mm)) + 
        geom_point()</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-9-1.png" width="576" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" /></p>
 <div id="body2.1.1" class="section level4">
 <h4>Components of a plot in {ggplot2}</h4>
 <ul>
@@ -491,7 +491,7 @@ library(ggplot2)</code></pre>
                      y = bill_depth_mm,
                      color = species)) + 
        geom_point()</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-10-1.png" width="576" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>If we do not specify a color scale, R will plot each level of the mapped discrete variable according to the color palette loaded by default in ggplot2. To avoid or modify this, we will use the option to incorporate a color scale manually with “scale_color_manual” and a list of colors in its HEX code that must have the same number of values as the levels to be mapped in the discrete variable. In this case there are 3 species present in the penguins dataset, so our list has 3 HEX codes.<br></p>
 <pre class="r"><code>ggplot(data = data, 
        mapping = aes(x = bill_length_mm, 
@@ -499,7 +499,7 @@ library(ggplot2)</code></pre>
                      color = species)) + 
        geom_point() +
    scale_color_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-11-1.png" width="576" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-11-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="body2.3" class="section level3">
 <h3>Choose the graphic with the geom objects</h3>
@@ -513,7 +513,7 @@ library(ggplot2)</code></pre>
                      color = species)) + 
        geom_boxplot() +
    scale_color_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-12-1.png" width="576" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-12-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="bill-depth" class="section level4">
 <h4>Bill depth</h4>
@@ -523,7 +523,7 @@ library(ggplot2)</code></pre>
                      color = species)) + 
        geom_boxplot() +
    scale_color_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-13-1.png" width="576" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="body2.4" class="section level3">
@@ -535,7 +535,7 @@ library(ggplot2)</code></pre>
                      fill = species)) + 
        geom_boxplot() +
    scale_fill_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-14-1.png" width="576" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-14-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Now we will add legends to each axis plus a title to help interpret the data represented in the graph. For that we will use the <strong>labs()</strong> function, also part of {ggplot2}.<br></p>
 <pre class="r"><code>ggplot(data = data, 
        mapping = aes(x = species, 
@@ -546,9 +546,9 @@ library(ggplot2)</code></pre>
    labs(x = &quot;Species&quot;,
         y = &quot;Bill length (mm)&quot;,
         fill = &quot;Species&quot;,
-        title = &quot;Penguins species in the Palmer Archipelago, Antarctica&quot;)</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-15-1.png" width="576" /></p>
-<p>Finally, we will modify the theme of the chart. By modifying the theme we are modifying the canvas on which our axes and data have been plotted. To do this we will use the “<strong>theme_</strong>…” function, and select one of the eight themes that are loaded by default in the {ggplot2} library. In this example we have chosen the “<strong>theme_classic()</strong>”, because it generates a cleaner plot, keeping the axes. In case you need to use another theme, you can also apply themes from libraries like <a href="https://rpkgs.datanovia.com/ggpubr/">{ggpubr}</a>, or create your own with the <strong>theme()</strong> function, but we will have to show this process in more detail in a future post.</p>
+        title = &quot;Penguins species in the Palmer archipelago,\nAntarctica&quot;)</code></pre>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-15-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>Finally, we will modify the theme of the chart. By modifying the theme we are modifying the canvas on which our axes and data have been plotted. To do this we will use the “<strong>theme_</strong>…” function, and select one of the eight <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">themes</a> that are loaded by default in the {ggplot2} library. In this example we have chosen the “<strong>theme_classic()</strong>”, because it generates a cleaner plot, keeping the axes. In case you need to use another theme, you can also apply themes from libraries like <a href="https://rpkgs.datanovia.com/ggpubr/">{ggpubr}</a>, or create your own with the <strong>theme()</strong> function, but we will have to show this process in more detail in a future post.</p>
 <pre class="r"><code>ggplot(data = data, 
        mapping = aes(x = species, 
                      y = bill_length_mm,
@@ -558,9 +558,9 @@ library(ggplot2)</code></pre>
    labs(x = &quot;Species&quot;,
         y = &quot;Bill length (mm)&quot;,
         fill = &quot;Species&quot;,
-        title = &quot;Penguins species in the Palmer Archipelago, Antarctica&quot;) +
+        title = &quot;Penguins species in the Palmer archipelago,\nAntarctica&quot;) +
   theme_classic()</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-16-1.png" width="576" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-16-1.png" width="384" style="display: block; margin: auto;" /></p>
 <details>
 <summary style="font-size:10pt;">
 R Session Info
