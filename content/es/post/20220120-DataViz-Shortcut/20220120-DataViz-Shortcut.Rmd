@@ -1,12 +1,12 @@
 ---
-title: "De datos a la visualización en R (fácilmente)"
-description: "Un atajo usando {datapasta}, {dataeditr} y {ggplot2}"
+title: "De la carga de los datos a la visualización en R (fácilmente)"
+description: "Un atajo usando {datapasta}, y {ggplot2}"
 author: "Javier Tamayo-Leiva" 
 date: 2022-01-20
-featured_image: "/images/post/20220118-DataViz-Shortcut/20220118-DataViz-Shortcut.png"
+featured_image: "/images/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut.png"
 layout: post
 toc: FALSE
-tags: ["DataViz", "datapasta", "dataeditr","ggplot2"]
+tags: ["DataViz", "datapasta", "ggplot2"]
 output: distill::distill_article
 ---
 
@@ -44,7 +44,7 @@ R tiene diferentes opciones para cargar sus datos en R, ya sea utilizando la bas
 
 Con esta idea nació el paquete de datos [{datapasta}](https://milesmcbain.github.io/datapasta/), que facilita el proceso de importación de datos en R, reduciendo el tiempo invertido y la frustración asociada.<br> 
 
-<img src="/images/post/20220118-DataViz-Shortcut/datapasta.png" alt="{datapasta}" style="height: 230px; width:200px;" class="center"/>
+<img src="/images/post/20220120-DataViz-Shortcut/datapasta.png" alt="{datapasta}" style="height: 230px; width:200px;" class="center"/>
 
 ### ¿Cómo funciona {datapasta}? {#body1.1}
 
@@ -73,7 +73,7 @@ Ahora nos dirigiremos a donde tenemos los datos que nos interesa copiar y realiz
 
 **Addins -> Browse Addins -> Paste as Tribble** <br>
 
-<img src="/images/post/20220118-DataViz-Shortcut/datapasta_procedure.png" alt="{datapasta} procedure" class="w-40-ns mw4 center"/>
+<img src="/images/post/20220120-DataViz-Shortcut/datapasta_procedure.png" alt="{datapasta} procedure" class="w-40-ns mw4 center"/>
 
 > **Paste as Tribble** Permite leer tablas delimitadas con tabulador, coma, pipe o punto y coma.
 
@@ -461,13 +461,39 @@ data <- tibble::tribble(
 
 [{ggplot2}](https://ggplot2.tidyverse.org/) Es un paquete de visualización escrito para el lenguaje R, creado por Hadley Wickham en 2005 y basado en Leland Wilkinson's "Grammar of Graphics". Un esquema general para la visualización de datos, que separa un gráfico en componentes semánticos como escalas y capas.<br> 
 
-<img src="/images/post/20220118-DataViz-Shortcut/ggplot2.png" alt="{ggplot2}" style="height: 230px; width:200px;" class="center"/>
+<img src="/images/post/20220120-DataViz-Shortcut/ggplot2.png" alt="{ggplot2}" style="height: 230px; width:200px;" class="center"/>
+
+Lo primero que tenemos que hacer en RStudio es instalar y cargar la librería {ggplot2} con el siguiente código: <br>
+
+- Instalar la librería de paquetes Tidyverse completa (recomendado) <br>
+
+```{r eval=FALSE, include=TRUE, echo=TRUE}
+# Instalar desde CRAN (The Comprehensive R Archive Network)
+install.packages("tidyverse")
+# Cargar las librerías 
+library(tidyverse)
+```
+
+- Instalar solo la librería {ggplot2} <br>
+
+```{r eval=FALSE, include=TRUE, echo=TRUE}
+# Instalar solo ggplot2
+install.packages("ggplot2")
+# Cargar la librería
+library(ggplot2)
+```
 
 ### Gráfico básico {#body2.1}
 
-Lo primero que haremos es revisar el conjunto de datos de pingüinos que acabamos de cargar en R, y seleccionar las variables que representaremos en nuestra primera figura.De todas las variables, para nuestro primer gráfico seleccionaremos "bill_length_mm" (longitud del pico en milímetros) y "bill_depth_mm" (profundidad del pico en milímetros) debido a que son variables continuas.<br>
+Lo primero que haremos es revisar el conjunto de datos de pingüinos que acabamos de cargar en R, y seleccionar las variables que representaremos en nuestra primera figura.
 
-<img src="/images/post/20220118-DataViz-Shortcut/culmen_depth.png" alt="penguins" style="height: 400px; width:621px;" class="center"/>
+```{r echo=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+DT::datatable(head(data, n=20), fillContainer = FALSE, options = list(pageLength = 4))
+```
+
+De todas las variables, para nuestro primer gráfico seleccionaremos "bill_length_mm" (longitud del pico en milímetros) y "bill_depth_mm" (profundidad del pico en milímetros) debido a que son variables continuas.<br>
+
+<img src="/images/post/20220120-DataViz-Shortcut/culmen_depth.png" alt="penguins" style="height: 400px; width:621px;" class="center"/>
 
 ```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
 ggplot(data = data, 
@@ -537,9 +563,49 @@ ggplot(data = data,
    scale_color_manual(values = c("#393459","#F2AB27","#D96704"))
 ```
 
-
 ### Gráfico final {#body2.4}
 
+Ahora que hemos generado visualizaciones de los componentes que nos interesan, podemos modificar aquellos parámetros estéticos, que pueden ayudar a generar más interés y claridad en la figura. En primer lugar modificaremos la capa de color, debido a la construcción de la función **geom_boxplot()**, si asignamos una variable a "color", ésta se representará en las líneas de los elementos. Sin embargo, nos interesa que la mayor superficie esté coloreada (para ayudar a la interpretación de los datos), por lo que modificaremos este parámetro de **color** a **fill**. Nótese que también hemos cambiado **scale_color_manual()**, por **scale_fill_manual()**, dejando todo dentro de la función como estaba.<br>
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = data, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     fill = species)) + 
+       geom_boxplot() +
+   scale_fill_manual(values = c("#393459","#F2AB27","#D96704"))
+```
+
+Ahora agregaremos leyendas a cada eje mas un titulo que ayude a interpretar los datos representados en el gráfico. Para eso usaremos la función labs(), tambien parte de {ggplot2}.<br>
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = data, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     fill = species)) + 
+       geom_boxplot() +
+   scale_fill_manual(values = c("#393459","#F2AB27","#D96704")) +
+   labs(x = "Especies",
+        y = "Longitud del pico (mm)",
+        fill = "Especies",
+        title = "Especies de pinguinos del archipelago Palmer, Antártica")
+```
+
+Por último, modificaremos el tema del gráfico. Al modificar el tema estamos modificando el lienzo sobre el que se han trazado nuestros ejes y datos. Para ello utilizaremos la función "**theme_**...", y seleccionaremos uno de los ocho temas que se cargan por defecto en la librería {ggplot2}. En este ejemplo hemos elegido el "**theme_classic()**", porque genera un trazado más limpio, manteniendo los ejes. En caso de que necesites utilizar otro tema, también puedes aplicar temas de librerías como [{ggpubr}](https://rpkgs.datanovia.com/ggpubr/), o crear el tuyo propio con la función **theme()**.Pero tendremos que mostrar este proceso con más detalle en un próximo post.
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = data, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     fill = species)) + 
+       geom_boxplot() +
+   scale_fill_manual(values = c("#393459","#F2AB27","#D96704")) +
+   labs(x = "Especies",
+        y = "Longitud del pico (mm)",
+        fill = "Especies",
+        title = "Especies de pinguinos del archipelago Palmer, Antártica") +
+  theme_classic()
+```
 
 <details>
 <summary style='font-size:10pt;'>R Session Info</summary>

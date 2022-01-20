@@ -1,12 +1,12 @@
 ---
-title: "From data to viz in R (easily)"
+title: "From data loading to visualization in R (easily)"
 description: "A shortcut with {datapasta}, and {ggplot2}"
 author: "Javier Tamayo-Leiva" 
 date: 2022-01-20
-featured_image: "/images/post/20220118-DataViz-Shortcut/20220118-DataViz-Shortcut.png"
+featured_image: "/images/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut.png"
 layout: post
 toc: FALSE
-tags: ["DataViz", "datapasta","ggplot2"]
+tags: ["DataViz", "datapasta", "ggplot2"]
 output: distill::distill_article
 ---
 
@@ -43,7 +43,7 @@ R has different options for loading its data into R, either by using the R base,
 
 With this idea, the [{datapasta}](https://milesmcbain.github.io/datapasta/) package was born, which facilitates the process of importing data into R, reducing the time invested and the associated frustration.<br> 
 
-<img src="/images/post/20220118-DataViz-Shortcut/datapasta.png" alt="{datapasta}" style="height: 230px; width:200px;" class="center"/>
+<img src="/images/post/20220120-DataViz-Shortcut/datapasta.png" alt="{datapasta}" style="height: 230px; width:200px;" class="center"/>
 
 ### How does {datapasta} work? {#body1.1}
 
@@ -72,7 +72,7 @@ Now we will go to where we have the data we are interested in copying and we wil
 
 **Addins -> Browse Addins -> Paste as Tribble**<br>
 
-<img src="/images/post/20220118-DataViz-Shortcut/datapasta_procedure.png" alt="{datapasta} procedure" class="w-40-ns mw4 center"/>
+<img src="/images/post/20220120-DataViz-Shortcut/datapasta_procedure.png" alt="{datapasta} procedure" class="w-40-ns mw4 center"/>
 
 > **Paste as Tribble** Allows you to read tables which can be tab, comma, pipe or semicolon delimited.
 
@@ -458,13 +458,40 @@ data <- tibble::tribble(
 
 [{ggplot2}](https://ggplot2.tidyverse.org/) It is a visualization package written for the R language, created by Hadley Wickham in 2005 and based on Leland Wilkinson's "Grammar of Graphics". A general scheme for data visualization, it separates a graph into semantic components such as scales and layers.<br> 
 
-<img src="/images/post/20220118-DataViz-Shortcut/ggplot2.png" alt="{ggplot2}" style="height: 230px; width:200px;" class="center"/>
+<img src="/images/post/20220120-DataViz-Shortcut/ggplot2.png" alt="{ggplot2}" style="height: 230px; width:200px;" class="center"/>
+
+The first thing we have to do in RStudio is to install and load the {ggplot2} package with the following code: <br>
+
+- Install packages from Tidyverse (recommended)<br>
+
+```{r eval=FALSE, include=TRUE, echo=TRUE}
+# Install Tidyverse package from CRAN (The Comprehensive R Archive Network)
+install.packages("tidyverse")
+# Load the complete Tidyverse
+library(tidyverse)
+```
+
+- Install just {ggplot2}<br>
+
+```{r eval=FALSE, include=TRUE, echo=TRUE}
+# Install ggplot2
+install.packages("ggplot2")
+
+# Load just ggplot2
+library(ggplot2)
+```
 
 ### Basic plot {#body2.1}
 
-The first thing we will do is review the penguin data set that we just loaded into R, and select the variables that we will represent in our first figure.Of all the variables, for our first graph we will select "bill_length_mm" (bill length in millimeters) and "bill_depth_mm" (bill depth in millimeters) because they are continuous variables.<br>
+The first thing we will do is review the penguin data set that we just loaded into R, and select the variables that we will represent in our first figure. 
 
-<img src="/images/post/20220118-DataViz-Shortcut/culmen_depth.png" alt="penguins" style="height: 400px; width:621px;" class="center"/>
+```{r echo=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+DT::datatable(head(data, n=20), fillContainer = FALSE, options = list(pageLength = 4))
+```
+
+From the variables, for our first graph we will select "bill_length_mm" (bill length in millimeters) and "bill_depth_mm" (bill depth in millimeters) because they are continuous variables.<br>
+
+<img src="/images/post/20220120-DataViz-Shortcut/culmen_depth.png" alt="penguins" style="height: 400px; width:621px;" class="center"/>
 
 ```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
 ggplot(data = data, 
@@ -535,13 +562,49 @@ ggplot(data = data,
    scale_color_manual(values = c("#393459","#F2AB27","#D96704"))
 ```
 
-
-
 ### Final Plot {#body2.4}
 
+Now that we have generated visualizations of the components we are interested in, we can modify those aesthetic parameters, which can help to generate more interest and clarity in the figure. First we will modify the color layer, due to the construction of the **geom_boxplot()** function, if we assign a variable to "color", this will be represented in the lines of the elements. However, we are interested that the largest surface is colored (to help the interpretation of the data), so we will modify this parameter from **color** to **fill**. Note that we have also changed **scale_color_manual()**, by **scale_fill_manual()**, leaving everything inside the function as it was.<br>
 
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = data, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     fill = species)) + 
+       geom_boxplot() +
+   scale_fill_manual(values = c("#393459","#F2AB27","#D96704"))
+```
 
+Now we will add legends to each axis plus a title to help interpret the data represented in the graph. For that we will use the **labs()** function, also part of {ggplot2}.<br> 
 
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = data, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     fill = species)) + 
+       geom_boxplot() +
+   scale_fill_manual(values = c("#393459","#F2AB27","#D96704")) +
+   labs(x = "Species",
+        y = "Bill length (mm)",
+        fill = "Species",
+        title = "Penguins species in the Palmer Archipelago, Antarctica")
+```
+
+Finally, we will modify the theme of the chart. By modifying the theme we are modifying the canvas on which our axes and data have been plotted. To do this we will use the "**theme_**..." function, and select one of the eight themes that are loaded by default in the {ggplot2} library. In this example we have chosen the "**theme_classic()**", because it generates a cleaner plot, keeping the axes. In case you need to use another theme, you can also apply themes from libraries like [{ggpubr}](https://rpkgs.datanovia.com/ggpubr/), or create your own with the **theme()** function, but we will have to show this process in more detail in a future post.
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = data, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     fill = species)) + 
+       geom_boxplot() +
+   scale_fill_manual(values = c("#393459","#F2AB27","#D96704")) +
+   labs(x = "Species",
+        y = "Bill length (mm)",
+        fill = "Species",
+        title = "Penguins species in the Palmer Archipelago, Antarctica") +
+  theme_classic()
+```
 
 <details>
 <summary style='font-size:10pt;'>R Session Info</summary>
