@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Microbial Ecology on Javier Tamayo-Leiva</title>
+    <link>https://tamayoleivaj.com/es/tags/microbial-ecology/</link>
+    <description>Recent content in Microbial Ecology on Javier Tamayo-Leiva</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/es/tags/microbial-ecology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hola Blog!</title>
+      <link>https://tamayoleivaj.com/es/post/20211123-hello-blog/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/es/post/20211123-hello-blog/</guid>
+      <description>Desde que me di cuenta de todas las posibilidades sobre la codificación en R -en su mayoría- pero también en otro lenguaje, que quería crear un blog para compartir algunas de las cosas que he aprendido. Sin embargo, me gusta también la idea de un blog como una plataforma para compartir el conocimiento entrante como un proceso de aprendizaje-enseñanza. Así que ahora, al final de mi doctorado, parece ser el momento y la oportunidad adecuados para hacerlo, al tiempo que se crea un portafolio de las cosas y habilidades que he recogido en el proceso.</description>
+    </item>
+    
+  </channel>
+</rss>

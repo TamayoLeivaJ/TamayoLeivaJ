@@ -1,0 +1,23 @@
+---
+date: 2021-12-09
+author: 'Javier Tamayo-Leiva'
+title: 'Hello Blog!'
+description: 'A space to share what has been learned'
+featured_image: /images/Hello_Blog.jpg
+tags:
+    - Data Science
+    - Statistics
+    - Science
+    - Microbial Ecology
+    - Data Visualization
+---
+
+Since I realized all the possibilities about coding in **R** -mostly- but also in other language, I wanted to create a blog to share some of the things I have learned. However, I also like the idea of a blog as a platform to share incoming knowledge as a learning-teaching process. So now, at the end of my PhD, seems to be the right time and opportunity to do so, while creating a portfolio of the things and skills I have picked up in the process. Most of these skills are difficult to share through scientific publications, but may be useful to others on the same learning journey.
+
+To prove the usefulness of learning a programming language as a tool for professional development, and to show that you don't need a degree in computer science to do it, I decided to create this blog with the help of {[Rmarkdown](https://rmarkdown.rstudio.com)}{[blogdown](https://pkgs.rstudio.com/blogdown/)}, [HUGO](https://gohugo.io), [Ananke Theme](https://github.com/theNewDynamic/gohugo-theme-ananke) from the New Dynamic group to create the blog, along with [GitHub](https://github.com) and [Netifly](https://www.netlify.com) for the deployment of the site. This also required the use of some **CSS**, and **HTML** to modify the theme to my preference, and some code in R and Git to create and deploy the page. By the way, did I mention that all the coding tools and language I use are open source and/or have free plans like Netifly and GitHub? Plus they also have huge communities like the #RStat comunity where you can find help and tips.  So yes, except for the domain everything else in the deployment is free, yet another reason to start learning today, and use your skills and knowledge as a future project.
+
+So I hope you enjoy your visit and learn something new!
+
+Best!!
+
+Javier Tamayo-Leiva

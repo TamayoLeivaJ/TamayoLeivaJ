@@ -2,80 +2,98 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Javier Tamayo-Leiva</title>
-    <link>https://example.com/tags/</link>
+    <link>https://tamayoleivaj.com/tags/</link>
     <description>Recent content in Tags on Javier Tamayo-Leiva</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>plot</title>
-      <link>https://example.com/tags/plot/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <title>datapasta</title>
+      <link>https://tamayoleivaj.com/tags/datapasta/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/plot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Markdown</title>
-      <link>https://example.com/tags/r-markdown/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      
-      <guid>https://example.com/tags/r-markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>regression</title>
-      <link>https://example.com/tags/regression/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      
-      <guid>https://example.com/tags/regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>scene</title>
-      <link>https://example.com/tags/scene/</link>
-      <pubDate>Wed, 12 Apr 2017 11:14:48 -0400</pubDate>
-      
-      <guid>https://example.com/tags/scene/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Science</title>
-      <link>https://example.com/tags/data-science/</link>
-      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
-      
-      <guid>https://example.com/tags/data-science/</guid>
+      <guid>https://tamayoleivaj.com/tags/datapasta/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DataViz</title>
-      <link>https://example.com/tags/dataviz/</link>
-      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      <link>https://tamayoleivaj.com/tags/dataviz/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/dataviz/</guid>
+      <guid>https://tamayoleivaj.com/tags/dataviz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot2</title>
+      <link>https://tamayoleivaj.com/tags/ggplot2/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/tags/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>https://tamayoleivaj.com/tags/data-science/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Visualization</title>
+      <link>https://tamayoleivaj.com/tags/data-visualization/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/tags/data-visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microbial Ecology</title>
+      <link>https://tamayoleivaj.com/tags/microbial-ecology/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/tags/microbial-ecology/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://example.com/tags/r/</link>
-      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      <link>https://tamayoleivaj.com/tags/r/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/r/</guid>
+      <guid>https://tamayoleivaj.com/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Science</title>
+      <link>https://tamayoleivaj.com/tags/science/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/tags/science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistics</title>
+      <link>https://tamayoleivaj.com/tags/statistics/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/tags/statistics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>TidyTuesday</title>
-      <link>https://example.com/tags/tidytuesday/</link>
-      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      <link>https://tamayoleivaj.com/tags/tidytuesday/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/tidytuesday/</guid>
+      <guid>https://tamayoleivaj.com/tags/tidytuesday/</guid>
       <description></description>
     </item>
     

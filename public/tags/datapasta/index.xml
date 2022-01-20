@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>datapasta on Javier Tamayo-Leiva</title>
+    <link>https://tamayoleivaj.com/tags/datapasta/</link>
+    <description>Recent content in datapasta on Javier Tamayo-Leiva</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/tags/datapasta/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From data loading to visualization in R (easily)</title>
+      <link>https://tamayoleivaj.com/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/</guid>
+      <description>Table of Content  Introduction Bring your data to R {datapasta}  How does {datapasta} work?  Plot your data with {ggplot2}  Basic plot  Components of a plot in {ggplot2}  Set Colors
+ Choose the graphic with the geom objects Final Plot    Introduction Many times the reason people approach the R language is because they have seen that it is a great tool for achieving better visualizations.</description>
+    </item>
+    
+  </channel>
+</rss>

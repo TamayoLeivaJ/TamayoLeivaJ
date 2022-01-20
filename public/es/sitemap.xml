@@ -2,154 +2,315 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/es/post/</loc>
+    <loc>https://tamayoleivaj.com/es/post/</loc>
     <lastmod>2017-03-02T12:00:00-05:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/post/"
+                href="https://tamayoleivaj.com/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://example.com/es/post/"
+                href="https://tamayoleivaj.com/es/post/"
                 />
   </url><url>
-    <loc>https://example.com/es/gallery/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://tamayoleivaj.com/es/gallery/</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/gallery/"
+                href="https://tamayoleivaj.com/gallery/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://example.com/es/gallery/"
+                href="https://tamayoleivaj.com/es/gallery/"
                 />
   </url><url>
-    <loc>https://example.com/es/papers/</loc>
+    <loc>https://tamayoleivaj.com/es/papers/</loc>
     <lastmod>2017-03-02T12:00:00-05:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/papers/"
+                href="https://tamayoleivaj.com/papers/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://example.com/es/papers/"
+                href="https://tamayoleivaj.com/es/papers/"
                 />
   </url><url>
-    <loc>https://example.com/es/about/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://tamayoleivaj.com/es/about/</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/about/"
+                href="https://tamayoleivaj.com/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://example.com/es/about/"
+                href="https://tamayoleivaj.com/es/about/"
                 />
   </url><url>
-    <loc>https://example.com/es/contact/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://tamayoleivaj.com/es/contact/</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/contact/"
+                href="https://tamayoleivaj.com/contact/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://example.com/es/contact/"
+                href="https://tamayoleivaj.com/es/contact/"
                 />
   </url><url>
-    <loc>https://example.com/es/post/chapter-1/</loc>
-    <lastmod>2017-04-09T10:58:08-04:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://tamayoleivaj.com/es/tags/datapasta/</loc>
+    <lastmod>2022-01-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/post/chapter-1/"
+                href="https://tamayoleivaj.com/tags/datapasta/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://example.com/es/post/chapter-1/"
+                href="https://tamayoleivaj.com/es/tags/datapasta/"
                 />
   </url><url>
-    <loc>https://example.com/es/</loc>
-    <lastmod>2017-04-09T10:58:08-04:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://tamayoleivaj.com/es/tags/dataviz/</loc>
+    <lastmod>2022-01-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/"
+                href="https://tamayoleivaj.com/tags/dataviz/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://example.com/es/"
+                href="https://tamayoleivaj.com/es/tags/dataviz/"
                 />
   </url><url>
-    <loc>https://example.com/es/tags/scene/</loc>
-    <lastmod>2017-04-09T10:58:08-04:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://tamayoleivaj.com/es/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/</loc>
+    <lastmod>2022-01-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/tags/scene/"
+                href="https://tamayoleivaj.com/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://example.com/es/tags/scene/"
+                href="https://tamayoleivaj.com/es/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/"
                 />
   </url><url>
-    <loc>https://example.com/es/tags/</loc>
-    <lastmod>2017-04-09T10:58:08-04:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://tamayoleivaj.com/es/tags/ggplot2/</loc>
+    <lastmod>2022-01-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/tags/"
+                href="https://tamayoleivaj.com/tags/ggplot2/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://example.com/es/tags/"
+                href="https://tamayoleivaj.com/es/tags/ggplot2/"
                 />
   </url><url>
-    <loc>https://example.com/es/categories/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://tamayoleivaj.com/es/tags/</loc>
+    <lastmod>2022-01-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/categories/"
+                href="https://tamayoleivaj.com/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://example.com/es/categories/"
+                href="https://tamayoleivaj.com/es/tags/"
                 />
   </url><url>
-    <loc>https://example.com/es/tags/development/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://tamayoleivaj.com/es/</loc>
+    <lastmod>2022-01-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/data-science/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/data-science/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/data-science/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/data-visualization/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/data-visualization/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/data-visualization/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/post/20211123-hello-tidytuesday/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/post/20211123-hello-tidytuesday/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/post/20211123-hello-tidytuesday/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/post/20211123-hello-blog/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/post/20211123-hello-blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/post/20211123-hello-blog/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/microbial-ecology/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/microbial-ecology/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/microbial-ecology/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/r/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/r/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/r/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/science/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/science/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/science/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/statistics/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/statistics/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/statistics/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/tidytuesday/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/tidytuesday/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/tidytuesday/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/categories/"
+                />
   </url>
 </urlset>

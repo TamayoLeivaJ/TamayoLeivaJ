@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Science on Javier Tamayo-Leiva</title>
+    <link>https://tamayoleivaj.com/es/tags/data-science/</link>
+    <description>Recent content in Data Science on Javier Tamayo-Leiva</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/es/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hola #TidyTuesday</title>
+      <link>https://tamayoleivaj.com/es/post/20211123-hello-tidytuesday/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/es/post/20211123-hello-tidytuesday/</guid>
+      <description>Desde que empecé a aprender R, mi principal motivación ha sido conseguir visualizaciones increíbles como las que hacen Cédric Scherer, Georgios Karamanis, y Thomas Lin Pedersen entre muchos otros. Lo que me hipnotiza de ellas es que para lograrlas hay que lidiar con el código, el manejo de datos y la selección gráfica adecuada, pero también entender de diseño estético para lograr una gran pieza de visualización. Sin embargo, mientras que algunos están más capacitados y/o han sido dotados de habilidades y gusto por el diseño y la estética -si es que hay algo parecido- para mí ha sido un viaje en ambos aspectos de la visualización de datos, convirtiéndose en agradables compañeros de viaje de la ciencia de datos.</description>
+    </item>
+    
+    <item>
+      <title>Hola Blog!</title>
+      <link>https://tamayoleivaj.com/es/post/20211123-hello-blog/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/es/post/20211123-hello-blog/</guid>
+      <description>Desde que me di cuenta de todas las posibilidades sobre la codificación en R -en su mayoría- pero también en otro lenguaje, que quería crear un blog para compartir algunas de las cosas que he aprendido. Sin embargo, me gusta también la idea de un blog como una plataforma para compartir el conocimiento entrante como un proceso de aprendizaje-enseñanza. Así que ahora, al final de mi doctorado, parece ser el momento y la oportunidad adecuados para hacerlo, al tiempo que se crea un portafolio de las cosas y habilidades que he recogido en el proceso.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DataViz on Javier Tamayo-Leiva</title>
+    <link>https://tamayoleivaj.com/es/tags/dataviz/</link>
+    <description>Recent content in DataViz on Javier Tamayo-Leiva</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/es/tags/dataviz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>De la carga de los datos a la visualización en R (fácilmente)</title>
+      <link>https://tamayoleivaj.com/es/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/es/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/</guid>
+      <description>Table of Content  Introducción Lleva tus datos a R {datapasta}  ¿Cómo funciona {datapasta}?  Grafica tus datos con {ggplot2}  Gráfico básico  Componentes de un gráfico en {ggplot2}  Elegir los Colores Elija el gráfico con los objeto geom Gráfico final    Introducción Muchas veces la razón por la que la gente se acerca al lenguaje R es porque han visto que es una gran herramienta para lograr mejores visualizaciones.</description>
+    </item>
+    
+    <item>
+      <title>Hola #TidyTuesday</title>
+      <link>https://tamayoleivaj.com/es/post/20211123-hello-tidytuesday/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/es/post/20211123-hello-tidytuesday/</guid>
+      <description>Desde que empecé a aprender R, mi principal motivación ha sido conseguir visualizaciones increíbles como las que hacen Cédric Scherer, Georgios Karamanis, y Thomas Lin Pedersen entre muchos otros. Lo que me hipnotiza de ellas es que para lograrlas hay que lidiar con el código, el manejo de datos y la selección gráfica adecuada, pero también entender de diseño estético para lograr una gran pieza de visualización. Sin embargo, mientras que algunos están más capacitados y/o han sido dotados de habilidades y gusto por el diseño y la estética -si es que hay algo parecido- para mí ha sido un viaje en ambos aspectos de la visualización de datos, convirtiéndose en agradables compañeros de viaje de la ciencia de datos.</description>
+    </item>
+    
+  </channel>
+</rss>

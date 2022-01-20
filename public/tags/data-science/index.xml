@@ -2,18 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Science on Javier Tamayo-Leiva</title>
-    <link>https://example.com/tags/data-science/</link>
+    <link>https://tamayoleivaj.com/tags/data-science/</link>
     <description>Recent content in Data Science on Javier Tamayo-Leiva</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Apr 2017 10:58:08 -0400</lastBuildDate><atom:link href="https://example.com/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>#TidyTuesday</title>
-      <link>https://example.com/gallery/tidytuesday/</link>
-      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      <title>Hello #TidyTuesday</title>
+      <link>https://tamayoleivaj.com/post/20211123-hello-tidytuesday/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/gallery/tidytuesday/</guid>
-      <description>A weekly data project aimed at the R ecosystem. As this project was borne out of the R4DS Online Learning Community and the R for Data Science textbook, an emphasis was placed on understanding how to summarize and arrange data to make meaningful charts with ggplot2, tidyr, dplyr, and other tools in the tidyverse ecosystem. However, any code-based methodology is welcome - just please remember to share the code used to generate the results.</description>
+      <guid>https://tamayoleivaj.com/post/20211123-hello-tidytuesday/</guid>
+      <description>Since I started learning R, my main motivation has been to get amazing visualizations like the ones made by Cédric Scherer, Georgios Karamanis, and Thomas Lin Pedersen among many others. What mesmerizes me about them is that to achieve them you have to deal with code, data handling and proper graphical selection, but also understand about aesthetic design in order to achieve a great piece of visualization. However, while some are more trained and/or have been gifted with skills and taste for design and aesthetics - if there is something alike - for me it has been a journey in both aspects of data visualization, becoming enjoyable wingmen of the data science journey.</description>
+    </item>
+    
+    <item>
+      <title>Hello Blog!</title>
+      <link>https://tamayoleivaj.com/post/20211123-hello-blog/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/post/20211123-hello-blog/</guid>
+      <description>Since I realized all the possibilities about coding in R -mostly- but also in other language, I wanted to create a blog to share some of the things I have learned. However, I also like the idea of a blog as a platform to share incoming knowledge as a learning-teaching process. So now, at the end of my PhD, seems to be the right time and opportunity to do so, while creating a portfolio of the things and skills I have picked up in the process.</description>
     </item>
     
   </channel>

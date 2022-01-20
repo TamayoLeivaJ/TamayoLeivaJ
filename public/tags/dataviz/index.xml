@@ -2,18 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DataViz on Javier Tamayo-Leiva</title>
-    <link>https://example.com/tags/dataviz/</link>
+    <link>https://tamayoleivaj.com/tags/dataviz/</link>
     <description>Recent content in DataViz on Javier Tamayo-Leiva</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Apr 2017 10:58:08 -0400</lastBuildDate><atom:link href="https://example.com/tags/dataviz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/tags/dataviz/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>#TidyTuesday</title>
-      <link>https://example.com/gallery/tidytuesday/</link>
-      <pubDate>Sun, 09 Apr 2017 10:58:08 -0400</pubDate>
+      <title>From data loading to visualization in R (easily)</title>
+      <link>https://tamayoleivaj.com/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/gallery/tidytuesday/</guid>
-      <description>A weekly data project aimed at the R ecosystem. As this project was borne out of the R4DS Online Learning Community and the R for Data Science textbook, an emphasis was placed on understanding how to summarize and arrange data to make meaningful charts with ggplot2, tidyr, dplyr, and other tools in the tidyverse ecosystem. However, any code-based methodology is welcome - just please remember to share the code used to generate the results.</description>
+      <guid>https://tamayoleivaj.com/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/</guid>
+      <description>Table of Content  Introduction Bring your data to R {datapasta}  How does {datapasta} work?  Plot your data with {ggplot2}  Basic plot  Components of a plot in {ggplot2}  Set Colors
+ Choose the graphic with the geom objects Final Plot    Introduction Many times the reason people approach the R language is because they have seen that it is a great tool for achieving better visualizations.</description>
+    </item>
+    
+    <item>
+      <title>Hello #TidyTuesday</title>
+      <link>https://tamayoleivaj.com/post/20211123-hello-tidytuesday/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/post/20211123-hello-tidytuesday/</guid>
+      <description>Since I started learning R, my main motivation has been to get amazing visualizations like the ones made by Cédric Scherer, Georgios Karamanis, and Thomas Lin Pedersen among many others. What mesmerizes me about them is that to achieve them you have to deal with code, data handling and proper graphical selection, but also understand about aesthetic design in order to achieve a great piece of visualization. However, while some are more trained and/or have been gifted with skills and taste for design and aesthetics - if there is something alike - for me it has been a journey in both aspects of data visualization, becoming enjoyable wingmen of the data science journey.</description>
     </item>
     
   </channel>
