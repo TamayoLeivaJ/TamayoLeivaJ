@@ -587,7 +587,7 @@ ggplot(data = data,
    labs(x = "Especies",
         y = "Longitud del pico (mm)",
         fill = "Especies",
-        title = "Especies de pinguinos del archipelago Palmer,\nAntártica")
+        title = "Especies de pinguinos del\narchipelago Palmer, Antártica")
 ```
 
 Por último, modificaremos el tema del gráfico. Al modificar el tema estamos modificando el lienzo sobre el que se han trazado nuestros ejes y datos. Para ello utilizaremos la función "**theme_**...", y seleccionaremos uno de los ocho [temas](https://ggplot2.tidyverse.org/reference/ggtheme.html) que se cargan por defecto en la librería {ggplot2}. En este ejemplo hemos elegido el "**theme_classic()**", porque genera un trazado más limpio, manteniendo los ejes. En caso de que necesites utilizar otro tema, también puedes aplicar temas de librerías como [{ggpubr}](https://rpkgs.datanovia.com/ggpubr/), o crear el tuyo propio con la función **theme()**.Pero tendremos que mostrar este proceso con más detalle en un próximo post.
@@ -602,7 +602,7 @@ ggplot(data = data,
    labs(x = "Especies",
         y = "Longitud del pico (mm)",
         fill = "Especies",
-        title = "Especies de pinguinos del archipelago Palmer,\nAntártica") +
+        title = "Especies de pinguinos del\narchipelago Palmer, Antártica") +
   theme_classic()
 ```
 

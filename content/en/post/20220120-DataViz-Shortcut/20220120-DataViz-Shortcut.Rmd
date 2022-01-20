@@ -587,7 +587,7 @@ ggplot(data = data,
    labs(x = "Species",
         y = "Bill length (mm)",
         fill = "Species",
-        title = "Penguins species in the Palmer archipelago,\nAntarctica")
+        title = "Penguins species in the\nPalmer archipelago, Antarctica")
 ```
 
 Finally, we will modify the theme of the chart. By modifying the theme we are modifying the canvas on which our axes and data have been plotted. To do this we will use the "**theme_**..." function, and select one of the eight [themes](https://ggplot2.tidyverse.org/reference/ggtheme.html) that are loaded by default in the {ggplot2} library. In this example we have chosen the "**theme_classic()**", because it generates a cleaner plot, keeping the axes. In case you need to use another theme, you can also apply themes from libraries like [{ggpubr}](https://rpkgs.datanovia.com/ggpubr/), or create your own with the **theme()** function, but we will have to show this process in more detail in a future post.
@@ -602,7 +602,7 @@ ggplot(data = data,
    labs(x = "Species",
         y = "Bill length (mm)",
         fill = "Species",
-        title = "Penguins species in the Palmer archipelago,\nAntarctica") +
+        title = "Penguins species in the\nPalmer archipelago, Antarctica") +
   theme_classic()
 ```
 
