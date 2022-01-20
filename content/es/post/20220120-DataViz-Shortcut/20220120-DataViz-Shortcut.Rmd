@@ -38,7 +38,6 @@ data <- read_csv("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/
 ## Introducción {#intro}
 Muchas veces la razón por la que la gente se acerca al lenguaje R es porque han visto que es una gran herramienta para lograr mejores visualizaciones. Sin embargo, dado que R sigue siendo un lenguaje de programación, puede ser frustrante que para hacerlo tengas que lidiar con unas cuantas líneas de código para cargar, y preprocesar tus datos antes de empezar a crear la más simple visualización. Así que el objetivo principal de este post es proporcionar una manera más fácil de hacer frente a los pasos de la carga de sus datos a la visualización. Así que seguirás una guía para principiantes paso a paso para manejar tus datos hasta la visualización. <br>
    
-
 ## Lleva tus datos a R {datapasta} {#body1}
 R tiene diferentes opciones para cargar sus datos en R, ya sea utilizando la base de R, con la ayuda de Tidyverse u otros paquetes de datos, y con el uso de un IDE (*Integrated Development Environment*) como RStudio. Sin embargo, aunque con el tiempo cargar archivos en R se convierte en algo rutinario, para un usuario con poca experiencia puede ser una de las tareas que más frustración genera, y acaba por desanimar el aprendizaje.  Por eso, utilizar un proceso intuitivo como copiar y pegar o arrastrar y soltar puede ser un muy buen amigo mientras se adquiere más experiencia en la escritura de código R.<br>   
 
