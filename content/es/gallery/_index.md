@@ -47,7 +47,7 @@ Algunos mapas
 Algunos experimentos de visualizaciones generativas
 
 {{< gallery >}}
-  {{< figure-gallery link="/gallery/Generative_Art/Generative_Art_024.png" thumb="-thumb" class="w-100 h-90" hover-effect="shrink" caption-position="none" >}}
+  {{< figure-gallery link="/gallery/Generative_Art/Generative_Art_032.png" thumb="-thumb" class="w-100 h-90" hover-effect="shrink" caption-position="none" >}}
   {{< figure-gallery link="/gallery/Generative_Art/Generative_Art_027v2.png" thumb="-thumb" class="w-100 h-90" hover-effect="shrink" caption-position="none" >}}
   {{< figure-gallery link="/gallery/Generative_Art/Generative_Art_028.png" thumb="-thumb" class="w-100 h-90" hover-effect="shrink" caption-position="none" >}}
   {{< figure-gallery link="/gallery/Generative_Art/Generative_Art_029.png" thumb="-thumb" class="w-100 h-90" hover-effect="shrink" caption-position="none" >}}
