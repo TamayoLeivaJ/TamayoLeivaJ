@@ -9,7 +9,7 @@ toc: true
 
 {{< load-photoswipe >}}
 
-# DataViz 
+# DataViz
 ## TidyTuesday
 Mis contribuciones favoritas. Puedes encontrar los códigos de R [aquí](https://github.com/TamayoLeivaJ/TidyTuesday)
 
@@ -23,7 +23,7 @@ Mis contribuciones favoritas. Puedes encontrar los códigos de R [aquí](https:/
   {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_052.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 52 - Starbucks drinks ☕" >}}
   {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_002.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Semana 02 - Bee Colony losses 🐝" >}}
   {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_003.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Semana 03 - Chocolate Bar ratings 🍫" >}}
-{{< /gallery >}} 
+{{< /gallery >}}
 
 ## Himalayan database
 
@@ -39,7 +39,8 @@ Mis visualizaciones favoritas con la base de datos del Himalaya
 Algunos mapas
 
 {{< gallery >}}
-{{< figure-gallery link="/gallery/Maps/Map_001.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Santiago - Chile">}}
+{{< figure-gallery link="/gallery/Maps/001_Map_Stgo_CL_lowerres.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Santiago - Chile">}}
+{{< figure-gallery link="/gallery/Maps/003_Map_Valp_CL_lowerres.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Valparaíso - Chile">}}
 {{< /gallery >}}
 
 # Generative Art
