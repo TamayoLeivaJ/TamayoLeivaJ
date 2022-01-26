@@ -45,6 +45,7 @@ Some fancy map visualizations
 {{< gallery >}}
 {{< figure-gallery link="/gallery/Maps/001_Map_Stgo_CL_rd.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Santiago - Chile">}}
 {{< figure-gallery link="/gallery/Maps/003_Map_Valp_CL_rd.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Valparaíso - Chile">}}
+{{< figure-gallery link="/gallery/Maps/004_Map_Bog_CO_rd.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Bogotá - Colombia">}}
 {{< /gallery >}}
 
 # Generative Art
