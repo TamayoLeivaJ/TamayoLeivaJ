@@ -39,8 +39,8 @@ Mis visualizaciones favoritas con la base de datos del Himalaya
 Algunos mapas
 
 {{< gallery >}}
-{{< figure-gallery link="/gallery/Maps/001_Map_Stgo_CL_lowerres.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Santiago - Chile">}}
-{{< figure-gallery link="/gallery/Maps/003_Map_Valp_CL_lowerres.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Valparaíso - Chile">}}
+{{< figure-gallery link="/gallery/Maps/001_Map_Stgo_CL_rd.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Santiago - Chile">}}
+{{< figure-gallery link="/gallery/Maps/003_Map_Valp_CL_rd.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Valparaíso - Chile">}}
 {{< /gallery >}}
 
 # Generative Art
