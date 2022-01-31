@@ -24,6 +24,7 @@ Mis contribuciones favoritas. Puedes encontrar los códigos de R [aquí](https:/
   {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_042.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 42 - Global Seafood 🎣" >}}
   {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_039.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 39 - Emmy Awards 📺" >}}  
   {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_038.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 38 - Billboard Top 100 🎙">}}
+  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_037.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 37 - Formula 1 Races 🏁">}}
 {{< /gallery >}}
 
 ## Himalayan database

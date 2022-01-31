@@ -28,6 +28,7 @@ My favorite contributions. You can find the R codes [here](https://github.com/Ta
   {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_042.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Week 42 - Global Seafood 🎣" >}}
   {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_039.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Week 39 - Emmy Awards 📺" >}}  
   {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_038.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Week 38 - Billboard Top 100 🎙">}}
+  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_037.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Week 37 - Formula 1 Races 🏁">}}
 {{< /gallery >}}
 
 ## Himalayan database
