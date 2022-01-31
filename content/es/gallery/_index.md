@@ -14,15 +14,16 @@ toc: true
 Mis contribuciones favoritas. Puedes encontrar los códigos de R [aquí](https://github.com/TamayoLeivaJ/TidyTuesday)
 
 {{< gallery >}}
-  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_038.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 38 - Billboard Top 100 🎙">}}
-  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_039.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 39 - Emmy Awards 📺" >}}
-  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_042.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 42 - Global Seafood 🎣" >}}
-  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_044.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 44 - UTR 🗻⛰️" alt="Semana 44 - Ultra Trail Running 🗻⛰️">}}
-  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_046.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 46 - Learning with afrilearndata 🌍" >}}
-  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_049.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Semana 49 - Men's Cricket 🏏" >}}
-  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_052.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 52 - Starbucks drinks ☕" >}}
-  {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_002.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Semana 02 - Bee Colony losses 🐝" >}}
+  {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_004.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Semana 04 - Board games 🎲" >}}
   {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_003.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Semana 03 - Chocolate Bar ratings 🍫" >}}
+  {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_002.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Semana 02 - Bee Colony losses 🐝" >}}
+  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_052.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 52 - Starbucks drinks ☕" >}}
+  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_049.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="Semana 49 - Men's Cricket 🏏" >}}  
+  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_046.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 46 - Learning with afrilearndata 🌍" >}}  
+  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_044.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 44 - UTR 🗻⛰️" alt="Semana 44 - Ultra Trail Running 🗻⛰️">}}  
+  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_042.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 42 - Global Seafood 🎣" >}}
+  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_039.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 39 - Emmy Awards 📺" >}}  
+  {{< figure-gallery link="/gallery/TidyTuesday/2021_Week_038.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2021 Semana 38 - Billboard Top 100 🎙">}}
 {{< /gallery >}}
 
 ## Himalayan database
