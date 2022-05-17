@@ -16,7 +16,7 @@ Javier Tamayo-Leiva
 About myself...
 {{< /customtitles>}}
 
-I am **Javier Tamayo Leiva**, a Ph.D. student in Genetics and Microbiology at the Pontifical Catholic University of Chile. I am curious about microbial processes of genetic dispersal in their communities. I am a trained microbial ecologist and data scientist. I am a data enthusiast focused on analysis, modeling, and visualization to create and share knowledge and value from data. I am always eager to learn new topics, techniques, and ways to expose information through dynamic tools.
+I am **Javier Tamayo Leiva**, I received my PhD in Genetics and Microbiology at the Pontificia Universidad Católica de Chile.  Due to my great interest and curiosity for science and big data I did my PhD in Genetics and Microbiology with a focus on visualization, statistical analysis and data modeling, to study microbial processes of genetic dispersion in communities. I really enjoy approaching analyses with the goal of building and sharing knowledge and value from data. Therefore, I am always eager to learn new topics, techniques and ways to expose information through dynamic tools. Thus, throughout my career I have acquired advanced knowledge in R, WebScrapping, data engineering, report generation -R Markdown and Jupyter Notebook- and applications with R Shiny. I also have knowledge in HTML, CSS and HUGO. And I am currently focused on learning more about Python and SQL. 
 
 {{< customtitles color="orange" text-align="tl">}}
 The reason for...

@@ -16,7 +16,7 @@ Javier Tamayo-Leiva
 Acerca de mí...
 {{< /customtitles>}}
 
-Soy **Javier Tamayo Leiva**, estudiante de doctorado en Genética y Microbiología en la Pontificia Universidad Católica de Chile. Tengo curiosidad por los procesos microbianos de dispersión genética en sus comunidades. Soy un ecólogo microbiano entrenado y un científico de datos. Soy un entusiasta de los datos centrado en el análisis, modelamiento y la visualización con el objetivo de  crear y compartir conocimientos y valor desde los datos. Siempre estoy ansioso por aprender nuevos temas, técnicas y maneras de exponer la información a traves de herramientas dinámicas.
+Soy **Javier Tamayo Leiva**, recibí mi doctorado en Genética y Microbiología en la Pontificia Universidad Católica de Chile.  Debido a mi gran interés y curiosidad por la ciencia y el big data hice mi doctorado en Genética y Microbiología con un enfoque en la visualización, análisis estadístico y modelamiento de datos, para estudiar los procesos microbianos de dispersión genética en comunidades. Me gusta mucho abordar los análisis con el objetivo de construir y compartir el conocimiento y el valor de los datos. Por ello, siempre estoy deseando aprender nuevos temas, técnicas y formas de exponer la información a través de herramientas dinámicas. Así, a lo largo de mi carrera he adquirido conocimientos avanzados en R, WebScrapping, ingeniería de datos, generación de informes -R Markdown y Jupyter Notebook- y aplicaciones con R Shiny. También tengo conocimientos en HTML, CSS y HUGO. Y actualmente estoy centrado en aprender más sobre Python y SQL. 
 
 {{< customtitles color="orange" text-align="tl">}}
 El motivo de...
