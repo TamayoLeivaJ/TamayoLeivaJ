@@ -20,7 +20,7 @@
     <img height="28" width="28" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/rstudio.svg" />
     <img height="28" width="28" src="https://github.com/TamayoLeivaJ/TamayoLeivaJ/blob/main/Image/logo/github.svg" />
   </h3>
-I'm a trained microbial ecologist and a pushing data scientist. I'm a data-enthusiast focused on data analytics, modeling, and visualization to create and share knowledge and value. I'm always eager to learn new topics, techniques, and ways to show through dynamics tools. <br> MS.c. in Biotechnology <br> Ph.D. in Genetics & Microbiology.
+I'm a trained microbial ecologist and a pushing data scientist. I'm a data-enthusiast focused on data analytics, modeling, and visualization to create and share knowledge and value. I'm always eager to learn new topics, techniques, and ways to show through dynamics tools. <br><br> MS.c. in Biotechnology <br> Ph.D. in Genetics & Microbiology.
 </div>
 <br>
 <div align="center">
