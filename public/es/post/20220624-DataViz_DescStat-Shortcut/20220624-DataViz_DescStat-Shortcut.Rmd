@@ -363,6 +363,12 @@ ggplot(data = penguins,
        geom_boxplot()
 ```
 
+El *boxplot* es un tipo de visualización muy útil porque nos permite identificar en un solo gráfico los cuantiles (0,25 (Q1), 0,5 (Q2) y 0,75 (Q3)), así como los valores atípicos (*outliers*) de un conjunto de datos.<br>
+
+#### ¿Cómo se interpreta un boxplot?
+
+<img src="/images/post/20220624-DataViz_DescStat-Shortcut/boxplot_es.png" alt="{RStudio}" style="width:500px;" class="center"/><br>
+
 #### Violin Plot
 ```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
 ggplot(data = penguins, 
@@ -372,8 +378,7 @@ ggplot(data = penguins,
        geom_violin()
 ```
 
-El *boxplot* es un tipo de visualización muy útil porque nos permite identificar en un solo gráfico los cuantiles (0,25 (Q1), 0,5 (Q2) y 0,75 (Q3)), así como los valores atípicos (*outliers*) de un conjunto de datos. El *violin plot* es otro tipo de visualización, en el que podemos observar la distribución de los datos, lo que nos permite observar más claramente la densidad.<br>
-
+El *violin plot* es otro tipo de visualización, en el que podemos observar la distribución de los datos, lo que nos permite observar más claramente la densidad.<br>
 
 ## Complementa tus análisis con {ggpubr} {#body4}
 
