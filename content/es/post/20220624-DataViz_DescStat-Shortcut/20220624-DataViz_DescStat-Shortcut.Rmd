@@ -1,0 +1,487 @@
+---
+title: "Estadistica descriptiva y Visualización en R"
+description: "Un atajo usando {stat}, {ggplot2}, y {ggpubr}"
+author: "Javier Tamayo-Leiva" 
+date: 2022-06-24
+featured_image: "/images/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut.png"
+layout: post
+toc: FALSE
+tags: ["DataViz", "Statistics", "stat", "ggpubr", "ggplot2"]
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.height=4, fig.width=4, fig.align = "center", fig.retina = 2)
+library(systemfonts)
+library(ggpubr)
+library(tidyverse)
+
+penguins <- read_csv("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv")
+```
+   
+#### Table of Content
+
+* [Introducción](#intro)
+* [Cargar tus datos](#body1)
+  - [¿Cómo cargar mis datos desde RStudio?](#body1.1)
+* [Estadística descriptiva con {stat} en R](#body2)
+  - [Medidas de tendencia central](#body2.1)
+  - [Medidas de dispersión](#body2.2)
+  - [Medidas de distribución](#body2.3)
+  - [Análisis de varianza](#body2.4)
+* [Grafica tus datos con {ggplot2}](#body3)
+  - [Gráfico básico](#body3.1)
+    - [Componentes de un gráfico en {ggplot2}](#body3.1.1)
+  - [Elegir los Colores](#body3.2)
+  - [Elija el gráfico con los objeto geom](#body3.3)
+* [Complementa tus análisis con {ggpubr}](#body4)
+  - [Funciones de {ggpubr}](#body4.1)
+* [Gráfico final](#body5)
+
+
+---
+  
+## Introducción {#intro}
+Muchas veces he visto que la gente está interesada en aprender R por las visualizaciones que uno puede generar con paquetes como {ggplot2}. Sin embargo, R es un lenguaje de programación, por lo que su potencia no se limita sólo a este factor, siendo también una poderosa herramienta para cálculos estadísticos. Por eso, el objetivo principal de este post es proporcionar herramientas, para generar análisis estadísticos descriptivos, y visualizaciones asociadas, que nos permitan explorar nuestros datos en busca de patrones. Aquí seguirás una guía paso a paso para realizar análisis estadísticos descriptivos y generar visualizaciones de tus datos que te ayuden a entenderlos mejor. <br>
+   
+## Cargar tus datos {#body1}
+R tiene diferentes formas de cargar conjuntos de datos, sin embargo con el uso de un IDE (*Integrated Development Environment*) como RStudio, podemos simplificar mucho este proceso.
+
+Lo primero que tenemos que hacer una vez que hayamos instalado R y RStudio, es instalar la librería [{readR}](https://readr.tidyverse.org) de [{tidyverse}](https://tidyverse.org) que nos ayudara con la carga de datos: <br>
+
+
+```{r eval=FALSE, include=TRUE, echo=TRUE}
+# Instalar todos los paquetes de {tidyverse} (Recomendado)
+install.packages("tidyverse")
+
+# Instalar solo {readR}
+install.packages("readr")
+```
+
+
+### ¿Cómo cargar mis datos desde RStudio? {#body1.1}
+
+Una vez que hayamos instalado nuestros paquetes, lo que tenemos que hacer en RStudio es ir a la pestaña "**Environment**" y luego hacer clic en el menú desplegable de la pestaña "**Import Dataset**". En esta pestaña podremos seleccionar si queremos importar nuestros datos desde un archivo de texto (ejemplo: csv, tsv, etc.) o si queremos hacerlo desde un archivo de Excel (ejemplo: xlsx).<br><br>
+
+**Environment** -> **Import Dataset** -> **From text (base)**, **From text (readr)**, o **From Excel**<br><br>
+
+<img src="/images/post/20220624-DataViz_DescStat-Shortcut/data-import-rstudio-overview_2.png" alt="{RStudio}" style="width:400px;" class="center"/><br>
+
+Del mismo modo, podemos encontrar la pestaña **Import Dataset** si buscamos la pestaña **File** directamente en el menú de la parte superior.<br><br>
+
+**File** -> **Import Dataset** -> **From text (base)**, **From text (readr)**, o **From Excel**<br><br>
+
+<img src="/images/post/20220624-DataViz_DescStat-Shortcut/data-import-rstudio-overview_3.png" alt="{RStudio}" style="width:400px;" class="center"/><br>
+
+Una vez que hayamos completado estos pasos, se desplegará una ventana en la que podremos revisar nuestros datos de interés y en la que incluso podremos hacer algunas modificaciones manualmente. Puedes encontrar más detalles sobre los tipos de archivos que puedes subir y las modificaciones en el artículo original de RStudio IDE [link](https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-the-RStudio-IDE). <br><br>
+
+<img src="/images/post/20220624-DataViz_DescStat-Shortcut/data-import-rstudio-overview.gif" alt="{RStudio}" class="w-40-ns mw4 center"/><br>
+
+Adicionalmente existen otras formas de cargar datos en R, si estas interesado puedes revisar otra alternativa en uno de mis post anteriores [De la carga de los datos a la visualización en R (fácilmente)](https://tamayoleivaj.com/es/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/)<br>
+
+## Estadística descriptiva con {stat} en R {#body2}
+
+[{stat}](https://cran.r-project.org/web/packages/STAT/index.html) es un paquete de R que se carga por defecto al iniciar la sesión (no es necesario llamar a la librería para utilizarlo). Su objetivo es proporcionar herramientas para realizar cálculos estadísticos (de básicos a avanzados), y generación de números. Para obtener información sobre las funciones que puede realizar el paquete {stat}, puede ejecutar el siguiente código en su sesión de R.<br>
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, include=TRUE, eval=FALSE}
+library(help = "stats")
+```
+
+Para nuestro ejemplo de hoy utilizaremos la el set de datos penguins que puedes descargar presionando el siguiente link: [penguins.csv](https://github.com/mwaskom/seaborn-data/blob/master/penguins.csv)<br>
+
+A continuación podremos revisar la estructura del set de datos.<br><br>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+DT::datatable(head(penguins, n=30), fillContainer = TRUE, options = list(pageLength = 10, scrollY = '400px'))
+```
+
+<br>
+De todas las variables, para nuestro análisis seleccionaremos "bill_length_mm" (longitud del pico en milímetros) y "bill_depth_mm" (profundidad del pico en milímetros) porque son variables continuas.<br><br>
+
+<img src="/images/post/20220120-DataViz-Shortcut/culmen_depth.png" alt="penguins" style="height: 400px; width:621px;" class="center"/>
+
+
+### Medidas de tendencia central {#body2.1}
+
+El primer y más sencillo análisis corresponde al cálculo de la media (`mean`). Es necesario tener en cuenta que el primer argumento corresponde al conjunto de datos y la variable que queremos analizar (`data$bill_length_mm`). Nuestro segundo argumento es `na.rm = TRUE` para eliminar cualquier observación con "NA" de la variable de interés en el análisis.<br>  
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+mean(penguins$bill_length_mm, na.rm = TRUE)
+```
+
+Tambien podemos calcular la mediana (`median`)(valor que separa el el 50% superior e inferior) de la misma forma, solo cambiando la función. <br>
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+median(penguins$bill_length_mm, na.rm = TRUE)
+```
+
+
+### Medidas de dispersión {#body2.2}
+
+También podemos calcular el mínimo (`min`), el máximo (`max`) y el rango de valores (`range` min - max) de una variable continua. <br> 
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+min(penguins$bill_length_mm, na.rm = TRUE)
+max(penguins$bill_length_mm, na.rm = TRUE)
+range(penguins$bill_length_mm, na.rm = TRUE)
+```
+
+También podemos calcular los cuantiles (punto que divide la distribución en intervalos regulares) de una variable continua. En este ejemplo utilizaremos los cuartiles 0.25 (Q1), 0.5 (Q2) y 0.75 (Q3). <br> 
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+quantile(penguins$bill_length_mm, prob = c(0.25, 0.5, 0.75), na.rm = TRUE)
+```
+
+
+De la misma forma podemos calcular medidas de dispersión para nuestros datos, tales como la varianza, desviación estándar. 
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+var(penguins$bill_length_mm, na.rm = TRUE)
+sd(penguins$bill_length_mm, na.rm = TRUE)
+```
+
+Finalmente, R tiene una función que nos pertite calcular todas estas metricas (mean, median, 0.25 (Q1) y 0.75 (Q3) cuartiles, min, max, NA's) sobre cada variable presente en un set de datos. La función se denomina `summary`y se ocupa de la siguiente forma.<br>
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+summary(penguins$bill_length_mm)
+```
+
+Si quieres calcularlo sobre todas las variables (continuas y discretas) del conjunto de datos, utiliza el siguiente código.<br>
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, eval=FALSE}
+summary(penguins)
+```
+
+### Medidas de distribución {#body2.3}
+
+También podemos analizar la distribución de nuestros datos con medidas que nos permitan analizar la normalidad y la homocedasticidad.<br> 
+
+#### Pueba de normalidad Shapiro-Wilk: <br>
+
+Se usa para probar la normalidad en la distribución de los datos para una variable. Se puede ocupar en grupos con no más de 5000 observaciones (N < 5000).<br>
+
+H0 = La variable muestra una distribución normal <br>
+H1 = La variable no muestra una distribución normal <br>
+
+Interpretación <br>
+
+p-value > alfa: No rechazar H0 (normal) <br>
+p-value < alfa: Rechazar H0 (no normal) <br>
+
+> alfa hipotético 5% (0,05)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+shapiro.test(penguins$bill_length_mm)
+```
+
+#### Pueba de homocedasticidad Bartlett’s test<br>
+
+Se usa para probar la homogeneidad de varianza (homocedasticidad) en k grupos de muestras, donde k puede ser mayor a dos. Está adaptado para datos distribuidos normalmente.<br> 
+
+H0 = Los grupos muestra homocedasticidad <br>
+H1 = Los grupos (al menos 2) no muestra homocedasticidad.<br>
+
+Interpretación<br>
+
+p-value > alfa: No rechazar H0 (homocedasticidad) <br>
+p-value < alfa: Rechazar H0 (no homocedasticidad) <br>
+
+> **Note**
+> alfa hipotético 5% (0,05)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+# Una variable independiente
+bartlett.test(bill_length_mm ~ sex, data = penguins)
+# Múltiples variables independientes
+bartlett.test(bill_length_mm ~ interaction(sex,species), data = penguins)
+```
+
+#### Pueba de homocedasticidad Fligner-Killeen test <br>
+
+Para probar homocedasticidad en k grupos de muestras, donde k puede ser mayor a dos. Más robusto contra las desviaciones de la normalidad o cuando hay problemas relacionados con valores atípicos (*outliers*). <br>
+
+H0 = Los grupos muestra homocedasticidad <br>
+H1 = Los grupos (al menos 2) no muestra homocedasticidad <br>
+
+Interpretación<br>
+
+p-value > alfa: No rechazar H0 (homocedasticidad)<br> 
+p-value < alfa: Rechazar H0 (no homocedasticidad)<br> 
+
+> alfa hipotético 5% (0,05)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+# Una variable independiente
+fligner.test(bill_length_mm ~ sex, data = penguins)
+# Múltiples variables independientes
+fligner.test(bill_length_mm ~ interaction(sex,species), data = penguins)
+```
+
+### Análisis de varianza {#body2.4}
+
+Son una colección de análisis que permiten examinar si las medias de los grupos (poblaciones, muestras) difieren entre sí. Existen métodos que difieren en el número de grupos que pueden comparar. Además existen métodos parametricos (requieren que se cumplan los supuestos) y no parámetricos (no requieren que se cumplan todos los supuestos) que son más o menos robustos frente al incumplimiento de algunos de los tres supuestos en los datos.<br>
+
+Supuestos<br>
+
+Independencia (los elementos de un grupo no están relacionados con los del otro grupo)<br> 
+Normalidad (los elementos de una muestra tienen distribución normal)<br> 
+Homocedasticidad (las variaciones de los grupos son iguales)<br><br> 
+
+#### ANOVA (una vía)  
+
+ANOVA es una técnica estadística que se utiliza para comparar las medias de dos o más grupos. ANOVA requiere que los grupos cumplan los 3 supuestos.<br> 
+
+
+<span style="color:red">**Importante!**</span>
+
+<span style="color:red">Es necesario notar que ninguna de las variables continuas de nuestro conjunto de datos de *penguins* tiene una distribución normal, por lo que en este ejemplo utilizaremos la variable *bill_length_mm* sólo con fines demostrativos, y teniendo en cuenta que el resultado obtenido no es fiable.</span>
+
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+peng.aov <- aov(bill_length_mm ~ species, data = penguins)
+summary(peng.aov)
+```
+
+##### Post-Hoc test
+
+Tukey's HSD (*honestly significant difference*) test <br>
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+TukeyHSD(peng.aov)
+```
+
+#### ANOVA (dos vías)
+
+El ANOVA de dos vías nos permite analizar la interacción entre factores.<br>
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+peng.aov2 <- aov(bill_length_mm ~ species*sex, data = penguins)
+summary(peng.aov2)
+TukeyHSD(peng.aov2)
+```
+
+#### Kruskal-Wallis 
+
+Kruskal-Wallis test es una prueba estadística y no paramétrica (no asume normalidad en los datos) que se utiliza para comparar las medias de más de dos grupos. Es similar al ANOVA pero con los datos por categorías.<br> 
+
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+kruskal.test(bill_length_mm ~ species, data = penguins)
+```
+
+##### Post-Hoc test
+
+Mann–Whitney–Wilcoxon o Wilcoxon rank-sum test <br>
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+pairwise.wilcox.test(penguins$bill_length_mm, penguins$species, p.adjust.method="fdr")
+```
+
+## Grafica tus datos con {ggplot2} {#body3}
+
+[{ggplot2}](https://ggplot2.tidyverse.org/) Es un paquete de R orientado a la visualización de datos. Fue creado por Hadley Wickham en 2005 y se basa en Leland Wilkinson's "Grammar of Graphics". Brevemente, the "Grammar of Graphics" es una aproximación general para la visualización de datos, donde un  un gráfico es separado en componentes semánticos como escalas y capas.<br> 
+
+Entonces, si aún no hemos instalado {ggplot2}, lo que tenemos que hacer en RStudio es instalar y cargar la librería {ggplot2} con el siguiente código: <br>
+
+- Instalar la librería de paquetes Tidyverse completa (recomendado) <br>
+
+```{r eval=FALSE, include=TRUE, echo=TRUE}
+# Instalar desde CRAN (The Comprehensive R Archive Network)
+install.packages("tidyverse")
+# Cargar las librerías 
+library(tidyverse)
+```
+
+- Instalar solo la librería {ggplot2} <br>
+
+```{r eval=FALSE, include=TRUE, echo=TRUE}
+# Instalar solo ggplot2
+install.packages("ggplot2")
+# Cargar la librería
+library(ggplot2)
+```
+
+### Gráfico básico {#body3.1}
+
+El primer gráfico que realizaremos corresponde a un gráfico de densidad (seleccionado a traves del objeto `geom_density`), para el cual sólo necesitaremos una variable continua (`bill_length_mm`), ya que ggplot2 generará el resto de la información necesaria mediante transformaciones y cálculos estadísticos. De esta manera no tendrás que generar ninguna manipulación a tus datos antes de graficarlos.<br>   
+
+#### Densiplot
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm)) + 
+       geom_density()
+```
+El *densiplot* calcula y gráfica la estimación de la densidad de los datos (es una versión suavizada del histograma).Nos permite ver la distribución de nuestros datos, y el area bajo la curva del *densiplot* suma 1 lo que corresponde a la probabilidad de encontrar el 100% de las observaciones.<br> 
+
+El paquete {ggplot2}, nos permite realizar varios tipos de visualizaciones debido a la gran variedad de objetos geom. Como ya hemos revisado nuestro conjunto de datos "**penguins**", y hemos identificado variables continuas como "bill_length_mm" (longitud del pico en milímetros) y "bill_depth_mm" (profundidad del pico en milímetros). A continuación realizaremos un gráfico de puntos (seleccionado a través del objeto `geom_point`), donde mapearemos dos variables y no sólo una como en el ejemplo anterior (`bill_length_mm` al eje `x`, y `bill_depth_mm` al eje `y`).<br>  
+
+#### Scatterplot
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm, 
+                     y = bill_depth_mm)) + 
+       geom_point()
+```
+
+#### Componentes de un gráfico en {ggplot2} {#body3.1.1}
+
+- **ggplot()** : Es la función que crea un sistema de coordenadas -de forma general- a las que se incorporán capas. El primer argumento de la función es el set de datos (data=). Por si sola esta función no genera una capa. <br>
+
+- **data** : El set de datos es una colección rectangular de datos con las variables (columnas) y sus observaciones/valores (filas) a mapear (penguins). <br>
+
+- **mapping** : Es donde se especifican el conjunto de variables y observaciones que se "mapean” o asignan a las propiedades visuales a usar en el gráfico y que ejes asignar a estos valores (x= bill_length_mm,y= bill_depth_mm). Si no son especificadas -de forma general-, se deben indicar en cada capa adicionada a el gráfico.<br>
+
+- **geom_point()** : Las capas del gráfico son incorporadas por las funciones o Geom. En este caso la función agrega una capa de puntos al gráfico. ggplot2 incluye más de 30 funciones geom, además de las desarrolladas por otros autores.<br>
+
+### Elegir los Colores {#body3.2}
+
+El gráfico anterior sólo permite ver la relación entre dos variables numéricas continuas. Sin embargo, el conjunto de datos también tiene información asignada a grupos discretos como la **especie** y el **sexo** del pingüino. Por esta razón utilizaremos otra propiedad visual como es el `color` para incorporar una nueva capa de información en el gráfico. Para ello utilizaremos el argumento `color` dentro de las variables mapeadas en "aes".<br> 
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm, 
+                     y = bill_depth_mm,
+                     color = species)) + 
+       geom_point()
+```
+
+### Elija el gráfico con los objeto geom {#body3.3}
+
+Una capa en ggplot2, combina datos, propiedades visuales, objetos geométricos (**Geoms**), funciones y/o transformaciones estadísticas (**Stat**), y de ajuste de la posición. En nuestro gráficos anteriores hemos realizado un gráfico de densidad o *densiplot* y un gráfico de puntos o *scatterplot*. Por defecto en R hay que elegir un objeto "**geom_**..." para generar una visualización, pues de lo contrarío obtendremos una representación sin nuestros datos en ella.<br>
+
+En el gráfico anterior podemos ver que hay diferencias en la distribución de datos según la especie. Ahora eligiremos otra representación para mostrar de mejor manera la distribución de la variables continua bill_length_mm en base a los grupos discretos presentes (especies) en el set de datos. Por esa razón cambiaremos nuestro geom desde **geom_point()** a **geom_boxplot()** y **geom_violin()**.<br>
+
+#### Boxplot
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     color = species)) + 
+       geom_boxplot()
+```
+
+#### Violin Plot
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     color = species)) + 
+       geom_violin()
+```
+
+El *boxplot* es un tipo de visualización muy útil porque nos permite identificar en un solo gráfico los cuantiles (0,25 (Q1), 0,5 (Q2) y 0,75 (Q3)), así como los valores atípicos (*outliers*) de un conjunto de datos. El *violin plot* es otro tipo de visualización, en el que podemos observar la distribución de los datos, lo que nos permite observar más claramente la densidad.<br>
+
+
+## Complementa tus análisis con {ggpubr} {#body4}
+
+[{ggpubr}](https://rpkgs.datanovia.com/ggpubr/) Es un paquete de R orientado a complementar la visualización de datos con {ggplot2}. {ggpubr} proporciona funciones que son fáciles de usar, y que te permitirán crear y personalizar gráficos de {ggplot2}, y dejarlos listos para su publicación.<br>
+
+Entonces, si aún no hemos instalado {ggpubr}, lo que tenemos que hacer en RStudio es instalar y cargar la librería {ggpubr} con el siguiente código: <br>
+
+```{r eval=FALSE, include=TRUE, echo=TRUE}
+# Instalar ggpubr
+install.packages("ggpubr")
+# Cargar la librería
+library(ggpubr)
+```
+
+### Funciones de {ggpubr} {#body4.1}
+
+Una de las funciones útiles de {ggpubr} es `stat_overlay_normal_density()` que nos permite graficar una distribución normal de referencia (basada en nuestros datos) y compararla con la distribución de nuestra variable de interés.<br> 
+
+#### Distribución Normal 
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm)) + 
+       geom_density() +
+stat_overlay_normal_density(color = "darkblue", linetype = "dashed")
+```
+
+Con esta función podemos ver que nuestra distribución no es perfectamente normal, lo que comprueba visualmente el resultado obtenido anteriormente con la prueba de **Shapiro-Wilk**.<br>
+
+#### Analisis de varianza
+
+La siguiente función `stat_compare_means()` nos permitirá realizar n análisis de varianza con la prueba de Kruskal-Wallis en nuestro *boxplot*. La segunda comparación incluye la prueba de suma de rangos Post-Hoc de Wilcoxon, de la misma manera que realizamos el ejemplo anterior con la prueba de Kruskal-Wallis. Por defecto, la función `stat_compare_means()` calcula la prueba de Kruskal-Wallis cuando hay 3 o más grupos. El argumento `ref.group` se refiere a una comparación de todos los grupos frente a todos los grupos. El argumento `label.y` especifica dónde (con respecto al eje **y**) se colocarán nuestras leyendas en el gráfico.<br> 
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     color = species)) + 
+       geom_boxplot() +
+  stat_compare_means() +
+  stat_compare_means(aes(label = ..p.signif..), 
+                         method = "wilcox.test", 
+                         ref.group = ".all.", 
+                         label.y = 65)
+```
+
+Si queremos realizar la prueba ANOVA debemos seguir el siguiente código, donde se realizará la prueba t pareada. <span style="color:red">Pero recordemos que en esta ocación nuestros datos no cumplen con la normalidad, por lo que este ejemplo es sólo una demostración del código.</span><br>
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     color = species)) + 
+       geom_boxplot() +
+  stat_compare_means(method = "anova") +
+  stat_compare_means(aes(label = ..p.signif..), 
+                         method = "t.test", 
+                         ref.group = ".all.", 
+                         label.y = 65)
+```
+
+## Gráfico final {#body5}
+
+Ahora que tenemos los resultados de las variables que nos interesan, podemos centrarnos en mejorar los parámetros estéticos de nuestras visualizaciones. Estas modificaciones pretenden que nuestra visualización tenga un aspecto más atractivo y profesional para nuestro futuro público. Debido a la construcción de **geom_boxplot()**, cuando asignamos el argumento `color`, éste sólo se representará en el contorno de la figura, por lo que modificaremos el argumento `color` por `fill`, con este simple cambio veremos una mejora inmediata. Además, modificaremos los colores con los que se representa cada uno de nuestros tres grupos. Para ello utilizaremos la capa `scale_fill_manual()`, y asignaremos una lista -construida con la siguiente sintaxis c(...)- de tres colores con sus códigos hexadecimales ("#393459","#F2AB27","#D96704") al argumento `values` en la función. <br>
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     fill = species)) + 
+       geom_boxplot() +
+  stat_compare_means() +
+  stat_compare_means(aes(label = ..p.signif..), 
+                         method = "wilcox.test", 
+                         ref.group = ".all.", 
+                         label.y = 65) +
+  scale_fill_manual(values = c("#393459","#F2AB27","#D96704"))
+```
+
+Por último, añadiremos leyendas a cada eje y un título al gráfico, lo que nos ayudará a que el gráfico sea más autoexplicativo. Para ello utilizaremos la capa `labs()` y cambiaremos el tema del gráfico por defecto. El modificar el tema del gráfico es como cambiar el lienzo de sobre el cual realizamos la representación de nuestros datos. Para ello utilizaremos la función `theme_pubr()`, un tema que esta en la librerías [{ggpubr}](https://rpkgs.datanovia.com/ggpubr/), y que nos entregará una gráfico limpio y elegante, listo para publicación. Con la adición de estos últimos puntos, nuestro gráfico básico incorpora ahora un análisis estadístico de la varianza (prueba de Kruskal-Wallis, y prueba de suma de rangos de Wilcoxon), y un componente estético que lo hará visualmente más atractivo y fácil de interpretar. Adicionalmente, tambien puedes crear tu propio tema con la función **theme()**, pero eso lo tendremos que revisar con más detalle en un próximo post. Por ahora me despido y espero que tengas un gran día! Saludos<br> 
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+# Gráfico básico
+ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     fill = species)) + 
+       geom_boxplot() +
+# Análisis Estadístico 
+  stat_compare_means() +
+  stat_compare_means(aes(label = ..p.signif..), 
+                         method = "wilcox.test", 
+                         ref.group = ".all.", 
+                         label.y = 65) +
+# Paramétros Estéticos 
+  scale_fill_manual(values = c("#393459","#F2AB27","#D96704")) +
+  labs(x = "Especies de pinguinos",
+       y = "Longitud del pico (mm)",
+       fill = "",
+       title = "Pinguinos del archipelago Palmer,\nAntártica") +
+  theme_pubr()
+```
+
+<details>
+<summary style='font-size:10pt;'>R Session Info</summary>
+
+```{r session-info, echo=FALSE, purl=FALSE}
+sessionInfo()
+```
+
+</details>

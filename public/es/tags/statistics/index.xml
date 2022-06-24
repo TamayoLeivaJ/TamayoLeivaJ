@@ -6,7 +6,16 @@
     <description>Recent content in Statistics on Javier Tamayo-Leiva</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/es/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/es/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Estadistica descriptiva y Visualización en R</title>
+      <link>https://tamayoleivaj.com/es/post/20220624-dataviz_descstat-shortcut/20220624-dataviz_descstat-shortcut/</link>
+      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/es/post/20220624-dataviz_descstat-shortcut/20220624-dataviz_descstat-shortcut/</guid>
+      <description>Table of Content  Introducción Cargar tus datos  ¿Cómo cargar mis datos desde RStudio?  Estadística descriptiva con {stat} en R  Medidas de tendencia central Medidas de dispersión Medidas de distribución Análisis de varianza  Grafica tus datos con {ggplot2}  Gráfico básico  Componentes de un gráfico en {ggplot2}  Elegir los Colores Elija el gráfico con los objeto geom  Complementa tus análisis con {ggpubr}  Funciones de {ggpubr}  Gráfico final   Introducción Muchas veces he visto que la gente está interesada en aprender R por las visualizaciones que uno puede generar con paquetes como {ggplot2}.</description>
+    </item>
+    
     <item>
       <title>Hola Blog!</title>
       <link>https://tamayoleivaj.com/es/post/20211123-hello-blog/</link>

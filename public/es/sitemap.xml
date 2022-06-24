@@ -74,6 +74,96 @@
                 href="https://tamayoleivaj.com/es/contact/"
                 />
   </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/dataviz/</loc>
+    <lastmod>2022-06-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/dataviz/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/dataviz/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/post/20220624-dataviz_descstat-shortcut/20220624-dataviz_descstat-shortcut/</loc>
+    <lastmod>2022-06-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/ggplot2/</loc>
+    <lastmod>2022-06-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/ggplot2/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/ggplot2/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/ggpubr/</loc>
+    <lastmod>2022-06-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/stat/</loc>
+    <lastmod>2022-06-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/statistics/</loc>
+    <lastmod>2022-06-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/statistics/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/statistics/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/tags/</loc>
+    <lastmod>2022-06-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/"
+                />
+  </url><url>
+    <loc>https://tamayoleivaj.com/es/</loc>
+    <lastmod>2022-06-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/"
+                />
+  </url><url>
     <loc>https://tamayoleivaj.com/es/tags/datapasta/</loc>
     <lastmod>2022-01-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -89,21 +179,6 @@
                 href="https://tamayoleivaj.com/es/tags/datapasta/"
                 />
   </url><url>
-    <loc>https://tamayoleivaj.com/es/tags/dataviz/</loc>
-    <lastmod>2022-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tamayoleivaj.com/tags/dataviz/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://tamayoleivaj.com/es/tags/dataviz/"
-                />
-  </url><url>
     <loc>https://tamayoleivaj.com/es/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/</loc>
     <lastmod>2022-01-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -117,51 +192,6 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://tamayoleivaj.com/es/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/"
-                />
-  </url><url>
-    <loc>https://tamayoleivaj.com/es/tags/ggplot2/</loc>
-    <lastmod>2022-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tamayoleivaj.com/tags/ggplot2/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://tamayoleivaj.com/es/tags/ggplot2/"
-                />
-  </url><url>
-    <loc>https://tamayoleivaj.com/es/tags/</loc>
-    <lastmod>2022-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tamayoleivaj.com/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://tamayoleivaj.com/es/tags/"
-                />
-  </url><url>
-    <loc>https://tamayoleivaj.com/es/</loc>
-    <lastmod>2022-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tamayoleivaj.com/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://tamayoleivaj.com/es/"
                 />
   </url><url>
     <loc>https://tamayoleivaj.com/es/tags/data-science/</loc>
@@ -267,21 +297,6 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://tamayoleivaj.com/es/tags/science/"
-                />
-  </url><url>
-    <loc>https://tamayoleivaj.com/es/tags/statistics/</loc>
-    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tamayoleivaj.com/tags/statistics/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://tamayoleivaj.com/es/tags/statistics/"
                 />
   </url><url>
     <loc>https://tamayoleivaj.com/es/tags/tidytuesday/</loc>
