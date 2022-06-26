@@ -1,0 +1,539 @@
+---
+title: "Descriptive statistics and visualization in R"
+description: "A shortcut using {stat}, {ggplot2}, & {ggpubr}"
+author: "Javier Tamayo-Leiva" 
+date: 2022-06-24
+featured_image: "/images/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut.png"
+layout: post
+toc: FALSE
+tags: ["DataViz", "Statistics", "stat", "ggpubr", "ggplot2"]
+output: distill::distill_article
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/datatables-binding/datatables.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery-3.6.0.min.js"></script>
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<div id="table-of-content" class="section level4">
+<h4>Table of Content</h4>
+<ul>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#body1">Loading your data in R</a>
+<ul>
+<li><a href="#body1.1">How to load the data from RStudio?</a></li>
+</ul></li>
+<li><a href="#body2">Descriptive statistics with {stat} in R</a>
+<ul>
+<li><a href="#body2.1">Central tendency measures</a></li>
+<li><a href="#body2.2">Dispersion measures</a></li>
+<li><a href="#body2.3">Distribution measures</a></li>
+<li><a href="#body2.4">Variance analysis</a></li>
+</ul></li>
+<li><a href="#body3">Plot your data with {ggplot2}</a>
+<ul>
+<li><a href="#body3.1">Basic plot</a>
+<ul>
+<li><a href="#body3.1.1">Components of a plot in {ggplot2}</a></li>
+</ul></li>
+<li><a href="#body3.2">Choosing Colors</a></li>
+<li><a href="#body3.3">Choose the graphic with the geom objects</a></li>
+</ul></li>
+<li><a href="#body4">Complete your analysis with {ggpubr}</a>
+<ul>
+<li><a href="#body4.1">{ggpubr} functions</a></li>
+</ul></li>
+<li><a href="#body5">Final plot</a></li>
+</ul>
+<hr />
+</div>
+<div id="intro" class="section level2">
+<h2>Introduction</h2>
+<p>Many times I have seen that people are interested in learning R because of the visualizations that can be generated with packages like {ggplot2}. However, R is a programming language, so its power is not only limited to that, but it is also a powerful tool for statistical analysis. Therefore, the main goal of this post is to provide tools to generate descriptive statistical analysis, and associated visualizations. This will allow us to better explore our data in search of patterns. Thus, here you will follow a step-by-step guide to perform descriptive statistical analysis and generate visualizations of your data to help you understand it better.<br></p>
+</div>
+<div id="body1" class="section level2">
+<h2>Loading your data in R</h2>
+<p>R has different methods when loading datasets, however with the use of an IDE (<em>Integrated Development Environment</em>) such as RStudio, we can simplify this process a lot.<br></p>
+<p>The first thing we have to do once we have installed R and RStudio, is to install the library <a href="https://readr.tidyverse.org">{readR}</a> from <a href="https://tidyverse.org">{tidyverse}</a> to help us with data loading. To do this we must execute the following code in our R session.<br></p>
+<pre class="r"><code># Install all {tidyverse} packages (Recommended)
+install.packages(&quot;tidyverse&quot;)
+
+# Install just {readR}
+install.packages(&quot;readr&quot;)</code></pre>
+<div id="body1.1" class="section level3">
+<h3>How to load the data from RStudio?</h3>
+<p>Once we have installed our packages, what we have to do in RStudio is to go to the “<strong>Environment</strong>” tab and then click on the drop down menu in the “<strong>Import dataset</strong>” tab. In this tab we will be able to select if we want to import our data from a text file (e.g. csv, tsv, etc.) or if we want to import from an Excel file (e.g. xlsx).<br><br></p>
+<p><strong>Environment</strong> -&gt; <strong>Import Dataset</strong> -&gt; <strong>From text (base)</strong>, <strong>From text (readr)</strong>, or <strong>From Excel</strong><br><br></p>
+<p><img src="/images/post/20220624-DataViz_DescStat-Shortcut/data-import-rstudio-overview_2.png" alt="{RStudio}" style="width:400px;" class="center"/><br></p>
+<p>Similarly, the <strong>Import Dataset</strong> tab can be found by looking for the <strong>File</strong> tab directly in the menu at the top.<br><br></p>
+<p><strong>File</strong> -&gt; <strong>Import Dataset</strong> -&gt; <strong>From text (base)</strong>, <strong>From text (readr)</strong>, o <strong>From Excel</strong><br><br></p>
+<p><img src="/images/post/20220624-DataViz_DescStat-Shortcut/data-import-rstudio-overview_3.png" alt="{RStudio}" style="width:400px;" class="center"/><br></p>
+<p>Once we have completed these steps, a window will be displayed where we can review our data of interest and where we can even make some modifications manually. You can find more details about the types of files you can upload and the modifications you can make in the original RStudio article which can be found in the following <a href="https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-the-RStudio-IDE">link</a>. <br><br></p>
+<p><img src="/images/post/20220624-DataViz_DescStat-Shortcut/data-import-rstudio-overview.gif" alt="{RStudio}" class="w-40-ns mw4 center"/><br></p>
+<p>Additionally there are other options to load data in R, if you are interested you can check another alternative in one of my previous posts <a href="https://tamayoleivaj.com/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/">From data loading to visualization in R (easily)</a><br></p>
+</div>
+</div>
+<div id="body2" class="section level2">
+<h2>Descriptive statistics with {stat} in R</h2>
+<p><a href="https://cran.r-project.org/web/packages/STAT/index.html">{stat}</a> is an R package that is loaded by default at login (it is not necessary to call the library to use it). Its purpose is to provide tools for performing statistical calculations (from basic to advanced), and number set generation. For information on the functions that the {stat} package can perform, you can run the following code in your R session.<br></p>
+<pre class="r"><code>library(help = &quot;stats&quot;)</code></pre>
+<p>For today’s example we will use the <em>penguins</em> dataset that you can download by clicking on the following link: <a href="https://github.com/mwaskom/seaborn-data/blob/master/penguins.csv">penguins.csv</a><br></p>
+<p>Below we can review the structure of the <em>penguin</em> dataset.<br><br></p>
+<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","vertical":false,"fillContainer":true,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],["Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie","Adelie"],["Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Torgersen","Biscoe","Biscoe","Biscoe","Biscoe","Biscoe","Biscoe","Biscoe","Biscoe","Biscoe","Biscoe"],[39.1,39.5,40.3,null,36.7,39.3,38.9,39.2,34.1,42,37.8,37.8,41.1,38.6,34.6,36.6,38.7,42.5,34.4,46,37.8,37.7,35.9,38.2,38.8,35.3,40.6,40.5,37.9,40.5],[18.7,17.4,18,null,19.3,20.6,17.8,19.6,18.1,20.2,17.1,17.3,17.6,21.2,21.1,17.8,19,20.7,18.4,21.5,18.3,18.7,19.2,18.1,17.2,18.9,18.6,17.9,18.6,18.9],[181,186,195,null,193,190,181,195,193,190,186,180,182,191,198,185,195,197,184,194,174,180,189,185,180,187,183,187,172,180],[3750,3800,3250,null,3450,3650,3625,4675,3475,4250,3300,3700,3200,3800,4400,3700,3450,4500,3325,4200,3400,3600,3800,3950,3800,3800,3550,3200,3150,3950],["MALE","FEMALE","FEMALE",null,"FEMALE","MALE","FEMALE","MALE",null,null,null,null,"FEMALE","MALE","MALE","FEMALE","FEMALE","MALE","FEMALE","MALE","FEMALE","MALE","FEMALE","MALE","MALE","FEMALE","MALE","FEMALE","FEMALE","MALE"]],"container":"<table class=\"display fill-container\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>species<\/th>\n      <th>island<\/th>\n      <th>bill_length_mm<\/th>\n      <th>bill_depth_mm<\/th>\n      <th>flipper_length_mm<\/th>\n      <th>body_mass_g<\/th>\n      <th>sex<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"scrollY":"400px","columnDefs":[{"className":"dt-right","targets":[3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p><br>
+Among all the variables, for our analysis we will select “bill_length_mm” ( bill length in millimeters) and “bill_depth_mm” (bill depth in millimeters) because they are continuous variables.<br><br></p>
+<p><img src="/images/post/20220120-DataViz-Shortcut/culmen_depth.png" alt="penguins" style="height: 400px; width:621px;" class="center"/></p>
+<div id="body2.1" class="section level3">
+<h3>Central tendency measures</h3>
+<p>The first and simplest analysis corresponds to the calculation of the mean (<code>mean</code>). It is necessary to note that the first argument corresponds to the data set and the variable we want to analyze (<code>penguins$bill_length_mm</code>). Our second argument is <code>na.rm = TRUE</code> to remove any observations with <strong>NA</strong> from the variable of interest in the analysis.<br></p>
+<pre class="r"><code>mean(penguins$bill_length_mm, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 43.92193</code></pre>
+<p>We can also calculate the median (value that separates the upper and lower 50%) in the same way, we just need to change the function to <code>median</code>.<br></p>
+<pre class="r"><code>median(penguins$bill_length_mm, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 44.45</code></pre>
+</div>
+<div id="body2.2" class="section level3">
+<h3>Dispersion measures</h3>
+<p>We can calculate the minimum (<code>min</code>), maximum (<code>max</code>) and range (<code>range</code> min - max) of a continuous variable.<br></p>
+<pre class="r"><code>min(penguins$bill_length_mm, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 32.1</code></pre>
+<pre class="r"><code>max(penguins$bill_length_mm, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 59.6</code></pre>
+<pre class="r"><code>range(penguins$bill_length_mm, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 32.1 59.6</code></pre>
+<p>We can calculate the quantiles (values that divide the distribution into n regular intervals) of a continuous variable. In this example we will use the quartiles 0.25 (Q1), 0.5 (Q2) and 0.75 (Q3).<br></p>
+<pre class="r"><code>quantile(penguins$bill_length_mm, prob = c(0.25, 0.5, 0.75), na.rm = TRUE)</code></pre>
+<pre><code>##    25%    50%    75% 
+## 39.225 44.450 48.500</code></pre>
+<p>In the same way we can calculate measures of dispersion for our data, such as variance, standard deviation.<br></p>
+<pre class="r"><code>var(penguins$bill_length_mm, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 29.80705</code></pre>
+<pre class="r"><code>sd(penguins$bill_length_mm, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 5.459584</code></pre>
+<p>Finally, {stat} has a function that allows us to calculate all these metrics (mean, median, 0.25 (Q1) and 0.75 (Q3) quartiles, min, max, NA’s) on each variable present in a dataset. The function is called <code>summary</code> and is handled as follows.<br></p>
+<pre class="r"><code>summary(penguins$bill_length_mm)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##   32.10   39.23   44.45   43.92   48.50   59.60       2</code></pre>
+<p>If you want to calculate it on all variables (continuous and discrete) of the data set, use the following code.<br></p>
+<pre class="r"><code>summary(penguins)</code></pre>
+</div>
+<div id="body2.3" class="section level3">
+<h3>Distribution measures</h3>
+<p>With {stat} we can also analyze the distribution of our data with measures that allow us to test for normality and homoscedasticity.<br></p>
+<div id="shapiro-wilk-normality-test" class="section level4">
+<h4>Shapiro-Wilk normality test: <br></h4>
+<p>It is used to test the normality in the distribution of the data for a variable. It can be used in groups with no more than 5000 observations (N &lt; 5000).<br></p>
+<p>Hypothesis</p>
+<ul>
+<li>H0 = The variable shows a normal distribution <br></li>
+<li>H1 = The variable does not show a normal distribution <br></li>
+</ul>
+<p>Interpretation <br></p>
+<ul>
+<li>p-value &gt; alfa: Do not reject H0 (normal) <br></li>
+<li>p-value &lt; alfa: Reject H0 (not normal) <br></li>
+</ul>
+<p><span style="color:blue"><strong>Note</strong></span><br>
+<span style="color:blue">hypothetical alpha 5% (0,05)</span></p>
+<pre class="r"><code>shapiro.test(penguins$bill_length_mm)</code></pre>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  penguins$bill_length_mm
+## W = 0.97485, p-value = 1.12e-05</code></pre>
+</div>
+<div id="bartlett-homoscedasticity-test" class="section level4">
+<h4>Bartlett homoscedasticity test<br></h4>
+<p>It is used to test for homogeneity of variance (homoscedasticity) in k groups of samples, where k can be greater than two. It is adapted for normally distributed data.<br></p>
+<p>Hypothesis</p>
+<ul>
+<li>H0 = Groups show homoscedasticity <br></li>
+<li>H1 = Groups (at least 2) do not show homoscedasticity.<br></li>
+</ul>
+<p>Interpretación<br></p>
+<ul>
+<li>p-value &gt; alfa: Do not reject H0 (homocedastics) <br></li>
+<li>p-value &lt; alfa: Reject H0 (not homocedastics) <br></li>
+</ul>
+<pre class="r"><code># Una variable independiente
+bartlett.test(bill_length_mm ~ sex, data = penguins)</code></pre>
+<pre><code>## 
+##  Bartlett test of homogeneity of variances
+## 
+## data:  bill_length_mm by sex
+## Bartlett&#39;s K-squared = 1.3429, df = 1, p-value = 0.2465</code></pre>
+<pre class="r"><code># Múltiples variables independientes
+bartlett.test(bill_length_mm ~ interaction(sex,species), data = penguins)</code></pre>
+<pre><code>## 
+##  Bartlett test of homogeneity of variances
+## 
+## data:  bill_length_mm by interaction(sex, species)
+## Bartlett&#39;s K-squared = 22.178, df = 5, p-value = 0.0004843</code></pre>
+</div>
+<div id="fligner-killeen-homoscedasticity-test" class="section level4">
+<h4>Fligner-Killeen homoscedasticity test <br></h4>
+<p>To test homoscedasticity in k groups of samples, where k can be greater than two. More robust against deviations from normality or when there are problems related to outliers. <br></p>
+<p>Hypothesis</p>
+<ul>
+<li>H0 = Groups show homoscedasticity <br></li>
+<li>H1 = Groups (at least 2) do not show homoscedasticity.<br></li>
+</ul>
+<p>Interpretación<br></p>
+<ul>
+<li>p-value &gt; alfa: Do not reject H0 (homocedastics) <br></li>
+<li>p-value &lt; alfa: Reject H0 (not homocedastics) <br></li>
+</ul>
+<pre class="r"><code># One independent variable
+fligner.test(bill_length_mm ~ sex, data = penguins)</code></pre>
+<pre><code>## 
+##  Fligner-Killeen test of homogeneity of variances
+## 
+## data:  bill_length_mm by sex
+## Fligner-Killeen:med chi-squared = 3.0297, df = 1, p-value = 0.08175</code></pre>
+<pre class="r"><code># Multiple independent variables
+fligner.test(bill_length_mm ~ interaction(sex,species), data = penguins)</code></pre>
+<pre><code>## 
+##  Fligner-Killeen test of homogeneity of variances
+## 
+## data:  bill_length_mm by interaction(sex, species)
+## Fligner-Killeen:med chi-squared = 5.9733, df = 5, p-value = 0.3088</code></pre>
+</div>
+</div>
+<div id="body2.4" class="section level3">
+<h3>Variance analysis</h3>
+<p>These are a set of analyses that make it possible to examine whether the means of groups (populations, samples) differ from each other. There are methods that differ in the number of groups they can compare. In addition, there are parametric methods (which require the assumptions to be met) and non-parametric methods (which do not require all assumptions to be met) that are more robust to non-compliance with some of the three assumptions in the data.<br></p>
+<p>Assumptions<br></p>
+<ul>
+<li>Independence (observations are independent of each other)<br></li>
+<li>Normality (the elements of a sample have a normal distribution)<br></li>
+<li>Homoscedasticity (variance of groups are similar)<br><br></li>
+</ul>
+<div id="anova-one-way" class="section level4">
+<h4>ANOVA (One-way)</h4>
+<p>ANOVA is a statistical technique used to compare the means of two or more groups. ANOVA requires that the groups meet the 3 assumptions.<br></p>
+<p><span style="color:red"><strong>Important!</strong></span><br></p>
+<p><span style="color:red">It is worth noting that none of the continuous variables in our dataset <em>penguins</em> has a normal distribution, so in this example we will use the variable <em>bill_length_mm</em> only for demonstrative purposes, and considering that the result obtained is not reliable.</span></p>
+<pre class="r"><code>peng.aov &lt;- aov(bill_length_mm ~ species, data = penguins)
+summary(peng.aov)</code></pre>
+<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## species       2   7194    3597   410.6 &lt;2e-16 ***
+## Residuals   339   2970       9                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 2 observations deleted due to missingness</code></pre>
+</div>
+<div id="post-hoc-test-for-anova" class="section level4">
+<h4>Post-Hoc test for ANOVA</h4>
+<p>Tukey’s HSD (honestly significant difference) test <br></p>
+<pre class="r"><code>TukeyHSD(peng.aov)</code></pre>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = bill_length_mm ~ species, data = penguins)
+## 
+## $species
+##                       diff       lwr        upr     p adj
+## Chinstrap-Adelie 10.042433  9.024859 11.0600064 0.0000000
+## Gentoo-Adelie     8.713487  7.867194  9.5597807 0.0000000
+## Gentoo-Chinstrap -1.328945 -2.381868 -0.2760231 0.0088993</code></pre>
+</div>
+<div id="anova-two-way" class="section level4">
+<h4>ANOVA (two-way)</h4>
+<p>Two-way ANOVA allows us to analyze the variance in the mean between groups when there is interaction between two different categorical and independent variables.<br></p>
+<pre class="r"><code>peng.aov2 &lt;- aov(bill_length_mm ~ species*sex, data = penguins)
+summary(peng.aov2)</code></pre>
+<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## species       2   7015    3508 654.189 &lt;2e-16 ***
+## sex           1   1136    1136 211.807 &lt;2e-16 ***
+## species:sex   2     24      12   2.284  0.103    
+## Residuals   327   1753       5                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 11 observations deleted due to missingness</code></pre>
+<pre class="r"><code>TukeyHSD(peng.aov2)</code></pre>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = bill_length_mm ~ species * sex, data = penguins)
+## 
+## $species
+##                       diff       lwr        upr     p adj
+## Chinstrap-Adelie 10.009851  9.209424 10.8102782 0.0000000
+## Gentoo-Adelie     8.744095  8.070779  9.4174106 0.0000000
+## Gentoo-Chinstrap -1.265756 -2.094535 -0.4369773 0.0010847
+## 
+## $sex
+##                 diff      lwr      upr p adj
+## MALE-FEMALE 3.693368 3.194089 4.192646     0
+## 
+## $`species:sex`
+##                                      diff       lwr        upr     p adj
+## Chinstrap:FEMALE-Adelie:FEMALE   9.315995  7.937732 10.6942588 0.0000000
+## Gentoo:FEMALE-Adelie:FEMALE      8.306259  7.138639  9.4738788 0.0000000
+## Adelie:MALE-Adelie:FEMALE        3.132877  2.034137  4.2316165 0.0000000
+## Chinstrap:MALE-Adelie:FEMALE    13.836583 12.458320 15.2148470 0.0000000
+## Gentoo:MALE-Adelie:FEMALE       12.216236 11.064727 13.3677453 0.0000000
+## Gentoo:FEMALE-Chinstrap:FEMALE  -1.009736 -2.443514  0.4240412 0.3338130
+## Adelie:MALE-Chinstrap:FEMALE    -6.183118 -7.561382 -4.8048548 0.0000000
+## Chinstrap:MALE-Chinstrap:FEMALE  4.520588  2.910622  6.1305547 0.0000000
+## Gentoo:MALE-Chinstrap:FEMALE     2.900241  1.479553  4.3209291 0.0000002
+## Adelie:MALE-Gentoo:FEMALE       -5.173382 -6.341002 -4.0057622 0.0000000
+## Chinstrap:MALE-Gentoo:FEMALE     5.530325  4.096547  6.9641020 0.0000000
+## Gentoo:MALE-Gentoo:FEMALE        3.909977  2.692570  5.1273846 0.0000000
+## Chinstrap:MALE-Adelie:MALE      10.703707  9.325443 12.0819703 0.0000000
+## Gentoo:MALE-Adelie:MALE          9.083360  7.931851 10.2348686 0.0000000
+## Gentoo:MALE-Chinstrap:MALE      -1.620347 -3.041035 -0.1996591 0.0149963</code></pre>
+</div>
+<div id="kruskal-wallis" class="section level4">
+<h4>Kruskal-Wallis</h4>
+<p>Kruskal-Wallis test is a statistical and nonparametric test (it does not assume normality in the data) used to compare the means of two or more groups. It is similar to ANOVA but with data by categories.<br></p>
+<pre class="r"><code>kruskal.test(bill_length_mm ~ species, data = penguins)</code></pre>
+<pre><code>## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  bill_length_mm by species
+## Kruskal-Wallis chi-squared = 244.14, df = 2, p-value &lt; 2.2e-16</code></pre>
+<div id="post-hoc-test-for-kruskal-wallis" class="section level5">
+<h5>Post-Hoc test for Kruskal-Wallis</h5>
+<p>Mann–Whitney–Wilcoxon o Wilcoxon rank-sum test <br></p>
+<pre class="r"><code>pairwise.wilcox.test(penguins$bill_length_mm, penguins$species, p.adjust.method=&quot;fdr&quot;)</code></pre>
+<pre><code>## 
+##  Pairwise comparisons using Wilcoxon rank sum test with continuity correction 
+## 
+## data:  penguins$bill_length_mm and penguins$species 
+## 
+##           Adelie Chinstrap
+## Chinstrap &lt;2e-16 -        
+## Gentoo    &lt;2e-16 0.0018   
+## 
+## P value adjustment method: fdr</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="body3" class="section level2">
+<h2>Plot your data with {ggplot2}</h2>
+<p><a href="https://ggplot2.tidyverse.org/">{ggplot2}</a> it is an R package oriented to data visualization. It was created by Hadley Wickham in 2005 and is based on Leland Wilkinson’s “Grammar of Graphics”. Briefly, the “Grammar of Graphics” is a general approach to data visualization, where a graph is separated into semantic components such as scales and layers.<br></p>
+<p>So, if we have not yet installed {ggplot2}, what we have to do in RStudio is to install and load the {ggplot2} library with the following code:<br></p>
+<ul>
+<li>Install the complete Tidyverse package library (recommended)<br></li>
+</ul>
+<pre class="r"><code># Install from CRAN (The Comprehensive R Archive Network)
+install.packages(&quot;tidyverse&quot;)
+# Load libraries
+library(tidyverse)</code></pre>
+<ul>
+<li>Install only the library {ggplot2} <br></li>
+</ul>
+<pre class="r"><code># Install from CRAN
+install.packages(&quot;ggplot2&quot;)
+# Load library
+library(ggplot2)</code></pre>
+<div id="body3.1" class="section level3">
+<h3>Basic plot</h3>
+<p>The first graph we will create corresponds to a density graph (selected through the <code>geom_density</code> object). For this we will only need a continuous variable (<code>x = bill_length_mm</code>), since ggplot2 will generate the rest of the necessary information through transformations and statistical calculations. This way you will not have to generate any manipulation to your data before plotting them.<br></p>
+<div id="densiplot" class="section level4">
+<h4>Densiplot</h4>
+<pre class="r"><code>ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm)) + 
+       geom_density()</code></pre>
+<p><img src="/en/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-21-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>The <strong>densiplot</strong> calculates and plots the density estimate of the data (it is a smoothed version of the histogram). A <strong>densiplot</strong> allows us to see the distribution of our data, and the area under the <strong>densiplot</strong> curve adds up to 1 which corresponds to the probability of finding 100% of our observations.<br></p>
+<p>The {ggplot2} package, allows us to perform several types of visualizations due to the large variety of geom objects. As we have already reviewed our data set “<strong>penguins</strong>”, and we have identified continuous variables such as “bill_length_mm” (peak length in millimeters) and “bill_depth_mm” (peak depth in millimeters). Next we will make a point plot (selected through the <code>geom_point</code> object), where we will map two variables (i.e. <code>x</code> and <code>y</code>) and not only one (i.e. <code>x</code>) as in the previous example. To do this, we will map <code>bill_length_mm</code> to the <code>x</code> axis, and <code>bill_depth_mm</code> to the <code>y</code> axis.<br></p>
+</div>
+<div id="scatterplot" class="section level4">
+<h4>Scatterplot</h4>
+<pre class="r"><code>ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm, 
+                     y = bill_depth_mm)) + 
+       geom_point()</code></pre>
+<p><img src="/en/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-22-1.png" width="384" style="display: block; margin: auto;" /></p>
+</div>
+<div id="body3.1.1" class="section level4">
+<h4>Components of a plot in {ggplot2}</h4>
+<ul>
+<li><p><code>ggplot()</code> : It is the function that creates a coordinate system - in general form, i.e. for all later incorporated layers - that will be incorporated into the layers. The first argument of the function is the data set (<code>data =</code>). By itself this function does not generate a layer, but it provides all the information needed to add one. <br></p></li>
+<li><p><code>data</code> : The dataset (in this case <em>penguins</em>) is a rectangular collection of data with the variables (columns) and their observations/values (rows) to be mapped.<br></p></li>
+<li><p><strong>mapping</strong> (<code>aes()</code>) : This is where you specify the set of variables and observations that are “mapped” or assigned to the visual properties to be used in the graph and which axes to assign to these values (<code>x = bill_length_mm</code>, <code>y = bill_depth_mm</code>). If they are not specified -in general-, they must be indicated in each layer added to the chart.<br></p></li>
+<li><p><code>geom_point()</code> : The plot layers are incorporated by Geom functions. In this case the function adds a layer of points to the plot (i.e., scatterplot). ggplot2 includes more than 30 geom functions, in addition to those developed by other authors.<br></p></li>
+</ul>
+</div>
+</div>
+<div id="body3.2" class="section level3">
+<h3>Choosing Colors</h3>
+<p>The above graph only allows us to see the relationship between two continuous numerical variables. However, the data set also has information assigned to discrete groups such as <strong>species</strong> and <strong>sex</strong> of the penguin. For this reason we will use another visual property such as <code>color</code> to incorporate a new layer of information in the graph. For this we will use the <code>color</code> argument inside the variables mapped in <code>aes(...)</code>.<br></p>
+<pre class="r"><code>ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm, 
+                     y = bill_depth_mm,
+                     color = species)) + 
+       geom_point()</code></pre>
+<p><img src="/en/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-23-1.png" width="384" style="display: block; margin: auto;" /></p>
+</div>
+<div id="body3.3" class="section level3">
+<h3>Choose the graphic with the geom objects</h3>
+<p>A layer in ggplot2, combines data, visual properties, geometric objects (<strong>Geoms</strong>), statistical functions and/or transformations (<strong>Stat</strong>), and position adjustment. In our previous plots we have made a density plot or <em>densiplot</em> and a point plot or <em>scatterplot</em>. By default in R you have to choose a <code>geom_...</code> object to generate a visualization, otherwise we will get a representation without our data in it.<br></p>
+<p>In the previous graph we can see that there are differences in the distribution of the data according to species. We will now choose another representation to better show the distribution of the continuous variable <code>bill_length_mm</code> as a function of the discrete groups present (species) in the data set. To do this we will change our geom from <code>geom_point()</code> to <code>geom_boxplot()</code> and <code>geom_violin()</code>.<br></p>
+<div id="boxplot" class="section level4">
+<h4>Boxplot</h4>
+<pre class="r"><code>ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     color = species)) + 
+       geom_boxplot()</code></pre>
+<p><img src="/en/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-24-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>The <em>boxplot</em> is a very useful type of visualization because it allows us to identify in a single graph the quantiles (0.25 (Q1), 0.5 (Q2) and 0.75 (Q3)), as well as the outliers (<em>outliers</em>) of a data set.<br></p>
+</div>
+<div id="how-to-interpret-a-boxplot" class="section level4">
+<h4>How to interpret a boxplot?</h4>
+<p><img src="/images/post/20220624-DataViz_DescStat-Shortcut/boxplot_en.png" alt="{RStudio}" style="width:500px;" class="center"/><br></p>
+</div>
+<div id="violin-plot" class="section level4">
+<h4>Violin Plot</h4>
+<pre class="r"><code>ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     color = species)) + 
+       geom_violin()</code></pre>
+<p><img src="/en/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-25-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>The <em>violin plot</em> is another type of visualization, in which we can observe the distribution of the data, allowing us to observe the density more clearly.<br></p>
+</div>
+</div>
+</div>
+<div id="body4" class="section level2">
+<h2>Complete your analysis with {ggpubr}</h2>
+<p><a href="https://rpkgs.datanovia.com/ggpubr/">{ggpubr}</a> it is an R package aimed at complementing data visualization with {ggplot2}. {ggpubr} provides easy-to-use functions that allow you to create and customize {ggplot2} plots and make them ready for publication.<br></p>
+<p>So, if we have not installed {ggpubr} yet, what we have to do in RStudio is to install and load the {ggpubr} library with the following code:<br></p>
+<pre class="r"><code># Install from CRAN
+install.packages(&quot;ggpubr&quot;)
+# Load library
+library(ggpubr)</code></pre>
+<div id="body4.1" class="section level3">
+<h3>{ggpubr} functions</h3>
+<p>One useful function of {ggpubr} is <code>stat_overlay_normal_density()</code> which allows us to plot a reference normal distribution (based on our data) and compare it to the distribution of our variable of interest.<br></p>
+<div id="normal-distribution" class="section level4">
+<h4>Normal distribution</h4>
+<pre class="r"><code>ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm)) + 
+       geom_density() +
+stat_overlay_normal_density(color = &quot;darkblue&quot;, linetype = &quot;dashed&quot;)</code></pre>
+<p><img src="/en/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-27-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>With this function we can see that our distribution is not perfectly normal, which visually verifies the result obtained previously with the <strong>Shapiro-Wilk</strong> test.<br></p>
+</div>
+<div id="plot-an-analysis-of-variance" class="section level4">
+<h4>Plot an analysis of variance</h4>
+<p>The following function <code>stat_compare_means()</code> will allow us to perform an analysis of variance with the Kruskal-Wallis test on our <em>boxplot</em>. The second comparison includes the Wilcoxon post-hoc rank sum test, in the same way as we performed the previous example with the Kruskal-Wallis test. By default, the <code>stat_compare_means()</code> function calculates the Kruskal-Wallis test when there are 3 or more groups. The <code>ref.group = ".all."</code> argument refers to a comparison of all groups against all groups. The <code>label.y</code> argument specifies where (with respect to the <strong>y</strong> axis) our legends will be placed on the graph.<br></p>
+<pre class="r"><code>ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     color = species)) + 
+       geom_boxplot() +
+  stat_compare_means() +
+  stat_compare_means(aes(label = ..p.signif..), 
+                         method = &quot;wilcox.test&quot;, 
+                         ref.group = &quot;.all.&quot;, 
+                         label.y = 65)</code></pre>
+<p><img src="/en/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-28-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>If we want to perform the ANOVA test we must follow the following code, where the paired t-test will be performed. <span style="color:red">But let’s remember that in this case our data does not comply with normality, so this example is just a demonstration of the code.</span><br></p>
+<pre class="r"><code>ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     color = species)) + 
+       geom_boxplot() +
+  stat_compare_means(method = &quot;anova&quot;) +
+  stat_compare_means(aes(label = ..p.signif..), 
+                         method = &quot;t.test&quot;, 
+                         ref.group = &quot;.all.&quot;, 
+                         label.y = 65)</code></pre>
+<p><img src="/en/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-29-1.png" width="384" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="body5" class="section level2">
+<h2>Final plot</h2>
+<p>Now that we have the results of the variables we are interested in, we can focus on improving the aesthetic parameters of our visualizations. These modifications are intended to make our visualization look more attractive and professional to our future audience. Due to the construction of <code>geom_boxplot()</code>, when we assign the <code>color</code> argument, this will only be represented in the outline of the figure, so we will substitute the <code>color</code> argument by <code>fill</code>, with this simple change we will see an immediate improvement. In addition, we will modify the colors used for representing each of our three groups. For this we will use the <code>scale_fill_manual()</code> layer, and we will assign a list - constructed with the following syntax c(…)- of three colors with their hexadecimal codes (“#393459”, “#F2AB27”, “#D96704”) to the <code>values</code> argument in the function <code>scale_fill_manual()</code>.<br></p>
+<pre class="r"><code>ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     fill = species)) + 
+       geom_boxplot() +
+  stat_compare_means() +
+  stat_compare_means(aes(label = ..p.signif..), 
+                         method = &quot;wilcox.test&quot;, 
+                         ref.group = &quot;.all.&quot;, 
+                         label.y = 65) +
+  scale_fill_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
+<p><img src="/en/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-30-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>Finally, we will add legends to each axis and a title to the graph, which will help us to make the figure more self-explanatory. To do this we will use the <code>labs()</code> layer and change the default chart theme. Changing the theme of the chart is like changing the canvas on which we represent our data. To do this we will use the <code>theme_pubr()</code> function, a theme that is in the <a href="https://rpkgs.datanovia.com/ggpubr/">{ggpubr}</a> library, which will give us a clean and elegant graph, ready for publication. With the addition of these last points, our basic plot now incorporates a statistical analysis of variance (Kruskal-Wallis test, and Wilcoxon rank sum test), and an aesthetic component that will make it visually more appealing and easier to interpret. Additionally, you can also create your own theme with the <strong>theme()</strong> function, but we will have to review that in more detail in a future post. For now I say goodbye and hope you have a great day!<br></p>
+<pre class="r"><code># Basic plot
+ggplot(data = penguins, 
+       mapping = aes(x = species, 
+                     y = bill_length_mm,
+                     fill = species)) + 
+       geom_boxplot() +
+# Statistical analysis of variance
+  stat_compare_means() +
+  stat_compare_means(aes(label = ..p.signif..), 
+                         method = &quot;wilcox.test&quot;, 
+                         ref.group = &quot;.all.&quot;, 
+                         label.y = 65) +
+# Aesthetic Parameters 
+  scale_fill_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;)) +
+  labs(x = &quot;Penguin species&quot;,
+       y = &quot;Bill length (mm)&quot;,
+       fill = &quot;&quot;,
+       title = &quot;Penguins of the Palmer Archipelago,\nAntarctica&quot;) +
+  theme_pubr()</code></pre>
+<p><img src="/en/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-31-1.png" width="384" style="display: block; margin: auto;" /></p>
+<details>
+<summary style="font-size:10pt;">
+R Session Info
+</summary>
+<pre><code>## R version 4.1.3 (2022-03-10)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Big Sur/Monterey 10.16
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.9       purrr_0.3.4      
+##  [5] readr_2.1.2       tidyr_1.2.0       tibble_3.1.7      tidyverse_1.3.1  
+##  [9] ggpubr_0.4.0      ggplot2_3.3.6     systemfonts_1.0.4
+## 
+## loaded via a namespace (and not attached):
+##  [1] httr_1.4.3        sass_0.4.1        bit64_4.0.5       vroom_1.5.7      
+##  [5] jsonlite_1.8.0    carData_3.0-5     modelr_0.1.8      bslib_0.3.1      
+##  [9] assertthat_0.2.1  highr_0.9         cellranger_1.1.0  yaml_2.3.5       
+## [13] pillar_1.7.0      backports_1.4.1   glue_1.6.2        digest_0.6.29    
+## [17] ggsignif_0.6.3    rvest_1.0.2       colorspace_2.0-3  htmltools_0.5.2  
+## [21] pkgconfig_2.0.3   broom_0.7.12      haven_2.4.3       bookdown_0.24    
+## [25] scales_1.2.0      tzdb_0.3.0        generics_0.1.2    farver_2.1.0     
+## [29] car_3.0-12        ellipsis_0.3.2    DT_0.23           withr_2.5.0      
+## [33] cli_3.3.0         magrittr_2.0.3    crayon_1.5.1      readxl_1.3.1     
+## [37] evaluate_0.14     fs_1.5.2          fansi_1.0.3       rstatix_0.7.0    
+## [41] xml2_1.3.3        blogdown_1.8      tools_4.1.3       hms_1.1.1        
+## [45] lifecycle_1.0.1   munsell_0.5.0     reprex_2.0.1      compiler_4.1.3   
+## [49] jquerylib_0.1.4   rlang_1.0.2       grid_4.1.3        rstudioapi_0.13  
+## [53] htmlwidgets_1.5.4 crosstalk_1.2.0   labeling_0.4.2    rmarkdown_2.11   
+## [57] gtable_0.3.0      abind_1.4-5       DBI_1.1.2         curl_4.3.2       
+## [61] R6_2.5.1          lubridate_1.8.0   knitr_1.37        fastmap_1.1.0    
+## [65] bit_4.0.4         utf8_1.2.2        stringi_1.7.6     parallel_4.1.3   
+## [69] Rcpp_1.0.8.3      vctrs_0.4.1       dbplyr_2.1.1      tidyselect_1.1.2 
+## [73] xfun_0.29</code></pre>
+</details>
+</div>

@@ -6,20 +6,11 @@
     <description>Recent content in Tags on Javier Tamayo-Leiva</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>datapasta</title>
-      <link>https://tamayoleivaj.com/tags/datapasta/</link>
-      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://tamayoleivaj.com/tags/datapasta/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Fri, 24 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DataViz</title>
       <link>https://tamayoleivaj.com/tags/dataviz/</link>
-      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://tamayoleivaj.com/tags/dataviz/</guid>
       <description></description>
@@ -28,9 +19,45 @@
     <item>
       <title>ggplot2</title>
       <link>https://tamayoleivaj.com/tags/ggplot2/</link>
-      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://tamayoleivaj.com/tags/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggpubr</title>
+      <link>https://tamayoleivaj.com/tags/ggpubr/</link>
+      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/tags/ggpubr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stat</title>
+      <link>https://tamayoleivaj.com/tags/stat/</link>
+      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/tags/stat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistics</title>
+      <link>https://tamayoleivaj.com/tags/statistics/</link>
+      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/tags/statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>datapasta</title>
+      <link>https://tamayoleivaj.com/tags/datapasta/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/tags/datapasta/</guid>
       <description></description>
     </item>
     
@@ -76,15 +103,6 @@
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://tamayoleivaj.com/tags/science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Statistics</title>
-      <link>https://tamayoleivaj.com/tags/statistics/</link>
-      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://tamayoleivaj.com/tags/statistics/</guid>
       <description></description>
     </item>
     

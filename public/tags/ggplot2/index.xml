@@ -6,7 +6,16 @@
     <description>Recent content in ggplot2 on Javier Tamayo-Leiva</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tamayoleivaj.com/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Descriptive statistics and visualization in R</title>
+      <link>https://tamayoleivaj.com/post/20220624-dataviz_descstat-shortcut/20220624-dataviz_descstat-shortcut/</link>
+      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamayoleivaj.com/post/20220624-dataviz_descstat-shortcut/20220624-dataviz_descstat-shortcut/</guid>
+      <description>Table of Content  Introduction Loading your data in R  How to load the data from RStudio?  Descriptive statistics with {stat} in R  Central tendency measures Dispersion measures Distribution measures Variance analysis  Plot your data with {ggplot2}  Basic plot  Components of a plot in {ggplot2}  Choosing Colors Choose the graphic with the geom objects  Complete your analysis with {ggpubr}  {ggpubr} functions  Final plot   Introduction Many times I have seen that people are interested in learning R because of the visualizations that can be generated with packages like {ggplot2}.</description>
+    </item>
+    
     <item>
       <title>From data loading to visualization in R (easily)</title>
       <link>https://tamayoleivaj.com/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/</link>

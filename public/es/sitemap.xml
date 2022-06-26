@@ -93,6 +93,16 @@
     <lastmod>2022-06-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/post/20220624-dataviz_descstat-shortcut/20220624-dataviz_descstat-shortcut/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/post/20220624-dataviz_descstat-shortcut/20220624-dataviz_descstat-shortcut/"
+                />
   </url><url>
     <loc>https://tamayoleivaj.com/es/tags/ggplot2/</loc>
     <lastmod>2022-06-24T00:00:00+00:00</lastmod>
@@ -113,11 +123,31 @@
     <lastmod>2022-06-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/ggpubr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/ggpubr/"
+                />
   </url><url>
     <loc>https://tamayoleivaj.com/es/tags/stat/</loc>
     <lastmod>2022-06-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tamayoleivaj.com/tags/stat/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://tamayoleivaj.com/es/tags/stat/"
+                />
   </url><url>
     <loc>https://tamayoleivaj.com/es/tags/statistics/</loc>
     <lastmod>2022-06-24T00:00:00+00:00</lastmod>

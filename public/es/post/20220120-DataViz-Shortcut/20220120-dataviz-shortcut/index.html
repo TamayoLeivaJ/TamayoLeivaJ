@@ -812,7 +812,7 @@ library(ggplot2)</code></pre>
    labs(x = &quot;Especies&quot;,
         y = &quot;Longitud del pico (mm)&quot;,
         fill = &quot;Especies&quot;,
-        title = &quot;Especies de pinguinos del archipelago Palmer,\nAntártica&quot;)</code></pre>
+        title = &quot;Especies de pinguinos del\narchipelago Palmer, Antártica&quot;)</code></pre>
 <p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-15-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Por último, modificaremos el tema del gráfico. Al modificar el tema estamos modificando el lienzo sobre el que se han trazado nuestros ejes y datos. Para ello utilizaremos la función “<strong>theme_</strong>…”, y seleccionaremos uno de los ocho <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">temas</a> que se cargan por defecto en la librería {ggplot2}. En este ejemplo hemos elegido el “<strong>theme_classic()</strong>”, porque genera un trazado más limpio, manteniendo los ejes. En caso de que necesites utilizar otro tema, también puedes aplicar temas de librerías como <a href="https://rpkgs.datanovia.com/ggpubr/">{ggpubr}</a>, o crear el tuyo propio con la función <strong>theme()</strong>.Pero tendremos que mostrar este proceso con más detalle en un próximo post.</p>
 <pre class="r"><code>ggplot(data = data, 
@@ -824,16 +824,16 @@ library(ggplot2)</code></pre>
    labs(x = &quot;Especies&quot;,
         y = &quot;Longitud del pico (mm)&quot;,
         fill = &quot;Especies&quot;,
-        title = &quot;Especies de pinguinos del archipelago Palmer,\nAntártica&quot;) +
+        title = &quot;Especies de pinguinos del\narchipelago Palmer, Antártica&quot;) +
   theme_classic()</code></pre>
 <p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-16-1.png" width="384" style="display: block; margin: auto;" /></p>
 <details>
 <summary style="font-size:10pt;">
 R Session Info
 </summary>
-<pre><code>## R version 4.1.2 (2021-11-01)
+<pre><code>## R version 4.1.3 (2022-03-10)
 ## Platform: x86_64-apple-darwin17.0 (64-bit)
-## Running under: macOS Big Sur 10.16
+## Running under: macOS Big Sur/Monterey 10.16
 ## 
 ## Matrix products: default
 ## BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
@@ -846,37 +846,37 @@ R Session Info
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.7       purrr_0.3.4      
-##  [5] readr_2.1.1       tidyr_1.1.4       tibble_3.1.6      ggplot2_3.3.5    
-##  [9] tidyverse_1.3.1   DataEditR_0.1.4   datapasta_3.1.0   systemfonts_1.0.3
+##  [1] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.9       purrr_0.3.4      
+##  [5] readr_2.1.2       tidyr_1.2.0       tibble_3.1.7      ggplot2_3.3.6    
+##  [9] tidyverse_1.3.1   DataEditR_0.1.4   datapasta_3.1.0   systemfonts_1.0.4
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] fs_1.5.2            lubridate_1.8.0     bit64_4.0.5        
-##  [4] httr_1.4.2          tools_4.1.2         backports_1.4.1    
+##  [4] httr_1.4.3          tools_4.1.3         backports_1.4.1    
 ##  [7] bslib_0.3.1         utf8_1.2.2          R6_2.5.1           
-## [10] DT_0.20             DBI_1.1.2           colorspace_2.0-2   
-## [13] withr_2.4.3         tidyselect_1.1.1    bit_4.0.4          
-## [16] curl_4.3.2          compiler_4.1.2      cli_3.1.0          
+## [10] DT_0.23             DBI_1.1.2           colorspace_2.0-3   
+## [13] withr_2.5.0         tidyselect_1.1.2    bit_4.0.4          
+## [16] curl_4.3.2          compiler_4.1.3      cli_3.3.0          
 ## [19] rvest_1.0.2         xml2_1.3.3          shinyjs_2.1.0      
 ## [22] rhandsontable_0.3.8 labeling_0.4.2      bookdown_0.24      
-## [25] sass_0.4.0          scales_1.1.1        digest_0.6.29      
+## [25] sass_0.4.1          scales_1.2.0        digest_0.6.29      
 ## [28] shinyBS_0.61        rmarkdown_2.11      pkgconfig_2.0.3    
 ## [31] htmltools_0.5.2     highr_0.9           dbplyr_2.1.1       
-## [34] fastmap_1.1.0       htmlwidgets_1.5.4   rlang_0.4.12       
+## [34] fastmap_1.1.0       htmlwidgets_1.5.4   rlang_1.0.2        
 ## [37] readxl_1.3.1        rstudioapi_0.13     shiny_1.7.1        
-## [40] farver_2.1.0        jquerylib_0.1.4     generics_0.1.1     
-## [43] jsonlite_1.7.2      crosstalk_1.2.0     vroom_1.5.7        
-## [46] magrittr_2.0.1      Rcpp_1.0.7          munsell_0.5.0      
-## [49] fansi_1.0.0         lifecycle_1.0.1     stringi_1.7.6      
-## [52] yaml_2.2.1          grid_4.1.2          parallel_4.1.2     
-## [55] promises_1.2.0.1    crayon_1.4.2        miniUI_0.1.1.1     
+## [40] farver_2.1.0        jquerylib_0.1.4     generics_0.1.2     
+## [43] jsonlite_1.8.0      crosstalk_1.2.0     vroom_1.5.7        
+## [46] magrittr_2.0.3      Rcpp_1.0.8.3        munsell_0.5.0      
+## [49] fansi_1.0.3         lifecycle_1.0.1     stringi_1.7.6      
+## [52] yaml_2.3.5          grid_4.1.3          parallel_4.1.3     
+## [55] promises_1.2.0.1    crayon_1.5.1        miniUI_0.1.1.1     
 ## [58] haven_2.4.3         hms_1.1.1           knitr_1.37         
-## [61] pillar_1.6.4        reprex_2.0.1        glue_1.6.0         
-## [64] evaluate_0.14       blogdown_1.7.2      modelr_0.1.8       
-## [67] vctrs_0.3.8         tzdb_0.2.0          httpuv_1.6.5       
+## [61] pillar_1.7.0        reprex_2.0.1        glue_1.6.2         
+## [64] evaluate_0.14       blogdown_1.8        modelr_0.1.8       
+## [67] vctrs_0.4.1         tzdb_0.3.0          httpuv_1.6.5       
 ## [70] cellranger_1.1.0    gtable_0.3.0        assertthat_0.2.1   
 ## [73] xfun_0.29           mime_0.12           xtable_1.8-4       
-## [76] broom_0.7.11        later_1.3.0         shinythemes_1.2.0  
+## [76] broom_0.7.12        later_1.3.0         shinythemes_1.2.0  
 ## [79] ellipsis_0.3.2</code></pre>
 </details>
 </div>
