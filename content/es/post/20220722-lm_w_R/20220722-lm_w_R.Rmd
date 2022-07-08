@@ -1,0 +1,52 @@
+---
+title: "Regresión lineal en R"
+description: "Análisis del precio de la vivienda con {car}, {caret}, & {MuMin}"
+author: "Javier Tamayo-Leiva" 
+date: 2022-07-22
+featured_image: "/images/post/20220722-lm_w_R/20220722-lm_w_R_wide.png"
+summary: "A"
+layout: post
+toc: FALSE
+tags: ["DataViz", "Statistics", "stat", "Regression", "Linear model", "Machine Learning"]
+output: distill::distill_article
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.height=4, fig.width=4, fig.align = "center", fig.retina = 2)
+library(systemfonts)
+library(ggpubr)
+library(tidyverse)
+
+penguins <- read_csv("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv")
+```
+   
+#### Table of Content
+
+* [Introducción](#intro)
+* [Cargar tus datos en R](#body1)
+
+
+
+---
+  
+## Introducción {#intro}
+
+Muchas veces he visto que la gente está interesada en aprender R por las visualizaciones que se pueden generar con paquetes como {ggplot2}. Sin embargo, R es un lenguaje de programación, por lo que su potencia no se limita sólo a eso, sino que también es una potente herramienta para el análisis estadístico. Por lo tanto, el objetivo principal de este post es proporcionar herramientas para generar análisis estadísticos descriptivos, y visualizaciones asociadas. Esto nos permitirá explorar mejor nuestros datos en busca de patrones. Para ello, aquí seguirás una guía paso a paso para realizar análisis estadísticos descriptivos y generar visualizaciones de tus datos que te ayuden a entenderlos mejor.<br>
+   
+## Cargar tus datos en R {#body1}
+
+
+
+
+
+
+
+<details>
+<summary style='font-size:10pt;'>R Session Info</summary>
+
+```{r session-info, echo=FALSE, purl=FALSE}
+sessionInfo()
+```
+
+</details>

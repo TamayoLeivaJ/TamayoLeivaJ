@@ -24,7 +24,7 @@ Tu nombre Dirección de correo electrónico Se requiere una dirección de correo
       <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://tamayoleivaj.com/es/post/20220624-dataviz_descstat-shortcut/20220624-dataviz_descstat-shortcut/</guid>
-      <description>Table of Content  Introducción Cargar tus datos en R  ¿Cómo cargar mis datos desde RStudio?  Estadística descriptiva con {stat} en R  Medidas de tendencia central Medidas de dispersión Medidas de distribución Análisis de varianza  Grafica tus datos con {ggplot2}  Gráfico básico  Componentes de un gráfico en {ggplot2}  Elegir los Colores Elija el gráfico con los objeto geom  Complementa tus análisis con {ggpubr}  Funciones de {ggpubr}  Gráfico final   Introducción Muchas veces he visto que la gente está interesada en aprender R por las visualizaciones que se pueden generar con paquetes como {ggplot2}.</description>
+      <description>He visto con frecuencia que la gente está interesada en aprender R por las visualizaciones que se pueden generar con paquetes como {ggplot2}. Sin embargo, R es un lenguaje de programación, por lo que su potencia no se limita sólo a eso, sino que también es una potente herramienta para el análisis estadístico. Por lo tanto, el objetivo principal de este post es proporcionar herramientas para generar análisis estadísticos descriptivos, y visualizaciones asociadas. Esto nos permitirá explorar mejor nuestros datos en busca de patrones. Para ello, aquí seguirás una guía paso a paso para realizar análisis estadísticos descriptivos y generar visualizaciones de tus datos que te ayuden a entenderlos mejor.</description>
     </item>
     
     <item>
@@ -33,7 +33,7 @@ Tu nombre Dirección de correo electrónico Se requiere una dirección de correo
       <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://tamayoleivaj.com/es/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/</guid>
-      <description>Table of Content  Introducción Lleva tus datos a R {datapasta}  ¿Cómo funciona {datapasta}?  Grafica tus datos con {ggplot2}  Gráfico básico  Componentes de un gráfico en {ggplot2}  Elegir los Colores Elija el gráfico con los objeto geom Gráfico final    Introducción Muchas veces la razón por la que la gente se acerca al lenguaje R es porque han visto que es una gran herramienta para lograr mejores visualizaciones.</description>
+      <description>Muchas veces la razón por la que la gente se acerca al lenguaje R es porque han visto que es una gran herramienta para lograr mejores visualizaciones. Sin embargo, dado que R sigue siendo un lenguaje de programación, puede ser frustrante que para hacerlo tengas que lidiar con unas cuantas líneas de código para cargar, y preprocesar tus datos antes de empezar a crear la más simple visualización. Así que el objetivo principal de este post es proporcionar una manera más fácil de hacer frente a los pasos de la carga de sus datos a la visualización. Así que seguirás una guía para principiantes paso a paso para manejar tus datos hasta la visualización.</description>
     </item>
     
     <item>
@@ -42,7 +42,7 @@ Tu nombre Dirección de correo electrónico Se requiere una dirección de correo
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://tamayoleivaj.com/es/post/20211123-hello-tidytuesday/</guid>
-      <description>Desde que empecé a aprender R, mi principal motivación ha sido conseguir visualizaciones increíbles como las que hacen Cédric Scherer, Georgios Karamanis, y Thomas Lin Pedersen entre muchos otros. Lo que me hipnotiza de ellas es que para lograrlas hay que lidiar con el código, el manejo de datos y la selección gráfica adecuada, pero también entender de diseño estético para lograr una gran pieza de visualización. Sin embargo, mientras que algunos están más capacitados y/o han sido dotados de habilidades y gusto por el diseño y la estética -si es que hay algo parecido- para mí ha sido un viaje en ambos aspectos de la visualización de datos, convirtiéndose en agradables compañeros de viaje de la ciencia de datos.</description>
+      <description>Desde que empecé a aprender R, mi principal motivación ha sido conseguir visualizaciones increíbles como las que hacen Cédric Scherer, Georgios Karamanis, y Thomas Lin Pedersen entre muchos otros. Lo que me hipnotiza de ellas es que para lograrlas hay que lidiar con el código, el manejo de datos y la selección gráfica adecuada, pero también entender de diseño estético para lograr una gran pieza de visualización.</description>
     </item>
     
     <item>
@@ -51,7 +51,7 @@ Tu nombre Dirección de correo electrónico Se requiere una dirección de correo
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://tamayoleivaj.com/es/post/20211123-hello-blog/</guid>
-      <description>Desde que me di cuenta de todas las posibilidades sobre la codificación en R -en su mayoría- pero también en otro lenguaje, que quería crear un blog para compartir algunas de las cosas que he aprendido. Sin embargo, me gusta también la idea de un blog como una plataforma para compartir el conocimiento entrante como un proceso de aprendizaje-enseñanza. Así que ahora, al final de mi doctorado, parece ser el momento y la oportunidad adecuados para hacerlo, al tiempo que se crea un portafolio de las cosas y habilidades que he recogido en el proceso.</description>
+      <description>Desde que me di cuenta de todas las posibilidades sobre la codificación en R -en su mayoría- pero también en otro lenguaje, que quería crear un blog para compartir algunas de las cosas que he aprendido. Sin embargo, me gusta también la idea de un blog como una plataforma para compartir el conocimiento entrante como un proceso de aprendizaje-enseñanza.</description>
     </item>
     
   </channel>

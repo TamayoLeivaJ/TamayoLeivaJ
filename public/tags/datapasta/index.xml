@@ -13,8 +13,7 @@
       <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://tamayoleivaj.com/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/</guid>
-      <description>Table of Content  Introduction Bring your data to R {datapasta}  How does {datapasta} work?  Plot your data with {ggplot2}  Basic plot  Components of a plot in {ggplot2}  Set Colors
- Choose the graphic with the geom objects Final Plot    Introduction Many times the reason people approach the R language is because they have seen that it is a great tool for achieving better visualizations.</description>
+      <description>Many times the reason people approach the R language is because they have seen that it is a great tool for achieving better visualizations. However, since R is still a programming language, it can be frustrating that to do so you have to deal with a few lines of code to load, and preprocess your data before you start creating the simplest visualization. So the main goal of this post is to provide an easier way to deal with the steps from loading your data to visualization. So you will follow a step-by-step beginner&amp;rsquo;s guide to handle your data to visualization.</description>
     </item>
     
   </channel>
