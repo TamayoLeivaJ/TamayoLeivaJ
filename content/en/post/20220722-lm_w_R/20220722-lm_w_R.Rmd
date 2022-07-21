@@ -1,10 +1,10 @@
 ---
 title: "Linear Regression in R"
-description: "Housing price analysis with {car}, {caret}, & {MuMin}"
+description: "Housing price analysis with {car}, {caret}, & {MuMIn}"
+summary: "A"
 author: "Javier Tamayo-Leiva" 
 date: 2022-07-22
 featured_image: "/images/post/20220722-lm_w_R/20220722-lm_w_R_wide.png"
-summary: "A"
 layout: post
 toc: FALSE
 tags: ["DataViz", "Statistics", "stat", "Regression", "Linear model", "Machine Learning"]
@@ -15,16 +15,19 @@ draft: true
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.height=4, fig.width=4, fig.align = "center", fig.retina = 2)
 library(systemfonts)
-library(ggpubr)
 library(tidyverse)
+library(car)
+library(caret)
+library(MuMIn)
 
-penguins <- read_csv("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv")
+Housing <- read_csv("https://raw.githubusercontent.com/TamayoLeivaJ/000_DataSets/gh-pages/ML_Datasets/USA_Housing.csv") %>% 
+           janitor::clean_names(case = "none")
 ```
    
 #### Table of Content
 
 * [Introduction](#intro)
-* [Loading your data in R](#body1)
+* [R](#body1)
 
 
 
@@ -32,10 +35,22 @@ penguins <- read_csv("https://raw.githubusercontent.com/mwaskom/seaborn-data/mas
   
 ## Introduction {#intro}
 
-Many times I have seen that people are interested in learning R because of the visualizations that can be generated with packages like {ggplot2}. However, R is a programming language, so its power is not only limited to that, but it is also a powerful tool for statistical analysis. Therefore, the main goal of this post is to provide tools to generate descriptive statistical analysis, and associated visualizations. This will allow us to better explore our data in search of patterns. Thus, here you will follow a step-by-step guide to perform descriptive statistical analysis and generate visualizations of your data to help you understand it better.<br>
-   
-## Loading your data in R {#body1}
 
+
+- Response variable (also referred to as dependent variable)<br>
+> The variable to be predicted.
+- Explanatory variables (also referred to as independent variables)<br>
+> Variables that explain how the response variable will behave.
+
+Linear regression models always fit a straight line as close as possible to the data analyzed. These generated straight lines are defined by two properties according to the analyzed data: the intercept and the slope.
+
+
+
+## R {#body1}
+
+```{r}
+lm <- lm(Price ~ ., data = Housing)
+```
 
 
 

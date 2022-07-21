@@ -1,10 +1,10 @@
 ---
 title: "Regresión lineal en R"
-description: "Análisis del precio de la vivienda con {car}, {caret}, & {MuMin}"
+description: "Análisis del precio de la vivienda con {car}, {caret}, & {MuMIn}"
+summary: "A"
 author: "Javier Tamayo-Leiva" 
 date: 2022-07-22
 featured_image: "/images/post/20220722-lm_w_R/20220722-lm_w_R_wide.png"
-summary: "A"
 layout: post
 toc: FALSE
 tags: ["DataViz", "Statistics", "stat", "Regression", "Linear model", "Machine Learning"]
@@ -19,7 +19,7 @@ draft: true
 <h4>Table of Content</h4>
 <ul>
 <li><a href="#intro">Introducción</a></li>
-<li><a href="#body1">Cargar tus datos en R</a></li>
+<li><a href="#body1">R</a></li>
 </ul>
 <hr />
 </div>
@@ -28,7 +28,7 @@ draft: true
 <p>Muchas veces he visto que la gente está interesada en aprender R por las visualizaciones que se pueden generar con paquetes como {ggplot2}. Sin embargo, R es un lenguaje de programación, por lo que su potencia no se limita sólo a eso, sino que también es una potente herramienta para el análisis estadístico. Por lo tanto, el objetivo principal de este post es proporcionar herramientas para generar análisis estadísticos descriptivos, y visualizaciones asociadas. Esto nos permitirá explorar mejor nuestros datos en busca de patrones. Para ello, aquí seguirás una guía paso a paso para realizar análisis estadísticos descriptivos y generar visualizaciones de tus datos que te ayuden a entenderlos mejor.<br></p>
 </div>
 <div id="body1" class="section level2">
-<h2>Cargar tus datos en R</h2>
+<h2>R</h2>
 <details>
 <summary style="font-size:10pt;">
 R Session Info
@@ -48,27 +48,42 @@ R Session Info
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] forcats_0.5.1     stringr_1.4.0     dplyr_1.0.9       purrr_0.3.4      
-##  [5] readr_2.1.2       tidyr_1.2.0       tibble_3.1.7      tidyverse_1.3.1  
-##  [9] ggpubr_0.4.0      ggplot2_3.3.6     systemfonts_1.0.4
+##  [1] MuMIn_1.46.0      caret_6.0-92      lattice_0.20-45   car_3.0-12       
+##  [5] carData_3.0-5     forcats_0.5.1     stringr_1.4.0     dplyr_1.0.9      
+##  [9] purrr_0.3.4       readr_2.1.2       tidyr_1.2.0       tibble_3.1.7     
+## [13] ggplot2_3.3.6     tidyverse_1.3.1   systemfonts_1.0.4
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.8.3     lubridate_1.8.0  assertthat_0.2.1 digest_0.6.29   
-##  [5] utf8_1.2.2       R6_2.5.1         cellranger_1.1.0 backports_1.4.1 
-##  [9] reprex_2.0.1     evaluate_0.14    httr_1.4.3       blogdown_1.8    
-## [13] pillar_1.7.0     rlang_1.0.2      curl_4.3.2       readxl_1.3.1    
-## [17] rstudioapi_0.13  car_3.0-12       jquerylib_0.1.4  rmarkdown_2.11  
-## [21] bit_4.0.4        munsell_0.5.0    broom_0.7.12     compiler_4.1.3  
-## [25] modelr_0.1.8     xfun_0.29        pkgconfig_2.0.3  htmltools_0.5.2 
-## [29] tidyselect_1.1.2 bookdown_0.24    fansi_1.0.3      crayon_1.5.1    
-## [33] tzdb_0.3.0       dbplyr_2.1.1     withr_2.5.0      grid_4.1.3      
-## [37] jsonlite_1.8.0   gtable_0.3.0     lifecycle_1.0.1  DBI_1.1.2       
-## [41] magrittr_2.0.3   scales_1.2.0     vroom_1.5.7      cli_3.3.0       
-## [45] stringi_1.7.6    carData_3.0-5    ggsignif_0.6.3   fs_1.5.2        
-## [49] xml2_1.3.3       bslib_0.3.1      ellipsis_0.3.2   generics_0.1.2  
-## [53] vctrs_0.4.1      tools_4.1.3      bit64_4.0.5      glue_1.6.2      
-## [57] hms_1.1.1        parallel_4.1.3   abind_1.4-5      fastmap_1.1.0   
-## [61] yaml_2.3.5       colorspace_2.0-3 rvest_1.0.2      rstatix_0.7.0   
-## [65] knitr_1.37       haven_2.4.3      sass_0.4.1</code></pre>
+##  [1] nlme_3.1-155         fs_1.5.2             bit64_4.0.5         
+##  [4] lubridate_1.8.0      httr_1.4.3           tools_4.1.3         
+##  [7] backports_1.4.1      bslib_0.3.1          utf8_1.2.2          
+## [10] R6_2.5.1             rpart_4.1.16         DBI_1.1.2           
+## [13] colorspace_2.0-3     nnet_7.3-17          withr_2.5.0         
+## [16] tidyselect_1.1.2     curl_4.3.2           bit_4.0.4           
+## [19] compiler_4.1.3       cli_3.3.0            rvest_1.0.2         
+## [22] xml2_1.3.3           bookdown_0.24        sass_0.4.1          
+## [25] scales_1.2.0         digest_0.6.29        rmarkdown_2.11      
+## [28] pkgconfig_2.0.3      htmltools_0.5.2      parallelly_1.30.0   
+## [31] dbplyr_2.1.1         fastmap_1.1.0        rlang_1.0.2         
+## [34] readxl_1.3.1         rstudioapi_0.13      jquerylib_0.1.4     
+## [37] generics_0.1.2       jsonlite_1.8.0       vroom_1.5.7         
+## [40] ModelMetrics_1.2.2.2 magrittr_2.0.3       Matrix_1.4-0        
+## [43] Rcpp_1.0.8.3         munsell_0.5.0        fansi_1.0.3         
+## [46] abind_1.4-5          lifecycle_1.0.1      pROC_1.18.0         
+## [49] stringi_1.7.6        yaml_2.3.5           MASS_7.3-55         
+## [52] plyr_1.8.7           recipes_0.1.17       grid_4.1.3          
+## [55] parallel_4.1.3       listenv_0.8.0        crayon_1.5.1        
+## [58] haven_2.4.3          splines_4.1.3        hms_1.1.1           
+## [61] knitr_1.37           pillar_1.7.0         stats4_4.1.3        
+## [64] reshape2_1.4.4       future.apply_1.8.1   codetools_0.2-18    
+## [67] reprex_2.0.1         glue_1.6.2           evaluate_0.14       
+## [70] blogdown_1.8         data.table_1.14.2    modelr_0.1.8        
+## [73] vctrs_0.4.1          tzdb_0.3.0           foreach_1.5.2       
+## [76] cellranger_1.1.0     gtable_0.3.0         future_1.23.0       
+## [79] assertthat_0.2.1     xfun_0.29            gower_1.0.0         
+## [82] prodlim_2019.11.13   broom_0.7.12         class_7.3-20        
+## [85] survival_3.2-13      timeDate_3043.102    iterators_1.0.14    
+## [88] lava_1.6.10          globals_0.14.0       ellipsis_0.3.2      
+## [91] ipred_0.9-12</code></pre>
 </details>
 </div>

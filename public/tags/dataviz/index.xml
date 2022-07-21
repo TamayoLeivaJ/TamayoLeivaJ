@@ -31,7 +31,7 @@
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://tamayoleivaj.com/post/20211123-hello-tidytuesday/</guid>
-      <description>Since I started learning R, my main motivation has been to get amazing visualizations like the ones made by Cédric Scherer, Georgios Karamanis, and Thomas Lin Pedersen among many others. What mesmerizes me about them is that to achieve them you have to deal with code, data handling and proper graphical selection, but also understand about aesthetic design in order to achieve a great piece of visualization.</description>
+      <description>Since I started learning R, my main motivation has been to get amazing visualizations like the ones made by Cédric Scherer, Georgios Karamanis, and Thomas Lin Pedersen among many others. What mesmerizes me about them is that to achieve that goal you need to deal with code, data handling and proper graphical selection, at the same time that you check for aesthetic design. Finally, all this process will pay off turning flat data into a great piece of visualization</description>
     </item>
     
   </channel>
