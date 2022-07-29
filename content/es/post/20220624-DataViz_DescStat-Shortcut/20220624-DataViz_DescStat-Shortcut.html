@@ -346,7 +346,7 @@ library(ggplot2)</code></pre>
 <pre class="r"><code>ggplot(data = penguins, 
        mapping = aes(x = bill_length_mm)) + 
        geom_density()</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-21-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-21-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>El <em>densiplot</em> calcula y traza la estimación de la densidad de los datos (es una versión suavizada del histograma). El <em>densiplot</em> nos permite ver la distribución de nuestros datos, y el área bajo la curva del <em>densiplot</em> suma 1 que corresponde a la probabilidad de encontrar el 100% de nuestras observaciones.<br></p>
 <p>El paquete {ggplot2}, nos permite realizar varios tipos de visualizaciones debido a la gran variedad de objetos geom. Como ya hemos revisado nuestro conjunto de datos “<strong>penguins</strong>”, y hemos identificado variables continuas como “bill_length_mm” (longitud del pico en milímetros) y “bill_depth_mm” (profundidad del pico en milímetros). A continuación realizaremos un gráfico de puntos (seleccionado a través del objeto <code>geom_point</code>), donde mapearemos dos variables (es decir, <code>x</code> e <code>y</code>) y no sólo una (es decir, <code>x</code>) como en el ejemplo anterior. Para ello, asignaremos <code>bill_length_mm</code> al eje <code>x</code>, y <code>bill_depth_mm</code> al eje <code>y</code>.<br></p>
 </div>
@@ -356,7 +356,7 @@ library(ggplot2)</code></pre>
        mapping = aes(x = bill_length_mm, 
                      y = bill_depth_mm)) + 
        geom_point()</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-22-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-22-1.png" width="1304" style="display: block; margin: auto;" /></p>
 </div>
 <div id="body3.1.1" class="section level4">
 <h4>Componentes de un gráfico en {ggplot2}</h4>
@@ -376,7 +376,7 @@ library(ggplot2)</code></pre>
                      y = bill_depth_mm,
                      color = species)) + 
        geom_point()</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-23-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-23-1.png" width="1304" style="display: block; margin: auto;" /></p>
 </div>
 <div id="body3.3" class="section level3">
 <h3>Elija el gráfico con los objeto geom</h3>
@@ -389,7 +389,7 @@ library(ggplot2)</code></pre>
                      y = bill_length_mm,
                      color = species)) + 
        geom_boxplot()</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-24-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-24-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>El <em>boxplot</em> es un tipo de visualización muy útil porque nos permite identificar en un solo gráfico los cuantiles (0,25 (Q1), 0,5 (Q2) y 0,75 (Q3)), así como los valores atípicos (<em>outliers</em>) de un conjunto de datos.<br></p>
 </div>
 <div id="cómo-interpretar-un-boxplot" class="section level4">
@@ -403,7 +403,7 @@ library(ggplot2)</code></pre>
                      y = bill_length_mm,
                      color = species)) + 
        geom_violin()</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-25-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-25-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>El <em>violin plot</em> es otro tipo de visualización, en el que podemos observar la distribución de los datos, lo que nos permite observar la densidad con mayor claridad.<br></p>
 </div>
 </div>
@@ -425,7 +425,7 @@ library(ggpubr)</code></pre>
        mapping = aes(x = bill_length_mm)) + 
        geom_density() +
 stat_overlay_normal_density(color = &quot;darkblue&quot;, linetype = &quot;dashed&quot;)</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-27-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-27-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>Con esta función podemos ver que nuestra distribución no es perfectamente normal, lo que verifica visualmente el resultado obtenido anteriormente con la prueba de <strong>Shapiro-Wilk</strong>.<br></p>
 </div>
 <div id="graficar-un-análisis-de-varianza" class="section level4">
@@ -441,7 +441,7 @@ stat_overlay_normal_density(color = &quot;darkblue&quot;, linetype = &quot;dashe
                          method = &quot;wilcox.test&quot;, 
                          ref.group = &quot;.all.&quot;, 
                          label.y = 65)</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-28-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-28-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>Si queremos realizar la prueba ANOVA debemos seguir el siguiente código, donde se realizará la prueba t pareada. <span style="color:red">Pero recordemos que en este caso nuestros datos no cumplen con la normalidad, por lo que este ejemplo es sólo una demostración del código.</span><br></p>
 <pre class="r"><code>ggplot(data = penguins, 
        mapping = aes(x = species, 
@@ -453,7 +453,7 @@ stat_overlay_normal_density(color = &quot;darkblue&quot;, linetype = &quot;dashe
                          method = &quot;t.test&quot;, 
                          ref.group = &quot;.all.&quot;, 
                          label.y = 65)</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-29-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-29-1.png" width="1304" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
@@ -471,7 +471,7 @@ stat_overlay_normal_density(color = &quot;darkblue&quot;, linetype = &quot;dashe
                          ref.group = &quot;.all.&quot;, 
                          label.y = 65) +
   scale_fill_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-30-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-30-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>Por último, añadiremos leyendas a cada eje y un título al gráfico, lo que nos ayudará a que la figura sea más autoexplicativa. Para ello utilizaremos la capa <code>labs()</code> y cambiaremos el tema del gráfico por defecto. Cambiar el tema del gráfico es como cambiar el lienzo en el que representamos nuestros datos. Para ello utilizaremos la función <code>theme_pubr()</code>, un tema que está en la librería <a href="https://rpkgs.datanovia.com/ggpubr/">{ggpubr}</a>, que nos dará un gráfico limpio y elegante, listo para su publicación. Con la adición de estos últimos puntos, nuestro gráfico básico incorpora ahora un análisis estadístico de varianza (prueba de Kruskal-Wallis, y prueba de suma de rangos de Wilcoxon), y un componente estético que lo hará visualmente más atractivo y fácil de interpretar. Además, también puedes crear tu propio tema con la función <strong>theme()</strong>, pero tendremos que revisarlo con más detalle en un próximo post. ¡Por ahora me despido y espero que tengas un buen día!<br></p>
 <pre class="r"><code># Gráfico básico
 ggplot(data = penguins, 
@@ -492,7 +492,7 @@ ggplot(data = penguins,
        fill = &quot;&quot;,
        title = &quot;Pinguinos del archipelago Palmer,\nAntártica&quot;) +
   theme_pubr()</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-31-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-31-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <details>
 <summary style="font-size:10pt;">
 R Session Info

@@ -1,7 +1,7 @@
 ---
-title: "Regresión lineal en R"
-description: "Análisis del precio de la vivienda con {car}, {caret}, & {MuMIn}"
-summary: "A"
+title: "Regresión Lineal en R"
+description: "Análisis del precio de la vivienda en R con {car}, {caret}, & {MuMIn}"
+summary: "En este post vamos a hablar de la regresión lineal, un tipo de modelo lineal que se ha utilizado durante mucho tiempo. Es una herramienta muy útil para el aprendizaje estadístico, y su comprensión se hace necesaria para entender otros métodos de modelamiento más complejos. En este artículo vamos a utilizar las regresiones lineales para explorar las predicciones de los precios de la vivienda en los Estados Unidos, mientras entendemos sus componentes y cómo calcularlos en R."
 author: "Javier Tamayo-Leiva" 
 date: 2022-07-22
 featured_image: "/images/post/20220722-lm_w_R/20220722-lm_w_R_wide.png"
@@ -13,21 +13,30 @@ draft: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.height=4, fig.width=4, fig.align = "center", fig.retina = 2)
-library(systemfonts)
-library(tidyverse)
-library(car)
-library(caret)
-library(MuMIn)
+# Knitr
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.height=4, fig.width=4, fig.align = "center", dpi = 326)
 
-Housing <- read_csv("https://raw.githubusercontent.com/TamayoLeivaJ/000_DataSets/gh-pages/ML_Datasets/USA_Housing.csv") %>% 
-           janitor::clean_names(case = "none")
+# Libraries
+library(tidyverse)
+library(corrplot)
+library(cowplot)
+library(car)
+library(broom)
+library(MuMIn)
+library(ggfortify)
+library(modelr)
+library(metrica)
+library(caret)
+
+# Data
+Housing <- read_csv("https://raw.githubusercontent.com/TamayoLeivaJ/000_DataSets/gh-pages/ML_Datasets/USA_Housing_v2.csv")
 ```
    
 #### Table of Content
 
 * [Introducción](#intro)
-* [R](#body1)
+* [Regresión Lineal](#body1)
+* [Regresión Lineal Simple](#body2)
 
 
 
@@ -35,19 +44,54 @@ Housing <- read_csv("https://raw.githubusercontent.com/TamayoLeivaJ/000_DataSets
   
 ## Introducción {#intro}
 
-Muchas veces he visto que la gente está interesada en aprender R por las visualizaciones que se pueden generar con paquetes como {ggplot2}. Sin embargo, R es un lenguaje de programación, por lo que su potencia no se limita sólo a eso, sino que también es una potente herramienta para el análisis estadístico. Por lo tanto, el objetivo principal de este post es proporcionar herramientas para generar análisis estadísticos descriptivos, y visualizaciones asociadas. Esto nos permitirá explorar mejor nuestros datos en busca de patrones. Para ello, aquí seguirás una guía paso a paso para realizar análisis estadísticos descriptivos y generar visualizaciones de tus datos que te ayuden a entenderlos mejor.<br>
+La ventaja del **modelamiento matemático** o de la creación de un **modelo matemático** -en adelante simplemente modelización y modelización- sobre la estadística descriptiva más simple es que los modelos nos permiten predecir valores futuros de una variable cuantitativa o cualitativa de interés. Pero no te asustes por el término **modelo**, porque en matemáticas el término puede aplicarse para describir una **ecuación** o **función** que nos permite entender el comportamiento de una **variable de respuesta** como resultado de una o múltiples **variables explicativas**. Existen muchos tipos de algoritmos de construcción de modelos, pero en este post hablaremos de la **Regresión Lineal** un método que pertenece a los **Modelos Lineales** y que se puede clasificar como **Aprendizaje Supervisado**[^1]. La Regresión Lineal ha sido utilizada durante mucho tiempo, pero sigue siendo extremadamente útil para el **Aprendizaje Estadístico**[^2], y se hace necesario entender otros métodos de modelado más complejos -que son más flexibles pero menos interpretables-. Además, debido a sus propiedades los coeficientes del modelo pueden ser interpretados más fácilmente que los de otros modelos, permitiéndonos entender mejor el comportamiento de la respuesta directamente desde el modelo, como descubriremos a lo largo de este artículo.<br>
+
+## Regresión Lineal {#body1}
+
+Como se ha mencionado anteriormente la Regresión Lineal es un Modelo Lineal, y se utiliza para predecir el valor de una variable continua a menudo llamada Variable de Respuesta, basándose en su relación lineal con una o más Variables Explicativas. Así, este tipo de modelos que asumen la relación lineal entre la respuesta y la variable explicativa se denominan Modelos Lineales, y son un tipo dentro de los Modelos Lineales Generalizados o **GLM**, donde para los Modelos Lineales también se asume la distribución normal -Gaussiana- de los residuos.<br>
+
+Matemáticamente, la relación lineal entre la variable de respuesta y la variable explicativa que supone la regresión lineal puede escribirse como sigue:<br><br>
+
+$${Y = \beta_0 + \beta_1 * X} $$
+<br>
+Donde: 
+
+- $Y$ = **Variable de respuesta** (también denominada **variable dependiente**).
    
-## R {#body1}
+    La variable que se desea predecir.
+   
+- $X$ = **Variables explicativas** (también denominadas **variables independientes**).
+   
+    Variables que explican cómo se comportará la variable de respuesta.
+    
+- ${\beta_0}$ = **Intercepto**  
 
-```{r}
+    Constante desconocida que representa el valor de Y cuando X es cero.
+    
+- ${\beta_1}$ = **Pendiente**  
 
+    Constante desconocida que representa el valor en el que cambia Y por cada unidad X.<br><br>
+
+El objetivo de los modelos de regresión lineal es siempre ajustar una línea recta lo más cercana posible a los datos analizados. Las rectas generadas se definen, por tanto, por la combinación de los dos términos desconocidos, el intercepto y la pendiente, con la variable explicativa. Estos dos términos que se calculan a partir de los datos analizados también se conocen como los coeficientes o parámetros del modelo. Entonces ahora que sabemos como interpretar la ecuación podemos simplificar la terminología de la siguiente forma:<br><br> 
+
+$${Respuesta = intercepto + pendiente * Explicativa} $$
+<br>
+Ahora que entendemos el modelo básico de regresión lineal, vamos a calcular algunos coeficientes con nuestro conjunto de datos de hoy sobre el precio de la vivienda en Estados Unidos. Para ello, primero tenemos que echar un vistazo a la estructura de los datos. Nuestro conjunto de datos tiene 5.000 observaciones y 8 variables, con información sobre la renta media de la zona, la edad media de la zona para las viviendas, el número de habitaciones de la casa, los dormitorios, los no dormitorios, la población de la zona, el precio de la vivienda y su dirección. Una vez examinada la tabla de la muestra, calcularemos una regresión lineal simple para empezar. <br><br>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+DT::datatable(head(Housing, n=30), fillContainer = TRUE, options = list(pageLength = 10, scrollY = '400px'))
 ```
+<br>
+
+## Regresión Lineal Simple {#body2} 
+
+Como su nombre indica claramente, la **Regresión Lineal Simple** busca un modelo sencillo en el que la variable de respuesta esté asociada a una única variable explicativa. Y en el que se supone una relación casi lineal entre estos dos componentes. Así, el primer paso es definir la variable que queremos predecir o entender con nuestro modelo. Si revisamos el conjunto de datos identificaríamos una posible variable de interés: El precio de la vivienda, que es la columna denominada `Price`. Pero, ¿cómo vamos a decidir qué otras variables son las mejores candidatas para ser incluidas en nuestro modelo? Bien, aquí podemos utilizar dos enfoques.  El primero es asignar una hipótesis basada en alguna información previa, como que las casas en los barrios de altos ingresos serán más caras, o que las casas con más habitaciones serán más caras que las casas con menos habitaciones. Luego podemos crear modelos con estas variables y comparar los resultados para encontrar el mejor ajuste. Pero este enfoque puede hacer que pasemos por alto alguna característica interesante de nuestros datos. Así que otro enfoque es dejar que los datos nos digan qué factor parece estar más relacionado con nuestra variable de respuesta. Una forma de hacerlo es buscar tendencias lineales entre nuestra respuesta y cada predictor. Podemos hacerlo trazando cada variable frente a `Price`, o analizando la correlación lineal entre las variables con una correlación de Pearson, que mide la fuerza de una relación lineal entre pares.
 
 
 
 
 
-
+<br><br><br>
 
 <details>
 <summary style='font-size:10pt;'>R Session Info</summary>
@@ -57,3 +101,8 @@ sessionInfo()
 ```
 
 </details>
+<br>
+
+<p style='font-size:10pt;'>Notas</p>
+[^1]: El **Aprendizaje Supervisado** se refiere a los métodos en los que se requiere para cada observación de una medida de la variable explicatoria, una medida de la variable de respuesta. Esta característica nos permitirá crear y luego comparar los valores predichos de nuestro modelo frente a la respuesta real de la variable. 
+[^2]: El **Aprendizaje Estadístico** se refiere a una gran cantidad de herramientas que pueden utilizarse para comprender mejor los datos.

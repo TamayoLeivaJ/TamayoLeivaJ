@@ -16,6 +16,9 @@ other = "What's in this {{ .Type }}"
 [related]
 other = "Related"
 
+[tags]
+other = "Tags"
+
 [yourName]
 other = "Your Name"
 

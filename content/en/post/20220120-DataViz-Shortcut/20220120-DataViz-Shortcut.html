@@ -473,7 +473,7 @@ library(ggplot2)</code></pre>
        mapping = aes(x = bill_length_mm, 
                      y = bill_depth_mm)) + 
        geom_point()</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-9-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <div id="body2.1.1" class="section level4">
 <h4>Components of a plot in {ggplot2}</h4>
 <ul>
@@ -492,7 +492,7 @@ library(ggplot2)</code></pre>
                      y = bill_depth_mm,
                      color = species)) + 
        geom_point()</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-10-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>If we do not specify a color scale, R will plot each level of the mapped discrete variable according to the color palette loaded by default in ggplot2. To avoid or modify this, we will use the option to incorporate a color scale manually with “scale_color_manual” and a list of colors in its HEX code that must have the same number of values as the levels to be mapped in the discrete variable. In this case there are 3 species present in the penguins dataset, so our list has 3 HEX codes.<br></p>
 <pre class="r"><code>ggplot(data = data, 
        mapping = aes(x = bill_length_mm, 
@@ -500,7 +500,7 @@ library(ggplot2)</code></pre>
                      color = species)) + 
        geom_point() +
    scale_color_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-11-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-11-1.png" width="1304" style="display: block; margin: auto;" /></p>
 </div>
 <div id="body2.3" class="section level3">
 <h3>Choose the graphic with the geom objects</h3>
@@ -514,7 +514,7 @@ library(ggplot2)</code></pre>
                      color = species)) + 
        geom_boxplot() +
    scale_color_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-12-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-12-1.png" width="1304" style="display: block; margin: auto;" /></p>
 </div>
 <div id="bill-depth" class="section level4">
 <h4>Bill depth</h4>
@@ -524,7 +524,7 @@ library(ggplot2)</code></pre>
                      color = species)) + 
        geom_boxplot() +
    scale_color_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-13-1.png" width="1304" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="body2.4" class="section level3">
@@ -536,7 +536,7 @@ library(ggplot2)</code></pre>
                      fill = species)) + 
        geom_boxplot() +
    scale_fill_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-14-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-14-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>Now we will add legends to each axis plus a title to help interpret the data represented in the graph. For that we will use the <strong>labs()</strong> function, also part of {ggplot2}.<br></p>
 <pre class="r"><code>ggplot(data = data, 
        mapping = aes(x = species, 
@@ -548,7 +548,7 @@ library(ggplot2)</code></pre>
         y = &quot;Bill length (mm)&quot;,
         fill = &quot;Species&quot;,
         title = &quot;Penguins species in the\nPalmer archipelago, Antarctica&quot;)</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-15-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-15-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>Finally, we will modify the theme of the chart. By modifying the theme we are modifying the canvas on which our axes and data have been plotted. To do this we will use the “<strong>theme_</strong>…” function, and select one of the eight <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">themes</a> that are loaded by default in the {ggplot2} library. In this example we have chosen the “<strong>theme_classic()</strong>”, because it generates a cleaner plot, keeping the axes. In case you need to use another theme, you can also apply themes from libraries like <a href="https://rpkgs.datanovia.com/ggpubr/">{ggpubr}</a>, or create your own with the <strong>theme()</strong> function, but we will have to show this process in more detail in a future post.</p>
 <pre class="r"><code>ggplot(data = data, 
        mapping = aes(x = species, 
@@ -561,7 +561,7 @@ library(ggplot2)</code></pre>
         fill = &quot;Species&quot;,
         title = &quot;Penguins species in the\nPalmer archipelago, Antarctica&quot;) +
   theme_classic()</code></pre>
-<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-16-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/en/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-16-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <details>
 <summary style="font-size:10pt;">
 R Session Info

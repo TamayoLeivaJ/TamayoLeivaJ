@@ -53,3 +53,17 @@
        url('./static/css/fonts/oswald-v40-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
        url('./static/css/fonts/oswald-v40-latin-700.svg#Oswald') format('svg'); /* Legacy iOS */
 }
+
+/* Bodoni Moda-regular - latin -- Work in Progress*/
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./static/css/fonts/Bodoni_Moda/'); /* IE9 Compat Modes */
+  src: local(''),
+       url('./static/css/fonts/Bodoni_Moda/') format('embedded-opentype'), /* IE6-IE8 */
+       url('./static/css/fonts/Bodoni_Moda/') format('woff2'), /* Super Modern Browsers */
+       url('./static/css/fonts/Bodoni_Moda/') format('woff'), /* Modern Browsers */
+       url('./static/css/fonts/Bodoni_Moda/BodoniModa-VariableFont_opsz,wght.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./static/css/fonts/Bodoni_Moda/') format('svg'); /* Legacy iOS */
+}

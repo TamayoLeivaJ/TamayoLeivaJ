@@ -16,6 +16,9 @@ other = "Qué hay en este {{ .Type }}"
 [related]
 other = "Relacionado"
 
+[tags]
+other = "Etiquetas"
+
 [yourName]
 other = "Tu nombre"
 

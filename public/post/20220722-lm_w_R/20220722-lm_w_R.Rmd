@@ -1,7 +1,7 @@
 ---
 title: "Linear Regression in R"
-description: "Housing price analysis with {car}, {caret}, & {MuMIn}"
-summary: "A"
+description: "Housing price analysis in R with {car}, {caret}, & {MuMIn}"
+summary: "In this post we are going to talk about linear regression, a type of linear model that has been used for a long time. It is a very useful tool for statistical learning, and its understanding is necessary to understand other more complex modeling methods. In this article we are going to use linear regressions to explore predictions of housing prices in the United States, while understanding its components and how to compute them in R."
 author: "Javier Tamayo-Leiva" 
 date: 2022-07-22
 featured_image: "/images/post/20220722-lm_w_R/20220722-lm_w_R_wide.png"
@@ -13,21 +13,30 @@ draft: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.height=4, fig.width=4, fig.align = "center", fig.retina = 2)
-library(systemfonts)
-library(tidyverse)
-library(car)
-library(caret)
-library(MuMIn)
+# Knitr
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.height=4, fig.width=4, fig.align = "center", dpi = 326)
 
-Housing <- read_csv("https://raw.githubusercontent.com/TamayoLeivaJ/000_DataSets/gh-pages/ML_Datasets/USA_Housing.csv") %>% 
-           janitor::clean_names(case = "none")
+# Libraries
+library(tidyverse)
+library(corrplot)
+library(cowplot)
+library(car)
+library(broom)
+library(MuMIn)
+library(ggfortify)
+library(modelr)
+library(metrica)
+library(caret)
+
+# Data
+Housing <- read_csv("https://raw.githubusercontent.com/TamayoLeivaJ/000_DataSets/gh-pages/ML_Datasets/USA_Housing_v2.csv")
 ```
    
 #### Table of Content
 
 * [Introduction](#intro)
-* [R](#body1)
+* [Linear Regression](#body1)
+* [Simple Linear Regression](#body2)
 
 
 
@@ -35,24 +44,95 @@ Housing <- read_csv("https://raw.githubusercontent.com/TamayoLeivaJ/000_DataSets
   
 ## Introduction {#intro}
 
+The advantage of **mathematical modeling** or the creation of a **mathematical model** - hereafter simply modeling and modeling - over simpler descriptive statistics is that models allow us to predict future values of a quantitative or qualitative variable of interest. But don't be scared off by the term **model**, because in mathematics the term can be applied to describe a **equation** or **function** that allows us to understand the behavior of a **response variable** as a result of one or multiple **explanatory variables**. There are many types of model building algorithms, but in this post we will talk about **Linear Regression** a method that belongs to **Linear Models** and can be classified as **Supervised Learning**[^1]. Linear Regression has been used for a long time, but it is still extremely useful for **Statistical Learning**[^2], and it becomes necessary to understand other more complex modeling methods - which are more flexible but less interpretable.- Moreover, due to its properties the coefficients of the model can be interpreted more easily than those of other models, allowing us to better understand the behavior of the response directly from the model, as we will discover throughout this article.     
 
+## Linear Regression {#body1}
 
-- Response variable (also referred to as dependent variable)<br>
-> The variable to be predicted.
-- Explanatory variables (also referred to as independent variables)<br>
-> Variables that explain how the response variable will behave.
+As mentioned above Linear Regression is a Linear Model, and is used to predict the value of a continuous variable often called the Response Variable, based on its linear relationship with one or more Explanatory Variables. Thus, this type of models that assume the linear relationship between the response and the explanatory variable are called Linear Models, and are a type within the Generalized Linear Models or **GLM**, where for Linear Models the normal -Gaussian- distribution of the residuals is also assumed.<br> 
 
-Linear regression models always fit a straight line as close as possible to the data analyzed. These generated straight lines are defined by two properties according to the analyzed data: the intercept and the slope. AAAA
+Mathematically, the linear relationship between the Response Variable and the Explanatory variable that the Linear regression assume can be written as follows:<br><br>
 
+$${Y = \beta_0 + \beta_1 * X} $$
+<br>
+Where: 
 
+- $Y$ = **Response variable** (also referred to as **dependent variable**).
+   
+    The variable to be predicted.
+   
+- $X$ = **Explanatory variables** (also referred to as **independent variables**).
+   
+    Variables that explain how the response variable will behave.
+    
+- ${\beta_0}$ = **Intercept**  
 
-## R {#body1}
+    Unknown constant representing the value of Y when X is zero.
+    
+- ${\beta_1}$ = **Slope**  
 
-```{r}
-lm <- lm(Price ~ ., data = Housing)
+    Unknown constant representing the value by which Y changes for each unit X.<br><br>
+
+The objective of Linear Regression models is always to fit a straight line as close as possible to the analyzed data. The generated straight lines are therefore defined by the combination of the two unknown terms, the intercept and the slope, with the explanatory variable. These two terms that are calculated from the analyzed data are also known as the coefficients or parameters of the model. So now that we know how to interpret the equation, we can simplify the terminology as follows:<br><br> 
+
+$${Response = intercept + slope * explanatory} $$ 
+
+<br>
+Now that we understand the basic linear regression model, let's estimate some coefficients with our data set today on U.S. home prices. To do this, we first need to take a look at the structure of the data. Our data set has 5,000 observations and 8 variables, with information on area average income, area average age for homes, number of rooms in the house, bedrooms, non-bedrooms, area population, house price, and its address. Once we have examined the sample table, we will compute a simple linear regression to start. <br><br>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+DT::datatable(head(Housing, n=30), fillContainer = TRUE, options = list(pageLength = 10, scrollY = '400px'))
+```
+<br>
+
+## Simple Linear Regression {#body2} 
+
+As its name clearly indicates, **Simple Linear Regression** looks for a simple model in which the response variable is associated with a single explanatory variable. And in which an almost linear relationship is assumed between these two components. Thus, the first step is to define the variable that we want to predict or understand with our model. If we review the data set we would identify one possible variable of interest: The price of housing, which is the column labeled `Price`. But how are we going to decide which other variables are the best candidates to be included in our model? Well, here we can use two approaches.  The first is to assign a hypothesis based on some prior information, such as that houses in high-income neighborhoods will be more expensive, or that houses with more rooms will be more expensive than houses with fewer rooms. We can then create models with these variables and compare the results to find the best fit. But this approach may cause us to miss some interesting feature of our data. So another approach is to let the data tell us which factor seems to be most related to our response variable. One way to do this is to look for linear trends between our response and each predictor. We can do this by plotting each variable against `Price`, or by analyzing the linear correlation between variables with a Pearson's correlation, which measures the strength of a linear relationship between pairs. So let's make some correlations.<br><br> 
+
+<div style="text-align: center; border-left: 5px outset #008F8C; border-radius: 10px 0; background-color: #EDFFF7;">
+<span style="color: #008F8C">
+**Tip**:<br>
+Pearson's correlation with the <mark style="color:#001B44;background-color:#F4F4F4">`stats::cor`</mark> function can only be calculated on numeric variables, so we use <mark style="color:#001B44;background-color:#F4F4F4">`dplyr::select_if(is.numeric)`</mark> to exclude any non-numeric columns. It is also a good practice to use the <mark style="color:#001B44;background-color:#F4F4F4">`use = "pairwise.complete.obs"`</mark> option, in case any of the factors have missing values, as it only makes comparisons between rows of complete pairs of observations.
+<br>
+</span>
+</div>
+
+<br>
+```{r echo=TRUE}
+# Calculate Pearson Correlation 
+# stats::cor default method "Pearson"
+housing_cor = stats::cor(Housing %>% dplyr::select_if(is.numeric),
+                         use = "pairwise.complete.obs")
+
+# Plot Pearson Correlation
+corrplot::corrplot(housing_cor,
+                   method = "number",
+                   type = "upper",
+                   diag = FALSE,
+                   col = COL2('BrBG'))
 ```
 
 
+```{r echo=TRUE}
+# H1 Neighborhood Income determine Price 
+lm_IP <- lm(Price ~ Income, data = Housing)
+summary(lm_IP)
+
+ggplot(Housing, aes(Income, Price)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br>
 
 <details>
 <summary style='font-size:10pt;'>R Session Info</summary>
@@ -62,3 +142,9 @@ sessionInfo()
 ```
 
 </details>
+<br>
+
+<p style='font-size:10pt;'>Footnotes</p>
+[^1]: **Supervised Learning** refers to methods in which for each observation of a measure of the explanatory variable, a measure of the response variable is required. This feature will allow us to create and then compare the predicted values of our model against the actual response of the variable.   
+[^2]: **Statistical Learning** refers to a large number of tools that can be used to better understand the data.
+

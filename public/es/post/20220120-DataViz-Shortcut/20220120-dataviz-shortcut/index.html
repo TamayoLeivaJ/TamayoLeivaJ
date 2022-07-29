@@ -56,11 +56,11 @@
 <meta name="twitter:description" content="Un atajo usando {datapasta}, y {ggplot2}"/>
 
 	
-       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway" type="text/css" media="all" />
-     
        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald" type="text/css" media="all" />
      
-       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto" type="text/css" media="all" />
+       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair Display" type="text/css" media="all" />
+     
+       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Overpass Mono" type="text/css" media="all" />
      
 
  <style>
@@ -68,12 +68,15 @@
      font-family: 'Oswald';
  }
  body,div,p {
-     font-family: 'Raleway';
+     font-family: 'Playfair Display';
  }
  pre  code {
-    font-family: 'Roboto'; 
+    font-family: 'Overpass Mono'; 
  }
  </style>
+ 
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   </head>
 
@@ -221,7 +224,7 @@
     <main class="pb7" role="main">
       
   
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+  <article class="flex-wrap justify-between mw8 center ph3"> 
     <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked">
           
@@ -257,7 +260,7 @@
   </div>
 
 
-      <h1 class="f1 athelas mt3 mb1">De la carga de los datos a la visualización en R (fácilmente)</h1>
+      <h1 class="f1 'Bodoni Moda' mt3 mb1">De la carga de los datos a la visualización en R (fácilmente)</h1>
       
       <p class="tracked">
           By <strong>
@@ -272,12 +275,12 @@
 
       
       
-        <span class="f6 mv4 dib tracked"> - 21 minutes read</span>
-        <span class="f6 mv4 dib tracked"> - 4281 words</span>
+        <span class="f5 mv4 dib tracked"> - 21 minutes read</span>
+        <span class="f5 mv4 dib tracked"> - 4281 words</span>
       
     </header>
     
-    <div class="nested-copy-line-height lh-copy bg-washed-blue f4 nested-links nested-img mid-gray pr4-l w-90-ns tj">
+    <div class="nested-copy-line-height lh-copy bg-washed-blue f4 nested-links nested-img black pr4-l w-90 center tj">
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
@@ -738,7 +741,7 @@ library(ggplot2)</code></pre>
        mapping = aes(x = bill_length_mm, 
                      y = bill_depth_mm)) + 
        geom_point()</code></pre>
-<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-9-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <div id="body2.1.1" class="section level4">
 <h4>Componentes de un gráfico en {ggplot2}</h4>
 <ul>
@@ -757,7 +760,7 @@ library(ggplot2)</code></pre>
                      y = bill_depth_mm,
                      color = species)) + 
        geom_point()</code></pre>
-<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-10-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>Si no especificamos una escala de colores, R trazará cada nivel de la variable discreta mapeada según la paleta de colores cargada por defecto en ggplot2. Para evitar o modificar esto, utilizaremos la opción de incorporar una escala de colores manualmente con “scale_color_manual” y una lista de colores en su código HEX que debe tener el mismo número de valores que los niveles a mapear en la variable discreta. En este caso hay 3 especies presentes en el conjunto de datos de penguins, por lo que nuestra lista tiene 3 códigos HEX.<br></p>
 <pre class="r"><code>ggplot(data = data, 
        mapping = aes(x = bill_length_mm, 
@@ -765,7 +768,7 @@ library(ggplot2)</code></pre>
                      color = species)) + 
        geom_point() +
    scale_color_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-11-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-11-1.png" width="1304" style="display: block; margin: auto;" /></p>
 </div>
 <div id="body2.3" class="section level3">
 <h3>Elija el gráfico con los objeto geom</h3>
@@ -779,7 +782,7 @@ library(ggplot2)</code></pre>
                      color = species)) + 
        geom_boxplot() +
    scale_color_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-12-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-12-1.png" width="1304" style="display: block; margin: auto;" /></p>
 </div>
 <div id="bill-depth" class="section level4">
 <h4>Bill depth</h4>
@@ -789,7 +792,7 @@ library(ggplot2)</code></pre>
                      color = species)) + 
        geom_boxplot() +
    scale_color_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-13-1.png" width="1304" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="body2.4" class="section level3">
@@ -801,7 +804,7 @@ library(ggplot2)</code></pre>
                      fill = species)) + 
        geom_boxplot() +
    scale_fill_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-14-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-14-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>Ahora agregaremos leyendas a cada eje mas un titulo que ayude a interpretar los datos representados en el gráfico. Para eso usaremos la función labs(), tambien parte de {ggplot2}.<br></p>
 <pre class="r"><code>ggplot(data = data, 
        mapping = aes(x = species, 
@@ -813,7 +816,7 @@ library(ggplot2)</code></pre>
         y = &quot;Longitud del pico (mm)&quot;,
         fill = &quot;Especies&quot;,
         title = &quot;Especies de pinguinos del\narchipelago Palmer, Antártica&quot;)</code></pre>
-<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-15-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-15-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>Por último, modificaremos el tema del gráfico. Al modificar el tema estamos modificando el lienzo sobre el que se han trazado nuestros ejes y datos. Para ello utilizaremos la función “<strong>theme_</strong>…”, y seleccionaremos uno de los ocho <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">temas</a> que se cargan por defecto en la librería {ggplot2}. En este ejemplo hemos elegido el “<strong>theme_classic()</strong>”, porque genera un trazado más limpio, manteniendo los ejes. En caso de que necesites utilizar otro tema, también puedes aplicar temas de librerías como <a href="https://rpkgs.datanovia.com/ggpubr/">{ggpubr}</a>, o crear el tuyo propio con la función <strong>theme()</strong>.Pero tendremos que mostrar este proceso con más detalle en un próximo post.</p>
 <pre class="r"><code>ggplot(data = data, 
        mapping = aes(x = species, 
@@ -826,7 +829,7 @@ library(ggplot2)</code></pre>
         fill = &quot;Especies&quot;,
         title = &quot;Especies de pinguinos del\narchipiélago Palmer, Antártica&quot;) +
   theme_classic()</code></pre>
-<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-16-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220120-DataViz-Shortcut/20220120-DataViz-Shortcut_files/figure-html/unnamed-chunk-16-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <details>
 <summary style="font-size:10pt;">
 R Session Info
@@ -881,44 +884,44 @@ R Session Info
 </details>
 </div>
 </div>
-<ul class="pa0">
-  
-   <li class="list">
-     <a href="/es/tags/dataviz" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">DataViz</a>
-   </li>
-  
-   <li class="list">
-     <a href="/es/tags/datapasta" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">datapasta</a>
-   </li>
-  
-   <li class="list">
-     <a href="/es/tags/ggplot2" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ggplot2</a>
-   </li>
-  
-</ul>
-<div class="mt6 instapaper_ignoref">
+
+
+      <div class="mt6 instapaper_ignoref">
       
       
       </div>
     </div>
     
-    <aside class="w-30-l mt6-l">
+    <aside class="w-90 mt6-l nested-links">
 
 
 
 
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+  <div class=" pa3 nested-list-reset nested-copy-line-height nested-links">
     <p class="f5 b mb3">Relacionado</p>
     <ul class="pa0 list">
 	   
-	     <li  class="mb2">
+	     <li  class="mb2 f5">
           <a href="/es/post/20211123-hello-tidytuesday/">Hola #TidyTuesday</a>
         </li>
 	    
     </ul>
 </div>
 
+<div class="pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Etiquetas</p>
+<ul class="pa0">
+  
+     <a href="/es/tags/dataviz" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">DataViz</a>
+  
+     <a href="/es/tags/datapasta" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">datapasta</a>
+  
+     <a href="/es/tags/ggplot2" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ggplot2</a>
+  
+</ul>
+</div>
 </aside>
+    
 
   </article>
 

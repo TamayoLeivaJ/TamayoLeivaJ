@@ -26,10 +26,10 @@ sitemap:
   priority: 0.5
   
 params:
-  googlefonts: ['Raleway', 'Oswald', 'Roboto']
+  googlefonts: ['Oswald', 'Playfair Display', 'Overpass Mono']
   fonttitle: 'Oswald'
-  fontbody: 'Raleway'
-  fontcode: 'Roboto'
+  fontbody: 'Playfair Display'
+  fontcode: 'Overpass Mono'
   body_classes: "bg-washed-blue"
   post_content_classes: "bg-washed-blue"
   background_color_class: bg-near-black

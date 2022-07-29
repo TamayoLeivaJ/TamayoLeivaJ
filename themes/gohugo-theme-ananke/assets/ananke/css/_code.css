@@ -10,14 +10,14 @@ pre  code {
   padding: 1.5em 1.5em;
   white-space: pre;
   font-family: 'courier';
-  font-size: 1.0em;
+  font-size: 0.75em;
   line-height: 1.5;
 
 }
 
 pre {
-  background-color: #F4F4F4;
-  color: #001B44;
+  background-color: #265D73;
+  color: #E8FDF5;
   white-space: pre;
 
   hyphens: none;

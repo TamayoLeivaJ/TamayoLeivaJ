@@ -1,7 +1,7 @@
 ---
 title: "Linear Regression in R"
-description: "Housing price analysis with {car}, {caret}, & {MuMIn}"
-summary: "A"
+description: "Housing price analysis in R with {car}, {caret}, & {MuMIn}"
+summary: "In this post we are going to talk about linear regression, a type of linear model that has been used for a long time. It is a very useful tool for statistical learning, and its understanding is necessary to understand other more complex modeling methods. In this article we are going to use linear regressions to explore predictions of housing prices in the United States, while understanding its components and how to compute them in R."
 author: "Javier Tamayo-Leiva" 
 date: 2022-07-22
 featured_image: "/images/post/20220722-lm_w_R/20220722-lm_w_R_wide.png"
@@ -13,22 +13,104 @@ draft: true
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/datatables-binding/datatables.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery-3.6.0.min.js"></script>
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
 
 
 <div id="table-of-content" class="section level4">
 <h4>Table of Content</h4>
 <ul>
 <li><a href="#intro">Introduction</a></li>
-<li><a href="#body1">R</a></li>
+<li><a href="#body1">Linear Regression</a></li>
+<li><a href="#body2">Simple Linear Regression</a></li>
 </ul>
 <hr />
 </div>
 <div id="intro" class="section level2">
 <h2>Introduction</h2>
-<p>Many times I have seen that people are interested in learning R because of the visualizations that can be generated with packages like {ggplot2}. However, R is a programming language, so its power is not only limited to that, but it is also a powerful tool for statistical analysis. Therefore, the main goal of this post is to provide tools to generate descriptive statistical analysis, and associated visualizations. This will allow us to better explore our data in search of patterns. Thus, here you will follow a step-by-step guide to perform descriptive statistical analysis and generate visualizations of your data to help you understand it better.<br></p>
+<p>The advantage of <strong>mathematical modeling</strong> or the creation of a <strong>mathematical model</strong> - hereafter simply modeling and modeling - over simpler descriptive statistics is that models allow us to predict future values of a quantitative or qualitative variable of interest. But don’t be scared off by the term <strong>model</strong>, because in mathematics the term can be applied to describe a <strong>equation</strong> or <strong>function</strong> that allows us to understand the behavior of a <strong>response variable</strong> as a result of one or multiple <strong>explanatory variables</strong>. There are many types of model building algorithms, but in this post we will talk about <strong>Linear Regression</strong> a method that belongs to <strong>Linear Models</strong> and can be classified as <strong>Supervised Learning</strong><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Linear Regression has been used for a long time, but it is still extremely useful for <strong>Statistical Learning</strong><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, and it becomes necessary to understand other more complex modeling methods - which are more flexible but less interpretable.- Moreover, due to its properties the coefficients of the model can be interpreted more easily than those of other models, allowing us to better understand the behavior of the response directly from the model, as we will discover throughout this article.</p>
 </div>
 <div id="body1" class="section level2">
-<h2>R</h2>
+<h2>Linear Regression</h2>
+<p>As mentioned above Linear Regression is a Linear Model, and is used to predict the value of a continuous variable often called the Response Variable, based on its linear relationship with one or more Explanatory Variables. Thus, this type of models that assume the linear relationship between the response and the explanatory variable are called Linear Models, and are a type within the Generalized Linear Models or <strong>GLM</strong>, where for Linear Models the normal -Gaussian- distribution of the residuals is also assumed.<br></p>
+<p>Mathematically, the linear relationship between the Response Variable and the Explanatory variable that the Linear regression assume can be written as follows:<br><br></p>
+<p><span class="math display">\[{Y = \beta_0 + \beta_1 * X} \]</span>
+<br>
+Where:</p>
+<ul>
+<li><p><span class="math inline">\(Y\)</span> = <strong>Response variable</strong> (also referred to as <strong>dependent variable</strong>).</p>
+<p>The variable to be predicted.</p></li>
+<li><p><span class="math inline">\(X\)</span> = <strong>Explanatory variables</strong> (also referred to as <strong>independent variables</strong>).</p>
+<p>Variables that explain how the response variable will behave.</p></li>
+<li><p><span class="math inline">\({\beta_0}\)</span> = <strong>Intercept</strong></p>
+<p>Unknown constant representing the value of Y when X is zero.</p></li>
+<li><p><span class="math inline">\({\beta_1}\)</span> = <strong>Slope</strong></p>
+<p>Unknown constant representing the value by which Y changes for each unit X.<br><br></p></li>
+</ul>
+<p>The objective of Linear Regression models is always to fit a straight line as close as possible to the analyzed data. The generated straight lines are therefore defined by the combination of the two unknown terms, the intercept and the slope, with the explanatory variable. These two terms that are calculated from the analyzed data are also known as the coefficients or parameters of the model. So now that we know how to interpret the equation, we can simplify the terminology as follows:<br><br></p>
+<p><span class="math display">\[{Response = intercept + slope * explanatory} \]</span></p>
+<p><br>
+Now that we understand the basic linear regression model, let’s estimate some coefficients with our data set today on U.S. home prices. To do this, we first need to take a look at the structure of the data. Our data set has 5,000 observations and 8 variables, with information on area average income, area average age for homes, number of rooms in the house, bedrooms, non-bedrooms, area population, house price, and its address. Once we have examined the sample table, we will compute a simple linear regression to start. <br><br></p>
+<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","vertical":false,"fillContainer":true,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],[79545.4585743168,79248.6424548257,61287.0671786568,63345.240046228,59982.197225708,80175.7541594853,64698.4634278877,78394.3392775308,59927.6608133496,81885.9271840957,80527.4720829229,50593.6954970428,39033.8092369824,73163.6634410467,69391.3801843616,73091.8667458232,79706.9630576574,61929.0770180893,63508.19429943,62085.2764034049,86294.9990887106,60835.089978854,64490.6502667551,60697.3515394483,59748.8554869742,56974.4765387964,82173.626075846,64626.8809781355,90499.0574513475,59323.7920997004],[5.68286132161559,6.00289980827524,5.86588984031,7.18823609451864,5.04055452310628,4.98840775753371,6.02533590688715,6.98977974771828,5.36212556960358,4.42367178989788,8.09351268063935,4.49651279309704,7.67175537285443,6.91953482545656,5.34477617673573,5.44315646653547,5.06788959105897,4.78855024180589,5.94716513955247,5.73941084363057,6.62745693978174,5.55122159199033,4.21032287005484,6.1704840908385,5.3393398807459,8.28756219375901,4.01852468494281,5.4433595901921,6.3843589207152,6.97782794017884],[7.00918814279224,6.73082101909492,8.5127274303751,5.58672866482765,7.83938778512049,6.10451243942888,8.14775958502343,6.62047799518503,6.3931209805509,8.16768800347235,5.04274679964598,7.46762740400802,7.2500293172735,5.99318790094557,8.40641771453425,8.51751271113798,8.21977112328626,5.09700955437756,7.18777383532973,7.09180810424997,8.01189785315056,6.51717503809478,5.47808773076914,7.15053657233596,7.7486816056066,7.31287997146301,6.99269875679184,6.98875353866204,4.24219130157263,8.2736970777766],[4.09,3.09,5.13,3.26,4.23,4.04,3.41,2.42,2.3,6.1,4.1,4.49,3.1,2.27,4.37,4.01,3.12,4.3,5.12,5.49,4.07,2.1,4.31,6.34,4.23,4.33,2.03,4,3.04,4.07],[2.91918814279224,3.64082101909492,3.3827274303751,2.32672866482765,3.60938778512049,2.06451243942888,4.73775958502343,4.20047799518503,4.0931209805509,2.06768800347235,0.942746799645982,2.97762740400802,4.15002931727349,3.72318790094557,4.03641771453425,4.50751271113798,5.09977112328626,0.797009554377562,2.06777383532973,1.60180810424997,3.94189785315056,4.41717503809478,1.16808773076914,0.810536572335959,3.5186816056066,2.98287997146301,4.96269875679184,2.98875353866204,1.20219130157263,4.2036970777766],[23086.8005026865,40173.0721736448,36882.1593997046,34310.2428309071,26354.1094721031,26748.4284246897,60828.2490854072,36516.3589724938,29387.3960028159,40149.9657492134,47224.3598402219,34343.9918855788,39220.3614673725,32326.1231394881,35521.2940331732,23929.524053268,39717.8135763095,24595.901497823,35719.6530520309,44922.1067022931,47560.7753362952,45574.7416622579,40358.9601056176,28140.9670877248,27809.9865437589,40694.8695130223,38853.9180664817,27784.7422801859,33970.1649903713,37520.6577324497],[1059033.55787012,1505890.91484695,1058987.98787608,1260616.80662945,630943.48933854,1068138.07439353,1502055.81737441,1573936.56447772,798869.532833163,1545154.81264196,1707045.72215806,663732.396896327,1042814.09782009,1291331.51848582,1402818.21016585,1306674.6599512,1556786.60019477,528485.246730596,1019425.93675783,1030591.42921161,2146925.33988866,929247.5995364,718887.231500928,743999.819160197,895737.133383508,1453974.50595087,1125692.50729529,975429.492792922,1240763.76557148,1577017.76000155],["208 Michael Ferry Apt. 674\nLaurabury, NE 37010-5101","188 Johnson Views Suite 079\nLake Kathleen, CA 48958","9127 Elizabeth Stravenue\nDanieltown, WI 06482-3489","USS Barnett\nFPO AP 44820","USNS Raymond\nFPO AE 09386","06039 Jennifer Islands Apt. 443\nTracyport, KS 16077","4759 Daniel Shoals Suite 442\nNguyenburgh, CO 20247","972 Joyce Viaduct\nLake William, TN 17778-6483","USS Gilbert\nFPO AA 20957","Unit 9446 Box 0958\nDPO AE 97025","6368 John Motorway Suite 700\nJanetbury, NM 26854","911 Castillo Park Apt. 717\nDavisborough, PW 78603","209 Natasha Stream Suite 961\nHuffmanland, NE 52457","829 Welch Track Apt. 992\nNorth John, AR 26532-5136","PSC 5330, Box 4420\nAPO AP 08302","2278 Shannon View\nNorth Carriemouth, NM 84617","064 Hayley Unions\nNicholsborough, HI 44161-1887","5498 Rachel Locks\nNew Gregoryshire, PW 54755","Unit 7424 Box 2786\nDPO AE 71255","19696 Benjamin Cape\nStephentown, ME 36952-4733","030 Larry Park Suite 665\nThomashaven, HI 87941-5197","USNS Brown\nFPO AP 85833","95198 Ortiz Key\nPort Sara, TN 24541-2855","9003 Jay Plains Suite 838\nLake Elizabeth, IN 90622-0804","24282 Paul Valley\nWest Perry, MI 03169-5806","61938 Brady Falls\nLewisfort, DE 61227","3599 Ramirez Springs\nJacksonhaven, AZ 72798","073 Christopher Falls Suite 882\nWest Cynthia, MA 89075-2814","6531 Chase Prairie Apt. 245\nSusanshire, MN 22365","17124 Johnson Squares\nLake Robertfurt, AL 61811-3832"]],"container":"<table class=\"display fill-container\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Income<\/th>\n      <th>House_Age<\/th>\n      <th>N_Rooms<\/th>\n      <th>N_Bedrooms<\/th>\n      <th>N_no_Bedrooms<\/th>\n      <th>Area_Population<\/th>\n      <th>Price<\/th>\n      <th>Address<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"scrollY":"400px","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p><br></p>
+</div>
+<div id="body2" class="section level2">
+<h2>Simple Linear Regression</h2>
+<p>As its name clearly indicates, <strong>Simple Linear Regression</strong> looks for a simple model in which the response variable is associated with a single explanatory variable. And in which an almost linear relationship is assumed between these two components. Thus, the first step is to define the variable that we want to predict or understand with our model. If we review the data set we would identify one possible variable of interest: The price of housing, which is the column labeled <code>Price</code>. But how are we going to decide which other variables are the best candidates to be included in our model? Well, here we can use two approaches. The first is to assign a hypothesis based on some prior information, such as that houses in high-income neighborhoods will be more expensive, or that houses with more rooms will be more expensive than houses with fewer rooms. We can then create models with these variables and compare the results to find the best fit. But this approach may cause us to miss some interesting feature of our data. So another approach is to let the data tell us which factor seems to be most related to our response variable. One way to do this is to look for linear trends between our response and each predictor. We can do this by plotting each variable against <code>Price</code>, or by analyzing the linear correlation between variables with a Pearson’s correlation, which measures the strength of a linear relationship between pairs. So let’s make some correlations.<br><br></p>
+<div style="text-align: center; border-left: 5px outset #008F8C; border-radius: 10px 0; background-color: #EDFFF7;">
+<p><span style="color: #008F8C">
+<strong>Tip</strong>:<br>
+Pearson’s correlation with the <mark style="color:#001B44;background-color:#F4F4F4"><code>stats::cor</code></mark> function can only be calculated on numeric variables, so we use <mark style="color:#001B44;background-color:#F4F4F4"><code>dplyr::select_if(is.numeric)</code></mark> to exclude any non-numeric columns. It is also a good practice to use the <mark style="color:#001B44;background-color:#F4F4F4"><code>use = "pairwise.complete.obs"</code></mark> option, in case any of the factors have missing values, as it only makes comparisons between rows of complete pairs of observations.
+<br>
+</span></p>
+</div>
+<p><br></p>
+<pre class="r"><code># Calculate Pearson Correlation 
+# stats::cor default method &quot;Pearson&quot;
+housing_cor = stats::cor(Housing %&gt;% dplyr::select_if(is.numeric),
+                         use = &quot;pairwise.complete.obs&quot;)
+
+# Plot Pearson Correlation
+corrplot::corrplot(housing_cor,
+                   method = &quot;number&quot;,
+                   type = &quot;upper&quot;,
+                   diag = FALSE,
+                   col = COL2(&#39;BrBG&#39;))</code></pre>
+<p><img src="/en/post/20220722-lm_w_R/20220722-lm_w_R_files/figure-html/unnamed-chunk-2-1.png" width="1304" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># H1 Neighborhood Income determine Price 
+lm_IP &lt;- lm(Price ~ Income, data = Housing)
+summary(lm_IP)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = Price ~ Income, data = Housing)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -965112 -187163   -2365  183084  983680 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -2.216e+05  2.500e+04  -8.863   &lt;2e-16 ***
+## Income       2.120e+01  3.602e-01  58.844   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 271400 on 4998 degrees of freedom
+## Multiple R-squared:  0.4093, Adjusted R-squared:  0.4091 
+## F-statistic:  3463 on 1 and 4998 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>ggplot(Housing, aes(Income, Price)) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;, se = FALSE)</code></pre>
+<p><img src="/en/post/20220722-lm_w_R/20220722-lm_w_R_files/figure-html/unnamed-chunk-3-1.png" width="1304" style="display: block; margin: auto;" /></p>
+<p><br><br><br></p>
 <details>
 <summary style="font-size:10pt;">
 R Session Info
@@ -48,42 +130,58 @@ R Session Info
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] MuMIn_1.46.0      caret_6.0-92      lattice_0.20-45   car_3.0-12       
-##  [5] carData_3.0-5     forcats_0.5.1     stringr_1.4.0     dplyr_1.0.9      
-##  [9] purrr_0.3.4       readr_2.1.2       tidyr_1.2.0       tibble_3.1.7     
-## [13] ggplot2_3.3.6     tidyverse_1.3.1   systemfonts_1.0.4
+##  [1] caret_6.0-92     lattice_0.20-45  metrica_2.0.0    modelr_0.1.8    
+##  [5] ggfortify_0.4.14 MuMIn_1.46.0     broom_0.7.12     car_3.0-12      
+##  [9] carData_3.0-5    cowplot_1.1.1    corrplot_0.92    forcats_0.5.1   
+## [13] stringr_1.4.0    dplyr_1.0.9      purrr_0.3.4      readr_2.1.2     
+## [17] tidyr_1.2.0      tibble_3.1.7     ggplot2_3.3.6    tidyverse_1.3.1 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] nlme_3.1-155         fs_1.5.2             bit64_4.0.5         
-##  [4] lubridate_1.8.0      httr_1.4.3           tools_4.1.3         
-##  [7] backports_1.4.1      bslib_0.3.1          utf8_1.2.2          
-## [10] R6_2.5.1             rpart_4.1.16         DBI_1.1.2           
-## [13] colorspace_2.0-3     nnet_7.3-17          withr_2.5.0         
-## [16] tidyselect_1.1.2     curl_4.3.2           bit_4.0.4           
-## [19] compiler_4.1.3       cli_3.3.0            rvest_1.0.2         
-## [22] xml2_1.3.3           bookdown_0.24        sass_0.4.1          
-## [25] scales_1.2.0         digest_0.6.29        rmarkdown_2.11      
-## [28] pkgconfig_2.0.3      htmltools_0.5.2      parallelly_1.30.0   
-## [31] dbplyr_2.1.1         fastmap_1.1.0        rlang_1.0.2         
-## [34] readxl_1.3.1         rstudioapi_0.13      jquerylib_0.1.4     
-## [37] generics_0.1.2       jsonlite_1.8.0       vroom_1.5.7         
-## [40] ModelMetrics_1.2.2.2 magrittr_2.0.3       Matrix_1.4-0        
-## [43] Rcpp_1.0.8.3         munsell_0.5.0        fansi_1.0.3         
-## [46] abind_1.4-5          lifecycle_1.0.1      pROC_1.18.0         
-## [49] stringi_1.7.6        yaml_2.3.5           MASS_7.3-55         
-## [52] plyr_1.8.7           recipes_0.1.17       grid_4.1.3          
-## [55] parallel_4.1.3       listenv_0.8.0        crayon_1.5.1        
-## [58] haven_2.4.3          splines_4.1.3        hms_1.1.1           
-## [61] knitr_1.37           pillar_1.7.0         stats4_4.1.3        
-## [64] reshape2_1.4.4       future.apply_1.8.1   codetools_0.2-18    
-## [67] reprex_2.0.1         glue_1.6.2           evaluate_0.14       
-## [70] blogdown_1.8         data.table_1.14.2    modelr_0.1.8        
-## [73] vctrs_0.4.1          tzdb_0.3.0           foreach_1.5.2       
-## [76] cellranger_1.1.0     gtable_0.3.0         future_1.23.0       
-## [79] assertthat_0.2.1     xfun_0.29            gower_1.0.0         
-## [82] prodlim_2019.11.13   broom_0.7.12         class_7.3-20        
-## [85] survival_3.2-13      timeDate_3043.102    iterators_1.0.14    
-## [88] lava_1.6.10          globals_0.14.0       ellipsis_0.3.2      
-## [91] ipred_0.9-12</code></pre>
+##   [1] colorspace_2.0-3     ellipsis_0.3.2       class_7.3-20        
+##   [4] fs_1.5.2             rstudioapi_0.13      farver_2.1.0        
+##   [7] listenv_0.8.0        DT_0.23              gsl_2.1-7.1         
+##  [10] bit64_4.0.5          prodlim_2019.11.13   fansi_1.0.3         
+##  [13] lubridate_1.8.0      xml2_1.3.3           codetools_0.2-18    
+##  [16] splines_4.1.3        cachem_1.0.6         knitr_1.37          
+##  [19] jsonlite_1.8.0       pROC_1.18.0          dbplyr_2.1.1        
+##  [22] compiler_4.1.3       httr_1.4.3           backports_1.4.1     
+##  [25] assertthat_0.2.1     Matrix_1.4-0         fastmap_1.1.0       
+##  [28] cli_3.3.0            htmltools_0.5.2      tools_4.1.3         
+##  [31] gtable_0.3.0         glue_1.6.2           reshape2_1.4.4      
+##  [34] Rcpp_1.0.8.3         cellranger_1.1.0     jquerylib_0.1.4     
+##  [37] vctrs_0.4.1          nlme_3.1-155         blogdown_1.8        
+##  [40] crosstalk_1.2.0      iterators_1.0.14     timeDate_3043.102   
+##  [43] xfun_0.29            gower_1.0.0          globals_0.14.0      
+##  [46] rvest_1.0.2          lifecycle_1.0.1      future_1.23.0       
+##  [49] MASS_7.3-55          scales_1.2.0         ipred_0.9-12        
+##  [52] vroom_1.5.7          hms_1.1.1            parallel_4.1.3      
+##  [55] curl_4.3.2           yaml_2.3.5           memoise_2.0.1       
+##  [58] gridExtra_2.3        sass_0.4.1           rpart_4.1.16        
+##  [61] stringi_1.7.6        RSQLite_2.2.10       highr_0.9           
+##  [64] foreach_1.5.2        minerva_1.5.10       energy_1.7-10       
+##  [67] boot_1.3-28          lava_1.6.10          rlang_1.0.2         
+##  [70] pkgconfig_2.0.3      evaluate_0.14        labeling_0.4.2      
+##  [73] htmlwidgets_1.5.4    recipes_0.1.17       bit_4.0.4           
+##  [76] tidyselect_1.1.2     parallelly_1.30.0    plyr_1.8.7          
+##  [79] magrittr_2.0.3       bookdown_0.24        R6_2.5.1            
+##  [82] generics_0.1.2       DBI_1.1.2            mgcv_1.8-39         
+##  [85] pillar_1.7.0         haven_2.4.3          withr_2.5.0         
+##  [88] survival_3.2-13      abind_1.4-5          nnet_7.3-17         
+##  [91] future.apply_1.8.1   crayon_1.5.1         utf8_1.2.2          
+##  [94] tzdb_0.3.0           rmarkdown_2.11       grid_4.1.3          
+##  [97] readxl_1.3.1         data.table_1.14.2    blob_1.2.2          
+## [100] ModelMetrics_1.2.2.2 reprex_2.0.1         digest_0.6.29       
+## [103] stats4_4.1.3         munsell_0.5.0        bslib_0.3.1</code></pre>
 </details>
+<p><br></p>
+<p style="font-size:10pt;">
+Footnotes
+</p>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p><strong>Supervised Learning</strong> refers to methods in which for each observation of a measure of the explanatory variable, a measure of the response variable is required. This feature will allow us to create and then compare the predicted values of our model against the actual response of the variable.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p><strong>Statistical Learning</strong> refers to a large number of tools that can be used to better understand the data.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>

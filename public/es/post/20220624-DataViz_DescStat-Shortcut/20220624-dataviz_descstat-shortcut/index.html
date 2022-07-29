@@ -56,11 +56,11 @@
 <meta name="twitter:description" content="Un atajo usando {stat}, {ggplot2}, y {ggpubr}"/>
 
 	
-       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway" type="text/css" media="all" />
-     
        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald" type="text/css" media="all" />
      
-       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto" type="text/css" media="all" />
+       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair Display" type="text/css" media="all" />
+     
+       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Overpass Mono" type="text/css" media="all" />
      
 
  <style>
@@ -68,12 +68,15 @@
      font-family: 'Oswald';
  }
  body,div,p {
-     font-family: 'Raleway';
+     font-family: 'Playfair Display';
  }
  pre  code {
-    font-family: 'Roboto'; 
+    font-family: 'Overpass Mono'; 
  }
  </style>
+ 
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   </head>
 
@@ -221,7 +224,7 @@
     <main class="pb7" role="main">
       
   
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+  <article class="flex-wrap justify-between mw8 center ph3"> 
     <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked">
           
@@ -257,7 +260,7 @@
   </div>
 
 
-      <h1 class="f1 athelas mt3 mb1">Estadísticas descriptivas y visualización en R</h1>
+      <h1 class="f1 'Bodoni Moda' mt3 mb1">Estadísticas descriptivas y visualización en R</h1>
       
       <p class="tracked">
           By <strong>
@@ -272,12 +275,12 @@
 
       
       
-        <span class="f6 mv4 dib tracked"> - 18 minutes read</span>
-        <span class="f6 mv4 dib tracked"> - 3794 words</span>
+        <span class="f5 mv4 dib tracked"> - 18 minutes read</span>
+        <span class="f5 mv4 dib tracked"> - 3794 words</span>
       
     </header>
     
-    <div class="nested-copy-line-height lh-copy bg-washed-blue f4 nested-links nested-img mid-gray pr4-l w-90-ns tj">
+    <div class="nested-copy-line-height lh-copy bg-washed-blue f4 nested-links nested-img black pr4-l w-90 center tj">
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <link href="/rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
@@ -613,7 +616,7 @@ library(ggplot2)</code></pre>
 <pre class="r"><code>ggplot(data = penguins, 
        mapping = aes(x = bill_length_mm)) + 
        geom_density()</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-21-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-21-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>El <em>densiplot</em> calcula y traza la estimación de la densidad de los datos (es una versión suavizada del histograma). El <em>densiplot</em> nos permite ver la distribución de nuestros datos, y el área bajo la curva del <em>densiplot</em> suma 1 que corresponde a la probabilidad de encontrar el 100% de nuestras observaciones.<br></p>
 <p>El paquete {ggplot2}, nos permite realizar varios tipos de visualizaciones debido a la gran variedad de objetos geom. Como ya hemos revisado nuestro conjunto de datos “<strong>penguins</strong>”, y hemos identificado variables continuas como “bill_length_mm” (longitud del pico en milímetros) y “bill_depth_mm” (profundidad del pico en milímetros). A continuación realizaremos un gráfico de puntos (seleccionado a través del objeto <code>geom_point</code>), donde mapearemos dos variables (es decir, <code>x</code> e <code>y</code>) y no sólo una (es decir, <code>x</code>) como en el ejemplo anterior. Para ello, asignaremos <code>bill_length_mm</code> al eje <code>x</code>, y <code>bill_depth_mm</code> al eje <code>y</code>.<br></p>
 </div>
@@ -623,7 +626,7 @@ library(ggplot2)</code></pre>
        mapping = aes(x = bill_length_mm, 
                      y = bill_depth_mm)) + 
        geom_point()</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-22-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-22-1.png" width="1304" style="display: block; margin: auto;" /></p>
 </div>
 <div id="body3.1.1" class="section level4">
 <h4>Componentes de un gráfico en {ggplot2}</h4>
@@ -643,7 +646,7 @@ library(ggplot2)</code></pre>
                      y = bill_depth_mm,
                      color = species)) + 
        geom_point()</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-23-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-23-1.png" width="1304" style="display: block; margin: auto;" /></p>
 </div>
 <div id="body3.3" class="section level3">
 <h3>Elija el gráfico con los objeto geom</h3>
@@ -656,7 +659,7 @@ library(ggplot2)</code></pre>
                      y = bill_length_mm,
                      color = species)) + 
        geom_boxplot()</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-24-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-24-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>El <em>boxplot</em> es un tipo de visualización muy útil porque nos permite identificar en un solo gráfico los cuantiles (0,25 (Q1), 0,5 (Q2) y 0,75 (Q3)), así como los valores atípicos (<em>outliers</em>) de un conjunto de datos.<br></p>
 </div>
 <div id="cómo-interpretar-un-boxplot" class="section level4">
@@ -670,7 +673,7 @@ library(ggplot2)</code></pre>
                      y = bill_length_mm,
                      color = species)) + 
        geom_violin()</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-25-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-25-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>El <em>violin plot</em> es otro tipo de visualización, en el que podemos observar la distribución de los datos, lo que nos permite observar la densidad con mayor claridad.<br></p>
 </div>
 </div>
@@ -692,7 +695,7 @@ library(ggpubr)</code></pre>
        mapping = aes(x = bill_length_mm)) + 
        geom_density() +
 stat_overlay_normal_density(color = &quot;darkblue&quot;, linetype = &quot;dashed&quot;)</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-27-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-27-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>Con esta función podemos ver que nuestra distribución no es perfectamente normal, lo que verifica visualmente el resultado obtenido anteriormente con la prueba de <strong>Shapiro-Wilk</strong>.<br></p>
 </div>
 <div id="graficar-un-análisis-de-varianza" class="section level4">
@@ -708,7 +711,7 @@ stat_overlay_normal_density(color = &quot;darkblue&quot;, linetype = &quot;dashe
                          method = &quot;wilcox.test&quot;, 
                          ref.group = &quot;.all.&quot;, 
                          label.y = 65)</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-28-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-28-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>Si queremos realizar la prueba ANOVA debemos seguir el siguiente código, donde se realizará la prueba t pareada. <span style="color:red">Pero recordemos que en este caso nuestros datos no cumplen con la normalidad, por lo que este ejemplo es sólo una demostración del código.</span><br></p>
 <pre class="r"><code>ggplot(data = penguins, 
        mapping = aes(x = species, 
@@ -720,7 +723,7 @@ stat_overlay_normal_density(color = &quot;darkblue&quot;, linetype = &quot;dashe
                          method = &quot;t.test&quot;, 
                          ref.group = &quot;.all.&quot;, 
                          label.y = 65)</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-29-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-29-1.png" width="1304" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
@@ -738,7 +741,7 @@ stat_overlay_normal_density(color = &quot;darkblue&quot;, linetype = &quot;dashe
                          ref.group = &quot;.all.&quot;, 
                          label.y = 65) +
   scale_fill_manual(values = c(&quot;#393459&quot;,&quot;#F2AB27&quot;,&quot;#D96704&quot;))</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-30-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-30-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <p>Por último, añadiremos leyendas a cada eje y un título al gráfico, lo que nos ayudará a que la figura sea más autoexplicativa. Para ello utilizaremos la capa <code>labs()</code> y cambiaremos el tema del gráfico por defecto. Cambiar el tema del gráfico es como cambiar el lienzo en el que representamos nuestros datos. Para ello utilizaremos la función <code>theme_pubr()</code>, un tema que está en la librería <a href="https://rpkgs.datanovia.com/ggpubr/">{ggpubr}</a>, que nos dará un gráfico limpio y elegante, listo para su publicación. Con la adición de estos últimos puntos, nuestro gráfico básico incorpora ahora un análisis estadístico de varianza (prueba de Kruskal-Wallis, y prueba de suma de rangos de Wilcoxon), y un componente estético que lo hará visualmente más atractivo y fácil de interpretar. Además, también puedes crear tu propio tema con la función <strong>theme()</strong>, pero tendremos que revisarlo con más detalle en un próximo post. ¡Por ahora me despido y espero que tengas un buen día!<br></p>
 <pre class="r"><code># Gráfico básico
 ggplot(data = penguins, 
@@ -759,7 +762,7 @@ ggplot(data = penguins,
        fill = &quot;&quot;,
        title = &quot;Pinguinos del archipelago Palmer,\nAntártica&quot;) +
   theme_pubr()</code></pre>
-<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-31-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="/es/post/20220624-DataViz_DescStat-Shortcut/20220624-DataViz_DescStat-Shortcut_files/figure-html/unnamed-chunk-31-1.png" width="1304" style="display: block; margin: auto;" /></p>
 <details>
 <summary style="font-size:10pt;">
 R Session Info
@@ -805,60 +808,56 @@ R Session Info
 ## [73] xfun_0.29</code></pre>
 </details>
 </div>
-<ul class="pa0">
-  
-   <li class="list">
-     <a href="/es/tags/dataviz" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">DataViz</a>
-   </li>
-  
-   <li class="list">
-     <a href="/es/tags/statistics" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Statistics</a>
-   </li>
-  
-   <li class="list">
-     <a href="/es/tags/stat" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">stat</a>
-   </li>
-  
-   <li class="list">
-     <a href="/es/tags/ggpubr" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ggpubr</a>
-   </li>
-  
-   <li class="list">
-     <a href="/es/tags/ggplot2" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ggplot2</a>
-   </li>
-  
-</ul>
-<div class="mt6 instapaper_ignoref">
+
+
+      <div class="mt6 instapaper_ignoref">
       
       
       </div>
     </div>
     
-    <aside class="w-30-l mt6-l">
+    <aside class="w-90 mt6-l nested-links">
 
 
 
 
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+  <div class=" pa3 nested-list-reset nested-copy-line-height nested-links">
     <p class="f5 b mb3">Relacionado</p>
     <ul class="pa0 list">
 	   
-	     <li  class="mb2">
+	     <li  class="mb2 f5">
           <a href="/es/post/20220120-dataviz-shortcut/20220120-dataviz-shortcut/">De la carga de los datos a la visualización en R (fácilmente)</a>
         </li>
 	    
-	     <li  class="mb2">
+	     <li  class="mb2 f5">
           <a href="/es/post/20211123-hello-tidytuesday/">Hola #TidyTuesday</a>
         </li>
 	    
-	     <li  class="mb2">
+	     <li  class="mb2 f5">
           <a href="/es/post/20211123-hello-blog/">Hola Blog!</a>
         </li>
 	    
     </ul>
 </div>
 
+<div class="pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Etiquetas</p>
+<ul class="pa0">
+  
+     <a href="/es/tags/dataviz" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">DataViz</a>
+  
+     <a href="/es/tags/statistics" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Statistics</a>
+  
+     <a href="/es/tags/stat" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">stat</a>
+  
+     <a href="/es/tags/ggpubr" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ggpubr</a>
+  
+     <a href="/es/tags/ggplot2" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ggplot2</a>
+  
+</ul>
+</div>
 </aside>
+    
 
   </article>
 
