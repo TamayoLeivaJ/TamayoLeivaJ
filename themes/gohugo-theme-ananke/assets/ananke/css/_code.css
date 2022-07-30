@@ -1,5 +1,5 @@
 pre, .pre  {
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   overflow:   scroll;
 }
@@ -8,7 +8,7 @@ pre, .pre  {
 pre  code {
   display: block;
   padding: 1.0em 1.0em 1.0em 1.0em;
-  /*white-space: pre;*/
+  white-space: pre;
   font-family: 'courier';
   font-size: 0.75em;
   line-height: 1.25;
