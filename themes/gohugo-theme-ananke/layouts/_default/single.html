@@ -15,11 +15,11 @@
         {{with .CurrentSection.Title }}{{. | upper }}{{end}}
       </aside>
       {{ partial "social-share.html" . }}
-      <h1 class="f1 'Bodoni Moda' mt3 mb1">
+      <h1 class="f1 mt3 mb1">
         {{- .Title -}}
       </h1>
       {{ with .Params.author }}
-      <p class="tracked">
+      <p class="f4 tracked">
           By <strong>
           {{ if reflect.IsSlice . }}
               {{ delimit . ", " | markdownify }}
@@ -30,7 +30,7 @@
       </p>
       {{ end }}
       {{/* Hugo uses Go's date formatting is set by example. Here are two formats */}}
-      <time class="f6 mv4 dib tracked" {{ printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
+      <time class="f5 mv4 dib tracked" {{ printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
         {{- .Date.Format "Monday, January 2, 2006" -}}
       </time>
 

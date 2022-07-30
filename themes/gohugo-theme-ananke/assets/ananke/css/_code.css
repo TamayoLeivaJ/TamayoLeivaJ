@@ -1,5 +1,5 @@
 pre, .pre  {
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
   overflow:   scroll;
 }
