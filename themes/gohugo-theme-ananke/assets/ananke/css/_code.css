@@ -7,19 +7,20 @@ pre, .pre  {
 
 pre  code {
   display: block;
-  padding: 1.5em 1.5em;
+  padding: 1.0em 1.0em 1.0em 1.0em;
   white-space: pre;
   font-family: 'courier';
   font-size: 0.75em;
-  line-height: 1.5;
+  line-height: 1.25;
 
 }
 
 pre {
-  background-color: #265D73;
-  color: #E8FDF5;
+  border: 5px solid #D2D7D9;
+  border-radius: 5px;
+  background-color: #002B36;
+  color: #278BD2;
   white-space: pre;
-
   hyphens: none;
   position: relative;
 }
