@@ -19,10 +19,10 @@
 
 {{ with $related }}
   <div class=" pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">{{ i18n "related" }}</p>
+    <p class="f4 b mb3">{{ i18n "related" }}</p>
     <ul class="pa0 list">
 	   {{ range . }}
-	     <li  class="mb2 f5">
+	     <li  class="mb2 f4">
           <a href="{{ .RelPermalink }}">
             {{- .Title -}}
           </a>
