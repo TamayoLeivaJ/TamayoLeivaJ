@@ -24,7 +24,6 @@ pre {
   white-space: pre; 
   hyphens: none;
   position: relative;
-  height: 100%;
-  width: 100%;
+  padding: 0 0 0 0;
 }
 
