@@ -1,5 +1,5 @@
 pre, .pre  {
-  overflow-x: hidden;
+  overflow-x: scroll;
   overflow-y: hidden;
   overflow:   scroll;
 }
@@ -25,3 +25,4 @@ pre {
   hyphens: none;
   position: relative;
 }
+
