@@ -8,19 +8,20 @@ pre, .pre  {
 pre  code {
   display: block;
   padding: 1.0em 1.0em 1.0em 1.0em;
-  white-space: pre;
+  /*white-space: pre;*/
   font-family: 'courier';
   font-size: 0.75em;
   line-height: 1.25;
 
 }
 
+/* Comments */
 pre {
   border: 5px solid #D2D7D9;
   border-radius: 5px;
   background-color: #002B36;
   color: #278BD2;
-  /* white-space: pre; */
+  white-space: pre; 
   hyphens: none;
   position: relative;
 }
