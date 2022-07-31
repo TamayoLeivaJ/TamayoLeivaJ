@@ -33,8 +33,8 @@ params:
   body_classes: "bg-washed-blue"
   post_content_classes: "bg-washed-blue"
   background_color_class: bg-near-black
-  description: Data Science, Data Visualization, Microbial Ecology & Genetics.
   custom_css: ["./static/css/custom.css", "./static/css/hugo-easy-gallery.css"]
+  description: Data Science, Data Visualization, Microbial Ecology & Genetics.
   facebook: ''
   favicon: /images/favicon.png
   featured_image: /images/map.png

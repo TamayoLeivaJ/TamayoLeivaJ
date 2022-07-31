@@ -19,8 +19,8 @@ pre  code {
 pre {
   border: 5px solid #D2D7D9;
   border-radius: 5px;
-  background-color: #002B36;
-  color: #278BD2;
+  /*background-color: #002B36;*/
+  /*color: #278BD2;*/
   white-space: pre; 
   hyphens: none;
   position: relative;
