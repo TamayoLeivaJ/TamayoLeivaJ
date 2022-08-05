@@ -14,6 +14,7 @@ toc: true
 Mis contribuciones favoritas. Puedes encontrar los códigos de R [aquí](https://github.com/TamayoLeivaJ/TidyTuesday)
 
 {{< gallery >}}
+  {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_031.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Semana 31 - Oregon Spotted Frog 🐸" >}}
   {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_020.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Semana 20 - Eurovision Contest 🎤️" >}}
   {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_013.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Semana 13 - Collegiate sports 🏟️" >}}
   {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_012.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Semana 12 - Baby names" >}}
