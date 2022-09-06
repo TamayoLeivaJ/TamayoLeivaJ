@@ -1,13 +1,13 @@
 ---
 title: "Linear Regression in R"
 description: "Housing price analysis in R with {car}, {caret}, & {MuMIn}"
-summary: "In this post we are going to talk about linear regression, a type of linear model that has been used for a long time. It is a very useful tool for statistical learning, and its understanding is necessary to understand other more complex modeling methods. In this article we are going to use linear regressions to explore predictions of housing prices in the United States, while understanding its components and how to compute them in R."
+summary: "In this post we are going to talk about linear regression, a type of linear model and a popular supervised machine learning algorithm. Linear regression is also useful for statistical learning, and understanding it is necessary to comprehend other more complex modeling methods. In this article we will use linear regressions to explore predictions of housing prices in the United States, while understanding its assumptions, components, and how to compute them in R."
 author: "Javier Tamayo-Leiva" 
 date: 2022-07-22
 featured_image: "/images/post/20220722-lm_w_R/20220722-lm_w_R_wide.png"
 layout: post
 toc: FALSE
-tags: ["DataViz", "Statistics", "stat", "Regression", "Linear model", "Machine Learning"]
+tags: ["Statistics", "Regression", "Linear Model", "Machine Learning"]
 output: distill::distill_article
 draft: true
 editor_options:
@@ -38,6 +38,7 @@ Housing <- read_csv("https://raw.githubusercontent.com/TamayoLeivaJ/000_DataSets
 
 * [Introduction](#intro)
 * [Linear Regression](#body1)
+  * [Model assumptions](#body1.2)
 * [Simple Linear Regression](#body2)
 
 
@@ -78,7 +79,27 @@ The objective of Linear Regression models is always to fit a straight line as cl
 
 $${Response = intercept + slope * explanatory} $$ 
 
-<br>
+
+### Model assumptions {#body1.2} 
+
+Models are a simplification of reality to specific scenarios, so when we intend to apply any model -such as the linear model presented here- to our data, we must check if the assumptions of the model are met. Otherwise our model, its metrics and predictions may mislead the analysis. The assumptions necessary for the model are as follows:<br><br> 
+
+- **Suitability**
+   
+    The same model can be used for all the observations.
+    
+- **Linearity**
+   
+    There is a true linear relationship between the $Response$ and each quantitative explanatory variable of the model.
+    
+- **Constant variance**
+   
+    The variance of the response is constant.
+    
+- **Independence**
+
+    The $Response$ values are independent of each other.<br><br>
+    
 Now that we understand the basic linear regression model, let's estimate some coefficients with our data set today on U.S. home prices. To do this, we first need to take a look at the structure of the data. Our data set has 5,000 observations and 8 variables, with information on area average income, area average age for homes, number of rooms in the house, bedrooms, non-bedrooms, area population, house price, and its address. Once we have examined the sample table, we will compute a simple linear regression to start. <br><br>
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, include=TRUE}
@@ -123,7 +144,6 @@ ggplot(Housing, aes(Income, Price)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE)
 ```
-
 
 
 

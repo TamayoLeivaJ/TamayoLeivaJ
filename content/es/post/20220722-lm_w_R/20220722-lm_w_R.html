@@ -1,13 +1,13 @@
 ---
 title: "Regresión Lineal en R"
 description: "Análisis del precio de la vivienda en R con {car}, {caret}, & {MuMIn}"
-summary: "En este post vamos a hablar de la regresión lineal, un tipo de modelo lineal que se ha utilizado durante mucho tiempo. Es una herramienta muy útil para el aprendizaje estadístico, y su comprensión se hace necesaria para entender otros métodos de modelamiento más complejos. En este artículo vamos a utilizar las regresiones lineales para explorar las predicciones de los precios de la vivienda en los Estados Unidos, mientras entendemos sus componentes y cómo calcularlos en R."
+summary: "En este post vamos a hablar de la regresión lineal, un tipo de modelo lineal y un popular algoritmo de aprendizaje automático supervisado. La regresión lineal también es útil para el aprendizaje estadístico, y entenderla es necesario para comprender otros métodos de modelización más complejos. En este artículo utilizaremos las regresiones lineales para explorar las predicciones de los precios de la vivienda en los Estados Unidos, mientras entendemos sus supuestos, componentes y cómo calcularlos en R.s"
 author: "Javier Tamayo-Leiva" 
 date: 2022-07-22
 featured_image: "/images/post/20220722-lm_w_R/20220722-lm_w_R_wide.png"
 layout: post
 toc: FALSE
-tags: ["DataViz", "Statistics", "stat", "Regression", "Linear model", "Machine Learning"]
+tags: ["Statistics", "Regression", "Linear Model", "Machine Learning"]
 output: distill::distill_article
 draft: true
 ---
@@ -28,7 +28,10 @@ draft: true
 <h4>Table of Content</h4>
 <ul>
 <li><a href="#intro">Introducción</a></li>
-<li><a href="#body1">Regresión Lineal</a></li>
+<li><a href="#body1">Regresión Lineal</a>
+<ul>
+<li><a href="#body1.2">Supuestos del modelo</a></li>
+</ul></li>
 <li><a href="#body2">Regresión Lineal Simple</a></li>
 </ul>
 <hr />
@@ -55,12 +58,25 @@ Donde:</p>
 <p>Constante desconocida que representa el valor en el que cambia Y por cada unidad X.<br><br></p></li>
 </ul>
 <p>El objetivo de los modelos de regresión lineal es siempre ajustar una línea recta lo más cercana posible a los datos analizados. Las rectas generadas se definen, por tanto, por la combinación de los dos términos desconocidos, el intercepto y la pendiente, con la variable explicativa. Estos dos términos que se calculan a partir de los datos analizados también se conocen como los coeficientes o parámetros del modelo. Entonces ahora que sabemos como interpretar la ecuación podemos simplificar la terminología de la siguiente forma:<br><br></p>
-<p><span class="math display">\[{Respuesta = intercepto + pendiente * Explicativa} \]</span>
-<br>
-Ahora que entendemos el modelo básico de regresión lineal, vamos a calcular algunos coeficientes con nuestro conjunto de datos de hoy sobre el precio de la vivienda en Estados Unidos. Para ello, primero tenemos que echar un vistazo a la estructura de los datos. Nuestro conjunto de datos tiene 5.000 observaciones y 8 variables, con información sobre la renta media de la zona, la edad media de la zona para las viviendas, el número de habitaciones de la casa, los dormitorios, los no dormitorios, la población de la zona, el precio de la vivienda y su dirección. Una vez examinada la tabla de la muestra, calcularemos una regresión lineal simple para empezar. <br><br></p>
+<p><span class="math display">\[{Respuesta = intercepto + pendiente * Explicativa} \]</span></p>
+<div id="body1.2" class="section level3">
+<h3>Supuestos del modelo</h3>
+<p>Los modelos son una simplificación de la realidad a escenarios específicos, por lo que cuando pretendemos aplicar cualquier modelo -como el modelo lineal que aquí se presenta- a nuestros datos, debemos comprobar si se cumplen los supuestos del modelo, ya que de lo contrario nuestro modelo, sus métricas y predicciones pueden inducir a error en el análisis. Los supuestos necesarios para el modelo son los siguientes:<br><br></p>
+<ul>
+<li><p><strong>Idoneidad</strong></p>
+<p>Se puede utilizar el mismo modelo para todas las observaciones.</p></li>
+<li><p><strong>Linealidad</strong></p>
+<p>Existe una verdadera relación lineal entre la <span class="math inline">\(Respuesta\)</span> y cada variable explicativa cuantitativa del modelo.</p></li>
+<li><p><strong>Varianza constante</strong></p>
+<p>La varianza de la respuesta es constante.</p></li>
+<li><p><strong>Independencia</strong></p>
+<p>Los valores de <span class="math inline">\(Respuesta\)</span> son independientes entre sí.<br><br></p></li>
+</ul>
+<p>Ahora que entendemos el modelo básico de regresión lineal, vamos a calcular algunos coeficientes con nuestro conjunto de datos de hoy sobre el precio de la vivienda en Estados Unidos. Para ello, primero tenemos que echar un vistazo a la estructura de los datos. Nuestro conjunto de datos tiene 5.000 observaciones y 8 variables, con información sobre la renta media de la zona, la edad media de la zona para las viviendas, el número de habitaciones de la casa, los dormitorios, los no dormitorios, la población de la zona, el precio de la vivienda y su dirección. Una vez examinada la tabla de la muestra, calcularemos una regresión lineal simple para empezar. <br><br></p>
 <div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","vertical":false,"fillContainer":true,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],[79545.4585743168,79248.6424548257,61287.0671786568,63345.240046228,59982.197225708,80175.7541594853,64698.4634278877,78394.3392775308,59927.6608133496,81885.9271840957,80527.4720829229,50593.6954970428,39033.8092369824,73163.6634410467,69391.3801843616,73091.8667458232,79706.9630576574,61929.0770180893,63508.19429943,62085.2764034049,86294.9990887106,60835.089978854,64490.6502667551,60697.3515394483,59748.8554869742,56974.4765387964,82173.626075846,64626.8809781355,90499.0574513475,59323.7920997004],[5.68286132161559,6.00289980827524,5.86588984031,7.18823609451864,5.04055452310628,4.98840775753371,6.02533590688715,6.98977974771828,5.36212556960358,4.42367178989788,8.09351268063935,4.49651279309704,7.67175537285443,6.91953482545656,5.34477617673573,5.44315646653547,5.06788959105897,4.78855024180589,5.94716513955247,5.73941084363057,6.62745693978174,5.55122159199033,4.21032287005484,6.1704840908385,5.3393398807459,8.28756219375901,4.01852468494281,5.4433595901921,6.3843589207152,6.97782794017884],[7.00918814279224,6.73082101909492,8.5127274303751,5.58672866482765,7.83938778512049,6.10451243942888,8.14775958502343,6.62047799518503,6.3931209805509,8.16768800347235,5.04274679964598,7.46762740400802,7.2500293172735,5.99318790094557,8.40641771453425,8.51751271113798,8.21977112328626,5.09700955437756,7.18777383532973,7.09180810424997,8.01189785315056,6.51717503809478,5.47808773076914,7.15053657233596,7.7486816056066,7.31287997146301,6.99269875679184,6.98875353866204,4.24219130157263,8.2736970777766],[4.09,3.09,5.13,3.26,4.23,4.04,3.41,2.42,2.3,6.1,4.1,4.49,3.1,2.27,4.37,4.01,3.12,4.3,5.12,5.49,4.07,2.1,4.31,6.34,4.23,4.33,2.03,4,3.04,4.07],[2.91918814279224,3.64082101909492,3.3827274303751,2.32672866482765,3.60938778512049,2.06451243942888,4.73775958502343,4.20047799518503,4.0931209805509,2.06768800347235,0.942746799645982,2.97762740400802,4.15002931727349,3.72318790094557,4.03641771453425,4.50751271113798,5.09977112328626,0.797009554377562,2.06777383532973,1.60180810424997,3.94189785315056,4.41717503809478,1.16808773076914,0.810536572335959,3.5186816056066,2.98287997146301,4.96269875679184,2.98875353866204,1.20219130157263,4.2036970777766],[23086.8005026865,40173.0721736448,36882.1593997046,34310.2428309071,26354.1094721031,26748.4284246897,60828.2490854072,36516.3589724938,29387.3960028159,40149.9657492134,47224.3598402219,34343.9918855788,39220.3614673725,32326.1231394881,35521.2940331732,23929.524053268,39717.8135763095,24595.901497823,35719.6530520309,44922.1067022931,47560.7753362952,45574.7416622579,40358.9601056176,28140.9670877248,27809.9865437589,40694.8695130223,38853.9180664817,27784.7422801859,33970.1649903713,37520.6577324497],[1059033.55787012,1505890.91484695,1058987.98787608,1260616.80662945,630943.48933854,1068138.07439353,1502055.81737441,1573936.56447772,798869.532833163,1545154.81264196,1707045.72215806,663732.396896327,1042814.09782009,1291331.51848582,1402818.21016585,1306674.6599512,1556786.60019477,528485.246730596,1019425.93675783,1030591.42921161,2146925.33988866,929247.5995364,718887.231500928,743999.819160197,895737.133383508,1453974.50595087,1125692.50729529,975429.492792922,1240763.76557148,1577017.76000155],["208 Michael Ferry Apt. 674\nLaurabury, NE 37010-5101","188 Johnson Views Suite 079\nLake Kathleen, CA 48958","9127 Elizabeth Stravenue\nDanieltown, WI 06482-3489","USS Barnett\nFPO AP 44820","USNS Raymond\nFPO AE 09386","06039 Jennifer Islands Apt. 443\nTracyport, KS 16077","4759 Daniel Shoals Suite 442\nNguyenburgh, CO 20247","972 Joyce Viaduct\nLake William, TN 17778-6483","USS Gilbert\nFPO AA 20957","Unit 9446 Box 0958\nDPO AE 97025","6368 John Motorway Suite 700\nJanetbury, NM 26854","911 Castillo Park Apt. 717\nDavisborough, PW 78603","209 Natasha Stream Suite 961\nHuffmanland, NE 52457","829 Welch Track Apt. 992\nNorth John, AR 26532-5136","PSC 5330, Box 4420\nAPO AP 08302","2278 Shannon View\nNorth Carriemouth, NM 84617","064 Hayley Unions\nNicholsborough, HI 44161-1887","5498 Rachel Locks\nNew Gregoryshire, PW 54755","Unit 7424 Box 2786\nDPO AE 71255","19696 Benjamin Cape\nStephentown, ME 36952-4733","030 Larry Park Suite 665\nThomashaven, HI 87941-5197","USNS Brown\nFPO AP 85833","95198 Ortiz Key\nPort Sara, TN 24541-2855","9003 Jay Plains Suite 838\nLake Elizabeth, IN 90622-0804","24282 Paul Valley\nWest Perry, MI 03169-5806","61938 Brady Falls\nLewisfort, DE 61227","3599 Ramirez Springs\nJacksonhaven, AZ 72798","073 Christopher Falls Suite 882\nWest Cynthia, MA 89075-2814","6531 Chase Prairie Apt. 245\nSusanshire, MN 22365","17124 Johnson Squares\nLake Robertfurt, AL 61811-3832"]],"container":"<table class=\"display fill-container\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Income<\/th>\n      <th>House_Age<\/th>\n      <th>N_Rooms<\/th>\n      <th>N_Bedrooms<\/th>\n      <th>N_no_Bedrooms<\/th>\n      <th>Area_Population<\/th>\n      <th>Price<\/th>\n      <th>Address<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"scrollY":"400px","columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p><br></p>
+</div>
 </div>
 <div id="body2" class="section level2">
 <h2>Regresión Lineal Simple</h2>
@@ -89,7 +105,7 @@ R Session Info
 ##  [5] ggfortify_0.4.14 MuMIn_1.46.0     broom_0.7.12     car_3.0-12      
 ##  [9] carData_3.0-5    cowplot_1.1.1    corrplot_0.92    forcats_0.5.1   
 ## [13] stringr_1.4.0    dplyr_1.0.9      purrr_0.3.4      readr_2.1.2     
-## [17] tidyr_1.2.0      tibble_3.1.7     ggplot2_3.3.6    tidyverse_1.3.1 
+## [17] tidyr_1.2.0      tibble_3.1.8     ggplot2_3.3.6    tidyverse_1.3.1 
 ## 
 ## loaded via a namespace (and not attached):
 ##   [1] colorspace_2.0-3     ellipsis_0.3.2       class_7.3-20        
@@ -114,11 +130,11 @@ R Session Info
 ##  [58] sass_0.4.1           rpart_4.1.16         stringi_1.7.6       
 ##  [61] RSQLite_2.2.10       foreach_1.5.2        minerva_1.5.10      
 ##  [64] energy_1.7-10        boot_1.3-28          lava_1.6.10         
-##  [67] rlang_1.0.2          pkgconfig_2.0.3      evaluate_0.14       
+##  [67] rlang_1.0.4          pkgconfig_2.0.3      evaluate_0.14       
 ##  [70] htmlwidgets_1.5.4    recipes_0.1.17       bit_4.0.4           
 ##  [73] tidyselect_1.1.2     parallelly_1.30.0    plyr_1.8.7          
 ##  [76] magrittr_2.0.3       bookdown_0.24        R6_2.5.1            
-##  [79] generics_0.1.2       DBI_1.1.2            pillar_1.7.0        
+##  [79] generics_0.1.2       DBI_1.1.2            pillar_1.8.0        
 ##  [82] haven_2.4.3          withr_2.5.0          survival_3.2-13     
 ##  [85] abind_1.4-5          nnet_7.3-17          future.apply_1.8.1  
 ##  [88] crayon_1.5.1         utf8_1.2.2           tzdb_0.3.0          

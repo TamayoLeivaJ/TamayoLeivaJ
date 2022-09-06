@@ -1,13 +1,13 @@
 ---
 title: "Regresión Lineal en R"
 description: "Análisis del precio de la vivienda en R con {car}, {caret}, & {MuMIn}"
-summary: "En este post vamos a hablar de la regresión lineal, un tipo de modelo lineal que se ha utilizado durante mucho tiempo. Es una herramienta muy útil para el aprendizaje estadístico, y su comprensión se hace necesaria para entender otros métodos de modelamiento más complejos. En este artículo vamos a utilizar las regresiones lineales para explorar las predicciones de los precios de la vivienda en los Estados Unidos, mientras entendemos sus componentes y cómo calcularlos en R."
+summary: "En este post vamos a hablar de la regresión lineal, un tipo de modelo lineal y un popular algoritmo de aprendizaje automático supervisado. La regresión lineal también es útil para el aprendizaje estadístico, y entenderla es necesario para comprender otros métodos de modelización más complejos. En este artículo utilizaremos las regresiones lineales para explorar las predicciones de los precios de la vivienda en los Estados Unidos, mientras entendemos sus supuestos, componentes y cómo calcularlos en R.s"
 author: "Javier Tamayo-Leiva" 
 date: 2022-07-22
 featured_image: "/images/post/20220722-lm_w_R/20220722-lm_w_R_wide.png"
 layout: post
 toc: FALSE
-tags: ["DataViz", "Statistics", "stat", "Regression", "Linear model", "Machine Learning"]
+tags: ["Statistics", "Regression", "Linear Model", "Machine Learning"]
 output: distill::distill_article
 draft: true
 ---
@@ -36,6 +36,7 @@ Housing <- read_csv("https://raw.githubusercontent.com/TamayoLeivaJ/000_DataSets
 
 * [Introducción](#intro)
 * [Regresión Lineal](#body1)
+  * [Supuestos del modelo](#body1.2)
 * [Regresión Lineal Simple](#body2)
 
 
@@ -75,7 +76,27 @@ Donde:
 El objetivo de los modelos de regresión lineal es siempre ajustar una línea recta lo más cercana posible a los datos analizados. Las rectas generadas se definen, por tanto, por la combinación de los dos términos desconocidos, el intercepto y la pendiente, con la variable explicativa. Estos dos términos que se calculan a partir de los datos analizados también se conocen como los coeficientes o parámetros del modelo. Entonces ahora que sabemos como interpretar la ecuación podemos simplificar la terminología de la siguiente forma:<br><br> 
 
 $${Respuesta = intercepto + pendiente * Explicativa} $$
-<br>
+
+### Supuestos del modelo {#body1.2} 
+
+Los modelos son una simplificación de la realidad a escenarios específicos, por lo que cuando pretendemos aplicar cualquier modelo -como el modelo lineal que aquí se presenta- a nuestros datos, debemos comprobar si se cumplen los supuestos del modelo, ya que de lo contrario nuestro modelo, sus métricas y predicciones pueden inducir a error en el análisis. Los supuestos necesarios para el modelo son los siguientes:<br><br> 
+
+- **Idoneidad**
+   
+    Se puede utilizar el mismo modelo para todas las observaciones.
+    
+- **Linealidad**
+   
+    Existe una verdadera relación lineal entre la $Respuesta$ y cada variable explicativa cuantitativa del modelo.
+    
+- **Varianza constante**
+   
+    La varianza de la respuesta es constante.
+    
+- **Independencia**
+
+    Los valores de $Respuesta$ son independientes entre sí.<br><br>
+
 Ahora que entendemos el modelo básico de regresión lineal, vamos a calcular algunos coeficientes con nuestro conjunto de datos de hoy sobre el precio de la vivienda en Estados Unidos. Para ello, primero tenemos que echar un vistazo a la estructura de los datos. Nuestro conjunto de datos tiene 5.000 observaciones y 8 variables, con información sobre la renta media de la zona, la edad media de la zona para las viviendas, el número de habitaciones de la casa, los dormitorios, los no dormitorios, la población de la zona, el precio de la vivienda y su dirección. Una vez examinada la tabla de la muestra, calcularemos una regresión lineal simple para empezar. <br><br>
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, include=TRUE}
