@@ -18,6 +18,7 @@ resources:
 My favorite contributions. You can find the R codes [here](https://github.com/TamayoLeivaJ/TidyTuesday)
 
 {{< gallery >}}
+  {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_033.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Week 33 - Open Source Psychometrics 🎥 GOT 👑" >}}
   {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_031.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Week 31 - Oregon Spotted Frog 🐸" >}}
   {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_020.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Week 20 - Eurovision Contest 🎤️" >}}
   {{< figure-gallery link="/gallery/TidyTuesday/2022_Week_013.png" thumb="-thumb" class="w-100 h-90" hover-effect="grow" caption-effect="fade" caption="2022 Week 13 - Collegiate sports 🏟️" >}}
